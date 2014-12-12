@@ -2,6 +2,7 @@ package com.example.thepiproject;
 
 import com.example.logic.LogicMain;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
+import com.example.thepiproject.speed.SpeedActivity;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -27,6 +28,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 	
 	ImageButton musicButton;
 	Button logicButton;
+	Button speedButton;
 	
 	boolean mBound = false;
 	private BackGroundMusic music;
@@ -39,6 +41,9 @@ public class CategoryActivity extends Activity implements OnClickListener{
 		
 		logicButton = (Button) findViewById(R.id.categoryLogic);
 		logicButton.setOnClickListener(this);
+		
+		speedButton = ( Button) findViewById(R.id.categorySpeed);
+		speedButton.setOnClickListener(this);
 		
 		musicButton = (ImageButton)findViewById(R.id.soundButtonCategoryActivity);
 		musicButton.setOnClickListener(this);
@@ -129,6 +134,9 @@ public class CategoryActivity extends Activity implements OnClickListener{
 				}
 			} else if (v.getId() == R.id.categoryLogic){
 				Intent i = new Intent(getApplicationContext(),LogicMain.class);
+				startActivity(i);
+			} else if(v.getId()== R.id.categorySpeed){
+				Intent i = new Intent (getApplicationContext(),SpeedActivity.class);
 				startActivity(i);
 			}
 		}
