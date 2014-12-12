@@ -8,9 +8,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.thepiproject.MainActivity" >
 
-    <TextView
+    <ImageButton
+        android:id="@+id/soundButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Turn Sound On/Off"
+        android:src="@drawable/icon_on" />
+
+    <Button
+        android:id="@+id/randomGameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_below="@+id/soundButton"
+        android:layout_centerHorizontal="true"
+        android:text="Start Games" />
+
+    <Button
+        android:id="@+id/languageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoryButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/categoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/randomGameButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:text="Choose Category" />
 
 </RelativeLayout>
