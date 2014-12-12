@@ -36,15 +36,16 @@
         </activity>
         <activity
             android:name="com.example.logic.LogicMain"
-            android:name="com.example.thepiproject.speed.SpeedActivity"
             android:label="@string/title_activity_logic_main" >
             <intent-filter>
                 <action android:name="com.example.logic.LogicMain"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-            android:label="@string/title_activity_speed" >
-        </activity>
+        <activity
+             android:name="com.example.thepiproject.speed.SpeedActivity" 
+            >
+        </activity>>
     </application>
 
 </manifest>
