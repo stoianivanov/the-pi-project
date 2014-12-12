@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/logic_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/numericProblem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="132dp"
+        android:text="Problem"
+        android:textSize="40dp" />
+
+    <EditText
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/numericProblem"
+        android:layout_below="@+id/numericProblem"
+        android:layout_marginRight="53dp"
+        android:layout_marginTop="270dp"
+        android:ems="10"
+        android:hint="Enter Answer"
+        android:inputType="number|numberDecimal|numberSigned" />
+
+    <Button
+        android:id="@+id/answerNumericalSeries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/answer"
+        android:layout_marginLeft="73dp"
+        android:layout_toRightOf="@+id/answer"
+        android:text="GO!" />
+    
+</RelativeLayout>
