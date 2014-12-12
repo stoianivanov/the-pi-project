@@ -1,5 +1,6 @@
 package com.example.thepiproject;
 
+import com.example.logic.LogicMain;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 
 import android.app.Activity;
@@ -20,6 +21,9 @@ import android.widget.ImageButton;
 
 public class CategoryActivity extends Activity implements OnClickListener{
 
+	private static final String LOGIC_ACTIVITY = "com.example.logic.LogicMain";
+	
+	
 	
 	ImageButton musicButton;
 	Button logicButton;
@@ -124,7 +128,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 					MainActivity.musicPlaying = true;
 				}
 			} else if (v.getId() == R.id.categoryLogic){
-				Intent i = new Intent(getApplicationContext(),LogicActivity.class);
+				Intent i = new Intent(getApplicationContext(),LogicMain.class);
 				startActivity(i);
 			}
 		}

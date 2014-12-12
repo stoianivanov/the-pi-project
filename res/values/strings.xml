@@ -13,5 +13,9 @@
     <string name="speed">Speed</string>
     <string name="title_activity_logic">LogicActivity</string>
     <string name="score">Score: </string>
+    <string name="title_activity_logic_activity_2">LogicActivity_2</string>
+    <string name="title_activity_logic_activity2">LogicActivity2</string>
+    <string name="title_activity_logic2">Logic2</string>
+    <string name="title_activity_logic_main">LogicMain</string>
 
 </resources>

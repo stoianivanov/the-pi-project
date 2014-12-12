@@ -26,7 +26,7 @@ public class BackGroundMusic extends IntentService {
 //	}
 
 	public class LocalBinder extends Binder {
-		BackGroundMusic getService() {
+		public BackGroundMusic getService() {
 			return BackGroundMusic.this;
 		}
 	}

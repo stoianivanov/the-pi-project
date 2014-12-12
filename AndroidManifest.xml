@@ -34,6 +34,14 @@
             android:name=".LogicActivity"
             android:label="@string/title_activity_logic" >
         </activity>
+        <activity
+            android:name="com.example.logic.LogicMain"
+            android:label="@string/title_activity_logic_main" >
+            <intent-filter>
+                <action android:name="com.example.logic.LogicMain"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
