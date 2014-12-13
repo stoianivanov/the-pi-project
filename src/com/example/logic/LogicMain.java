@@ -2,6 +2,8 @@ package com.example.logic;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -26,12 +28,12 @@ import com.example.thepiproject.BackGroundMusic.LocalBinder;
 import com.example.thepiproject.MainActivity;
 import com.example.thepiproject.R;
 
-public class LogicMain extends Activity implements OnClickListener , NumbersFragment.OnAnswerSelectedListener {
+public class LogicMain extends Activity implements OnClickListener , OnAnswerSelectedListener {
 
 	
-	private static final long INITIAL_SERIES_NUMBERS_TIME = 10000;
+	private static final long INITIAL_SERIES_NUMBERS_TIME = 30000;
 	
-	NumbersFragment numbersFragment;
+	Fragment fragment;
 	ImageButton musicButton;
 
 	boolean mBound = false;
@@ -59,8 +61,8 @@ public class LogicMain extends Activity implements OnClickListener , NumbersFrag
 		pb.setProgressDrawable(draw);
 		timeLeft = INITIAL_SERIES_NUMBERS_TIME;
 
-		numbersFragment = new NumbersFragment();
-		getFragmentManager().beginTransaction().replace(R.id.fragment_container,numbersFragment).commit();
+		fragment = new NumbersFragment();
+		getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
 		score = 0;
 		doBindService();
 
@@ -104,7 +106,11 @@ public class LogicMain extends Activity implements OnClickListener , NumbersFrag
 				music.wrongSound();
 			}
 			pb.setProgress(0);
-			numbersFragment.nextQuestion();
+			if (fragment instanceof NumbersFragment){
+				((NumbersFragment) fragment).nextQuestion();
+			} else if (fragment instanceof FindTheMissingPartFragment){
+				((FindTheMissingPartFragment) fragment).nextQuestion();
+			}
 			cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
 			cd.start();
 		}
@@ -218,7 +224,7 @@ public class LogicMain extends Activity implements OnClickListener , NumbersFrag
 		}
 		showDialog();
 		cd.cancel();
-		score += timeLeft;
+		score += timeLeft / 3;
 		result.setText(Long.toString(score));
 		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
 		cd.start();
@@ -233,5 +239,17 @@ public class LogicMain extends Activity implements OnClickListener , NumbersFrag
 		result.setText(Long.toString(score));
 		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
 		cd.start();
+	}
+
+	@Override
+	public void nextFragment() {
+		if(fragment instanceof NumbersFragment){
+			fragment = new FindTheMissingPartFragment();
+			getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+		} else if (fragment instanceof FindTheMissingPartFragment){
+			fragment = new NumbersFragment();
+			getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+		}
+		
 	}
 }

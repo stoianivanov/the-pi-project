@@ -27,6 +27,7 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 	private static final int MAX_NUMBER_OF_QUESTIONS = 5;
 	
 	Button answerButton;
+	OnAnswerSelectedListener answerSelected;
 	int questionPosition;
 	TextView question;
 	EditText answerText;
@@ -37,13 +38,13 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 	private void getRandomQuestionPosition(){
 		Random rd = new Random();
 		questionPosition = rd.nextInt(numbers.size());
-		Log.e("Random",Integer.toString(questionPosition));
 	}
 	
 	@Override
 	public void onStart() {
 		super.onStart();
 		
+		answerSelected = (OnAnswerSelectedListener) getActivity();
 		answerButton = (Button) getView().findViewById(R.id.answerNumericalSeries);
 		answerButton.setOnClickListener(this);
 		numbers = new ArrayList<Numbers>(30);
@@ -57,12 +58,9 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 	
 	public void nextQuestion(){
 		if(numberOfAskedQuestions == MAX_NUMBER_OF_QUESTIONS){
-			Toast.makeText(getActivity(), "GameOver", Toast.LENGTH_LONG).show();
+			answerSelected.nextFragment();
 		}
 		getRandomQuestionPosition();
-		for(int i = 0;i<numbers.size();i++){
-			Log.e("Numbers:",numbers.get(i).toString());
-		}
 		current = numbers.get(questionPosition);
 		Log.e("Question",current.toString());
 		question.setText(current.getQuestion());
@@ -93,13 +91,9 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 				num.setAnswer(line);
 				Log.e("Reader",line);
 				numbers.add(counter, num);
-				System.out.printf("Added: %s ",numbers.get(counter).toString());
-				System.out.println();
 				counter++;
-				System.out.println(num.getQuestion() +" " + num.getAnswer());
 			}
 		} catch (IOException e) {
-			Log.e("Reader","Exception");
 			e.printStackTrace();
 		} finally {
 			try {
@@ -121,7 +115,7 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		
-		OnAnswerSelectedListener answerSelected = (OnAnswerSelectedListener) getActivity();
+		
 		
 		if(v.getId() == R.id.answerNumericalSeries){
 			String answer = answerText.getText().toString();
@@ -140,8 +134,4 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 		}
 	}
 	
-	public static interface OnAnswerSelectedListener{
-		void correctAnswer();
-		void wrongAnswer();
-	}
 }
