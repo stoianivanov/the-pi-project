@@ -4,7 +4,6 @@ import java.awt.font.NumericShaper;
 import java.util.Random;
 
 import com.example.thepiproject.R;
-import com.squareup.picasso.Picasso;
 
 import android.app.Fragment;
 import android.content.res.Resources;
