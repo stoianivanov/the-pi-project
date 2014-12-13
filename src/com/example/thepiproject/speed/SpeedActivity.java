@@ -16,18 +16,23 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class SpeedActivity extends FragmentActivity implements OnClickListener{
+public class SpeedActivity extends FragmentActivity implements OnClickListener, GetPoints {
 
 	
 	
@@ -41,6 +46,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener{
 	TextView result;
 	Dialog dialog;
 	
+	private FrameLayout gameLayout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,8 +64,22 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener{
 		timeLeft=10000;
 		
 		doBindService();
+		
+		
+		gameLayout= (FrameLayout) findViewById(R.id.gameSpeed);
+		StartRandomFragment(new GameSpeed10());
 	}
 	
+    private void StartRandomFragment(Fragment fr){
+   	 final FragmentManager fm =  getSupportFragmentManager();
+        if(fm!=null){
+       	 final FragmentTransaction tr= fm.beginTransaction();
+       	 tr.add(R.id.gameSpeed, fr, null);
+       	 tr.commitAllowingStateLoss();
+       	 
+        }
+        
+   }
 	
 	@Override
 	protected void onPause() {
@@ -147,10 +167,42 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener{
 	
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+		if (v.getId() == R.id.soundButtonSpeedActivity) {
+			if (MainActivity.musicPlaying) {
+				Log.e("PiProject", "ButtonOn");
+				music.onPause();
+				musicButton.setImageResource(R.drawable.icon_off);
+				MainActivity.musicPlaying = false;
+			} else {
+				music.resumeMusic();
+				musicButton.setImageResource(R.drawable.icon_on);
+				MainActivity.musicPlaying = true;
+			}
+		} 
 		
 	}
 
+	@Override
+	public void getPoint(int point) {
+	
+		if(point>=0){
+			cd.cancel();
+			if (timeLeft > 200&& point >1){
+				Log.i("SPEED Activity", "TIME >200");
+				int points = Integer.parseInt(result.getText().toString());
+				points= points+point;
+				Log.i("SPEED Activity", "TIME >200");
+				result.setText(""+points);
+				Log.i("SPEED Activity", "TIME >200");
+				showDialog();
+			} else {
+				if(MainActivity.musicPlaying){
+					music.wrongSound();
+				}
+			}
+		}
+
+	}
 	private class CountDown extends CountDownTimer {
 
 		public CountDown(long millisInFuture, long countDownInterval) {
@@ -193,4 +245,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener{
 		}.start();
 		
 	}
+
+
+
 }

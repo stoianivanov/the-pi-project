@@ -46,4 +46,12 @@
         android:layout_centerHorizontal="true"
         android:text="0" />
 
+    <FrameLayout
+        android:id="@+id/gameSpeed"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" >
+    </FrameLayout>
+
 </RelativeLayout>

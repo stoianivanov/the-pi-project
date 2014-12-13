@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:text="729" 
+        android:textSize="60dp"/>
+
+    <Button
+        android:id="@+id/Answer1"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/question"
+        android:text="13" />
+
+    <Button
+        android:id="@+id/Answer2"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/Answer1"
+        android:layout_below="@+id/Answer1"
+        android:layout_marginTop="29dp"
+        android:text="23" />
+
+    <Button
+        android:id="@+id/Answer3"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/Answer1"
+        android:layout_alignBottom="@+id/Answer1"
+        android:layout_toRightOf="@+id/question"
+        android:text="17" />
+
+    <Button
+        android:id="@+id/Answer4"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/Answer2"
+        android:layout_alignBottom="@+id/Answer2"
+        android:layout_alignLeft="@+id/Answer3"
+        android:text="27" />
+
+</RelativeLayout>

@@ -38,14 +38,34 @@
             android:name="com.example.logic.LogicMain"
             android:label="@string/title_activity_logic_main" >
             <intent-filter>
-                <action android:name="com.example.logic.LogicMain"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.example.logic.LogicMain" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".speed.SpeedActivity" >
+        </activity>
+>
         <activity
-             android:name="com.example.thepiproject.speed.SpeedActivity" 
-            >
-        </activity>>
+            android:name=".GameSpeed_1"
+            android:label="@string/title_activity_game_speed_1" >
+        </activity>
+        <activity
+            android:name=".speed.GameSpeed1"
+            android:label="@string/title_activity_game_speed1" >
+        </activity>
+        <activity
+            android:name=".speed.GameSpeed2"
+            android:label="@string/title_activity_game_speed2" >
+        </activity>
+        <activity
+            android:name=".speed.GameSpeed5"
+            android:label="@string/title_activity_game_speed5" >
+        </activity>
+        <activity
+            android:name="com.example.thepiproject.speed.GameSpeed10"
+            android:label="@string/title_activity_game_speed10" >
+        </activity>
     </application>
 
 </manifest>

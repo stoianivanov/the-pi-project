@@ -17,5 +17,10 @@
     <string name="title_activity_logic_activity2">LogicActivity2</string>
     <string name="title_activity_logic2">Logic2</string>
     <string name="title_activity_logic_main">LogicMain</string>
+    <string name="title_activity_game_speed_1">GameSpeed_1</string>
+    <string name="title_activity_game_speed1">GameSpeed1</string>
+    <string name="title_activity_game_speed2">GameSpeed2</string>
+    <string name="title_activity_game_speed5">GameSpeed5</string>
+    <string name="title_activity_game_speed10">GameSpeed10</string>
 
 </resources>
