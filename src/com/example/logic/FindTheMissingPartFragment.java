@@ -1,26 +1,19 @@
 package com.example.logic;
 
-import java.awt.font.NumericShaper;
 import java.util.Random;
 
-import com.example.thepiproject.R;
-
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
-import android.view.inputmethod.InputMethodManager;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.example.thepiproject.R;
 
 public class FindTheMissingPartFragment extends Fragment implements
 		OnClickListener {

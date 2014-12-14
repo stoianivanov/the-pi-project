@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/backgroundlogic"
     tools:context="com.example.logic.LogicMain" >
 
 
@@ -13,15 +14,20 @@
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_marginLeft="180dp"
             android:text="@string/score" />
 
         <TextView
             android:id="@+id/logicScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="30sp"
             android:layout_centerHorizontal="true"
             android:layout_toRightOf="@+id/score"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_marginLeft="20dp"
             android:text="0" />
 
         <ImageButton
@@ -33,6 +39,7 @@
             android:contentDescription="Turn Sound On/Off"
             android:padding="5dp"
             android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:src="@drawable/icon_on" />
 
         <ProgressBar

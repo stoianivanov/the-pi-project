@@ -1,11 +1,8 @@
 package com.example.logic;
 
-import java.lang.ref.SoftReference;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -14,15 +11,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -67,7 +61,7 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 
 		fragment = new NumbersFragment();
 		getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
-		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+//		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 		score = 0;
 		doBindService();
 
@@ -194,11 +188,10 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		dialog.show();
 		dialog.getWindow().clearFlags(
 				WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-		CountDownTimer timer = new CountDownTimer(1500, 100) {
+		new CountDownTimer(1500, 100) {
 
 			@Override
 			public void onTick(long millisUntilFinished) {
-				// TODO Auto-generated method stub
 
 			}
 

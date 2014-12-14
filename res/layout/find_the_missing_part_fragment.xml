@@ -4,52 +4,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    
     <ImageView
         android:id="@+id/FindimageView_missing_part"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="162dp"
-        
-         />
+        android:layout_width="fill_parent"
+        android:layout_height="420dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitCenter" />
     
     <ImageButton
-        android:id="@+id/FindimageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/FindimageView_missing_part"
-        android:layout_alignTop="@+id/FindimageButton2"
-        android:layout_marginRight="32dp"
-        android:src="@drawable/q1c" />
-
-    <ImageButton
         android:id="@+id/FindimageButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/FindimageView_missing_part"
-        android:layout_marginTop="171dp"
-        android:layout_toLeftOf="@+id/FindimageButton2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="500dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         android:src="@drawable/q1a" />
 
     <ImageButton
         android:id="@+id/FindimageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/FindimageButton1"
-        android:layout_toLeftOf="@+id/FindimageButton3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="150dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         android:src="@drawable/q1b" />
 
+     <ImageButton
+        android:id="@+id/FindimageButton3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="300dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/q1c" />
+    
     <ImageButton
         android:id="@+id/FindimageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/FindimageButton3"
-        android:layout_marginRight="101dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="440dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         android:src="@drawable/q1d" />
-
-    
 
 </RelativeLayout>
