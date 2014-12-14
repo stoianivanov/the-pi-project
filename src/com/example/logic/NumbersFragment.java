@@ -9,22 +9,27 @@ import java.util.List;
 import java.util.Random;
 
 import com.example.thepiproject.R;
+
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NumbersFragment extends Fragment implements OnClickListener{
+public class NumbersFragment extends Fragment implements OnClickListener,OnFocusChangeListener{
 
 	private static final int MAX_NUMBER_OF_QUESTIONS = 5;
+	
 	
 	Button answerButton;
 	OnAnswerSelectedListener answerSelected;
@@ -40,6 +45,7 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 		questionPosition = rd.nextInt(numbers.size());
 	}
 	
+	
 	@Override
 	public void onStart() {
 		super.onStart();
@@ -50,6 +56,9 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 		numbers = new ArrayList<Numbers>(30);
 		openFile();
 		answerText = (EditText) getView().findViewById(R.id.answer);
+		
+		answerText.setOnFocusChangeListener(this);
+		
 		numberOfAskedQuestions=0;
 		question = (TextView) getView().findViewById(R.id.numericProblem);
 		nextQuestion();
@@ -130,6 +139,20 @@ public class NumbersFragment extends Fragment implements OnClickListener{
 				nextQuestion();
 				answerText.setText("");
 				
+			}
+		}
+	}
+
+	private void hideKeyboard() {
+		InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+	}
+	
+	@Override
+	public void onFocusChange(View v, boolean hasFocus) {
+		if(v.getId() == R.id.answer){
+			if(hasFocus){
+				hideKeyboard();
 			}
 		}
 	}

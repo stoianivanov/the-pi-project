@@ -4,7 +4,10 @@ import java.awt.font.NumericShaper;
 import java.util.Random;
 
 import com.example.thepiproject.R;
+
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -13,6 +16,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
+import android.view.inputmethod.InputMethodManager;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -35,7 +40,7 @@ public class FindTheMissingPartFragment extends Fragment implements
 	int currentQuestionNumber;
 	int numberOfAskedQuestions;
 	int[] askedFindMissingPartQuestions;
-//	int[] askedSpatialQuestions;
+	// int[] askedSpatialQuestions;
 	int[] answerPositions;
 	int answersOnPlace;
 
@@ -49,7 +54,7 @@ public class FindTheMissingPartFragment extends Fragment implements
 	public void onStart() {
 		super.onStart();
 		askedFindMissingPartQuestions = new int[28];
-//		askedSpatialQuestions = new int[15];
+		// askedSpatialQuestions = new int[15];
 		answerPositions = new int[4];
 		numberOfAskedQuestions = 0;
 
@@ -67,8 +72,10 @@ public class FindTheMissingPartFragment extends Fragment implements
 		button4.setOnClickListener(this);
 
 		nextQuestion();
+
 	}
 
+	
 	public void nextQuestion() {
 		getRandomNumber();
 		getQuestionStrings();
@@ -110,6 +117,8 @@ public class FindTheMissingPartFragment extends Fragment implements
 		button4.setImageResource(button4IDToSet);
 	}
 
+	
+	
 	private int randomizeAnswerPositions() {
 
 		int ID = 0;
@@ -150,15 +159,15 @@ public class FindTheMissingPartFragment extends Fragment implements
 	}
 
 	private void getQuestionStrings() {
-		
+
 		final String pre;
-		
-		if(numberOfAskedQuestions > 5){
+
+		if (numberOfAskedQuestions > 5) {
 			pre = "s";
 		} else {
 			pre = "q";
 		}
-		
+
 		final String question = pre + currentQuestionNumber;
 		final String answer1 = pre + currentQuestionNumber + "a";
 		final String answer2 = pre + currentQuestionNumber + "b";
@@ -184,8 +193,8 @@ public class FindTheMissingPartFragment extends Fragment implements
 	}
 
 	private void getRandomNumber() {
-		
-		if(numberOfAskedQuestions == MAX_QUESTIONS_TO_ASK){
+
+		if (numberOfAskedQuestions == MAX_QUESTIONS_TO_ASK) {
 			answerSelected.nextFragment();
 		}
 		Random rd = new Random();
@@ -224,7 +233,8 @@ public class FindTheMissingPartFragment extends Fragment implements
 			answerSelected.wrongAnswer();
 		}
 		nextQuestion();
-		
+
 	}
 
+	
 }

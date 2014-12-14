@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/logic_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="300dp"
     android:orientation="vertical" >
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_alignRight="@+id/numericProblem"
         android:layout_below="@+id/numericProblem"
         android:layout_marginRight="53dp"
-        android:layout_marginTop="270dp"
+        
         android:ems="10"
         android:hint="Enter Answer"
         android:inputType="number|numberDecimal|numberSigned" />

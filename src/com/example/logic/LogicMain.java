@@ -1,5 +1,7 @@
 package com.example.logic;
 
+import java.lang.ref.SoftReference;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -19,6 +21,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -63,11 +67,13 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 
 		fragment = new NumbersFragment();
 		getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 		score = 0;
 		doBindService();
 
 	}
-
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -87,6 +93,8 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		return super.onOptionsItemSelected(item);
 	}
 
+	
+	
 	private class CountDown extends CountDownTimer {
 
 		public CountDown(long millisInFuture, long countDownInterval) {
@@ -241,13 +249,17 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		cd.start();
 	}
 
+	
+	
 	@Override
 	public void nextFragment() {
 		if(fragment instanceof NumbersFragment){
 			fragment = new FindTheMissingPartFragment();
 			getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
 		} else if (fragment instanceof FindTheMissingPartFragment){
+			
 			fragment = new NumbersFragment();
+			
 			getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
 		}
 		

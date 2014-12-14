@@ -67,7 +67,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener, 
 		
 		
 		gameLayout= (FrameLayout) findViewById(R.id.gameSpeed);
-		StartRandomFragment(new GameSpeed10());
+		StartRandomFragment(new GameSpeed5());
 	}
 	
     private void StartRandomFragment(Fragment fr){
