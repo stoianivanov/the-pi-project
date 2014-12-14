@@ -1,5 +1,6 @@
 package com.example.thepiproject.speed;
 
+import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.BackGroundMusic;
 import com.example.thepiproject.MainActivity;
 import com.example.thepiproject.R;
@@ -32,21 +33,24 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class SpeedActivity extends FragmentActivity implements OnClickListener, GetPoints {
-
+public class SpeedActivity extends FragmentActivity implements OnClickListener, 
+												OnAnswerSelectedListener {
 	
-	
-	ImageButton musicButton;
+	private static final long INITIAL_SERIES_NUMBERS_TIME = 15000;
+	private static final int MAX_FRAGMENT_GAME_10 = 5;
+	private ImageButton musicButton;
 
-	boolean mBound = false;
+	private boolean mBound = false;
 	private BackGroundMusic music;
-	ProgressBar pb;
-	long timeLeft;
-	CountDown cd;
-	TextView result;
-	Dialog dialog;
-	
+	private ProgressBar pb;
+	private long timeLeft;
+	private CountDown cd;
+	private TextView result;
+	private Dialog dialog;
+	private long score;
+	private Fragment currentFragment;
 	private FrameLayout gameLayout;
+	private int currentGame10=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,14 +71,16 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener, 
 		
 		
 		gameLayout= (FrameLayout) findViewById(R.id.gameSpeed);
-		StartRandomFragment(new GameSpeed5());
+		StartFragment(new GameSpeed1());
 	}
 	
-    private void StartRandomFragment(Fragment fr){
+    private void StartFragment(Fragment fr){
+    	
    	 final FragmentManager fm =  getSupportFragmentManager();
+   	 currentFragment= fr;
         if(fm!=null){
        	 final FragmentTransaction tr= fm.beginTransaction();
-       	 tr.add(R.id.gameSpeed, fr, null);
+       	 tr.replace(R.id.gameSpeed, fr, null);
        	 tr.commitAllowingStateLoss();
        	 
         }
@@ -182,27 +188,8 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener, 
 		
 	}
 
-	@Override
-	public void getPoint(int point) {
-	
-		if(point>=0){
-			cd.cancel();
-			if (timeLeft > 200&& point >1){
-				Log.i("SPEED Activity", "TIME >200");
-				int points = Integer.parseInt(result.getText().toString());
-				points= points+point;
-				Log.i("SPEED Activity", "TIME >200");
-				result.setText(""+points);
-				Log.i("SPEED Activity", "TIME >200");
-				showDialog();
-			} else {
-				if(MainActivity.musicPlaying){
-					music.wrongSound();
-				}
-			}
-		}
 
-	}
+	
 	private class CountDown extends CountDownTimer {
 
 		public CountDown(long millisInFuture, long countDownInterval) {
@@ -244,6 +231,49 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener, 
 			}
 		}.start();
 		
+	}
+
+	@Override
+	public void correctAnswer() {
+
+		if(MainActivity.musicPlaying){
+			music.correctSound();
+		}
+		
+		showDialog();
+		cd.cancel();
+		score += timeLeft / 3;
+		result.setText(Long.toString(score));
+		
+		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+		cd.start();
+	}
+
+	@Override
+	public void wrongAnswer() {
+		if(MainActivity.musicPlaying){
+			music.wrongSound();
+		}
+		cd.cancel();
+		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+		cd.start();
+		
+	}
+
+	@Override
+	public void nextFragment() {
+		if(currentFragment instanceof GameSpeed1){
+			Log.i("Start", "AStart game5");
+			
+			StartFragment(new GameSpeed5());
+		}else if( currentFragment instanceof GameSpeed5 ){
+			StartFragment(new GameSpeed10());
+			++currentGame10;
+		}else if((currentFragment instanceof GameSpeed10 )&& 
+					currentGame10<=MAX_FRAGMENT_GAME_10){
+			StartFragment(new GameSpeed10());
+			++currentGame10;
+		}
 	}
 
 

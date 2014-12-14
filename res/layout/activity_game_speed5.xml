@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/questionGame5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
@@ -15,14 +15,6 @@
         android:layout_marginTop="78dp"
         android:text="729" 
         android:textSize="60dp"/>
-
-    <Button
-        android:id="@+id/Answer1"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/question"
-        android:text="13" />
 
     <Button
         android:id="@+id/Answer2"
@@ -34,13 +26,13 @@
         android:text="23" />
 
     <Button
-        android:id="@+id/Answer3"
+        android:id="@+id/Answer1"
         android:layout_width="100dp"
         android:layout_height="70dp"
-        android:layout_alignBaseline="@+id/Answer1"
-        android:layout_alignBottom="@+id/Answer1"
-        android:layout_toRightOf="@+id/question"
-        android:text="17" />
+        android:layout_below="@+id/questionGame5"
+        android:layout_marginRight="36dp"
+        android:layout_toLeftOf="@+id/questionGame5"
+        android:text="13" />
 
     <Button
         android:id="@+id/Answer4"
@@ -48,7 +40,16 @@
         android:layout_height="70dp"
         android:layout_alignBaseline="@+id/Answer2"
         android:layout_alignBottom="@+id/Answer2"
-        android:layout_alignLeft="@+id/Answer3"
+        android:layout_marginLeft="32dp"
+        android:layout_toRightOf="@+id/questionGame5"
         android:text="27" />
+
+    <Button
+        android:id="@+id/Answer3"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/Answer2"
+        android:layout_alignLeft="@+id/Answer4"
+        android:text="17" />
 
 </RelativeLayout>

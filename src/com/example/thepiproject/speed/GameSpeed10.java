@@ -2,6 +2,7 @@ package com.example.thepiproject.speed;
 
 import java.util.Random;
 
+import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.R;
 import com.example.thepiproject.R.layout;
 
@@ -41,6 +42,7 @@ public class GameSpeed10 extends Fragment implements OnClickListener {
 			R.id.ImageViewSpeed12};
 	private int counter=0;
 	private int currentClick=0;
+	private OnAnswerSelectedListener listener;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class GameSpeed10 extends Fragment implements OnClickListener {
 		
 		initImages();
 		initCounter();
+		listener = (OnAnswerSelectedListener) getActivity();
 		image1= (ImageView) view.findViewById(R.id.ImageViewSpeed01);
 		image1.setOnClickListener(this);
 		changeImage(image1, 0);
@@ -120,20 +123,23 @@ public class GameSpeed10 extends Fragment implements OnClickListener {
 	}
 	@Override
 	public void onClick(View v) {
-		GetPoints point = (GetPoints) getActivity();
+
 		
 		for (int i = 0; i < imageID.length; i++) {
 			if(v.getId()== imageID[i] ){
 				if(images[i]==1){
 					++currentClick;
 					Log.i("CurrentClick", ""+currentClick);
+					v.setVisibility(View.INVISIBLE);
 					if(currentClick==counter){
 						Log.i("Enter in if", "get 100 point");
-						point.getPoint(100);
+						listener.correctAnswer();
+						listener.nextFragment();
 					}
 					
 				}else{
-					point.getPoint(0);
+					listener.wrongAnswer();
+					listener.nextFragment();
 				}
 			}
 		}
