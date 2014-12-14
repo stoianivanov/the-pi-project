@@ -180,11 +180,16 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		doUnbindService();
 	}
 
-	private void showDialog() {
+	private void showDialog(boolean correct) {
 		dialog = new Dialog(this);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		dialog.getWindow().setBackgroundDrawableResource(
-				R.drawable.congratulations);
+		if(correct){
+			dialog.getWindow().setBackgroundDrawableResource(
+					R.drawable.right);
+		} else {
+			dialog.getWindow().setBackgroundDrawableResource(
+					R.drawable.wrong);
+		}
 		dialog.show();
 		dialog.getWindow().clearFlags(
 				WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -192,7 +197,6 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 
 			@Override
 			public void onTick(long millisUntilFinished) {
-
 			}
 
 			@Override
@@ -200,7 +204,8 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 				dialog.cancel();
 			}
 		}.start();
-
+		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+		cd.start();
 	}
 
 	@Override
@@ -223,12 +228,11 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		if(MainActivity.musicPlaying){
 			music.correctSound();
 		}
-		showDialog();
 		cd.cancel();
 		score += timeLeft / 3;
 		result.setText(Long.toString(score));
-		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-		cd.start();
+		showDialog(true);
+		
 	}
 
 	@Override
@@ -238,8 +242,7 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		}
 		cd.cancel();
 		result.setText(Long.toString(score));
-		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-		cd.start();
+		showDialog(false);
 	}
 
 	
