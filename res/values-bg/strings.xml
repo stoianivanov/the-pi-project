@@ -12,5 +12,9 @@
     <string name="logic">Логика</string>
     <string name="memory">Памет</string>
     <string name="score">Резултат: </string>
+    <string name="speed_next_button">Отговори и продължи напред -></string>
+    <string name="speed_game_1"> Сметни израза !</string>
+    	<string name="speed_game_5"> Корена на числото:</string>
+	<string name="speed_game_10"> Махни тика</string>
 
 </resources>

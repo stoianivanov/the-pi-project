@@ -3,34 +3,189 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    
+    android:background="@drawable/backgroundgreen"
     tools:context="${relativePackage}.${activityClass}" >
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/speed_game_1"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:textSize="40dp" />
 
     <TextView
         android:id="@+id/questionGame1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2 * 2 = ???" 
-        android:textSize="50dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:text="2+2=???"
+        android:textSize="50dp" />
 
     <EditText
         android:id="@+id/answerGame1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" 
-        android:inputType="number">
+        android:ems="10"
+        android:inputType="number" >
 
         <requestFocus />
     </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0.30" >
+
         <Button
-        android:id="@+id/nextGame1"
+            android:id="@+id/speedButtonAdd7"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="110dp"
+            android:background="#99FFFFFF"
+            android:text="7"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd8"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="8"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd9"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="9"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0.37" >
+
+        <Button
+            android:id="@+id/speedButtonAdd4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="110dp"
+            android:background="#99FFFFFF"
+            android:text="4"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="5"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="6"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+         
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0.54" >
+
+        <Button
+            android:id="@+id/speedButtonAdd1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="110dp"
+            android:background="#99FFFFFF"
+            android:text="1"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="2"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="3"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+ 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0.68" >
+
+        <Button
+            android:id="@+id/speedButtonClear"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="120dp"
+            android:background="#99FFFFFF"
+            android:text="C"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd0"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="0"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/speedButtonAdd_"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:background="#99FFFFFF"
+            android:text="."
+            android:textSize="35sp"
+            android:textStyle="bold" />
+ 
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/speedButtonOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@android:color/holo_red_light"
-        android:text="Next ->" />
+        android:src="@drawable/okbutton"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center" />
 
 </LinearLayout>

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundgreen"
     tools:context="${relativePackage}.${activityClass}" >
 
     <ImageButton
@@ -34,7 +35,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="114dp"
         android:layout_marginTop="15dp"
-        android:layout_toLeftOf="@+id/soundButtonLogicActivity"
+        android:layout_toLeftOf="@+id/soundButtonSpeedActivity"
+        android:textColor="@android:color/white"
         android:text="@string/score" />
 
     <TextView
@@ -44,14 +46,17 @@
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_centerHorizontal="true"
+		android:textColor="@android:color/holo_blue_bright"
         android:text="0" />
 
     <FrameLayout
         android:id="@+id/gameSpeed"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true" >
+        android:layout_centerVertical="true" 
+        android:layout_above="@id/progressBarSpeed"
+        android:layout_below="@+id/soundButtonSpeedActivity">
     </FrameLayout>
 
 </RelativeLayout>

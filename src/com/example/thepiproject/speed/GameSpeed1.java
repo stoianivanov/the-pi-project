@@ -18,18 +18,31 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class GameSpeed1 extends Fragment {
+public class GameSpeed1 extends Fragment implements OnClickListener {
 
 	private final static int  MAX_QUESTION=5;
 	private TextView  question;
 	private EditText answer;
-	private Button next;
+	private ImageButton next;
 	private ArrayList<QuestionGame1> questions;
 	private String answerFile;
 	private OnAnswerSelectedListener listener;
 	private int currentQuestion=0;
+	private Button add1;
+	private Button add2;
+	private Button add3;
+	private Button add4;
+	private Button add5;
+	private Button add6;
+	private Button add7;
+	private Button add8;
+	private Button add9;
+	private Button add0;
+	private Button clear;
+	private Button adddot;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,22 +57,41 @@ public class GameSpeed1 extends Fragment {
 		
 		listener= (OnAnswerSelectedListener) getActivity();
 		
-		next= (Button) view.findViewById(R.id.nextGame1);
-		next.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				if(answer.getText().toString().equals(answerFile)){
-					listener.correctAnswer();
-					answer.setText("");
-					nextQuestion();
-				}else{
-					listener.wrongAnswer();
-					answer.setText("");
-					nextQuestion();
-				}
-			}
-		});
+		next= (ImageButton) view.findViewById(R.id.speedButtonOK);
+		next.setOnClickListener(this);
+		
+		add1= (Button) view.findViewById(R.id.speedButtonAdd1);
+		add1.setOnClickListener(this);
+		
+		add2= (Button) view.findViewById(R.id.speedButtonAdd2);
+		add2.setOnClickListener(this);
+		
+		add3= (Button) view.findViewById(R.id.speedButtonAdd3);
+		add3.setOnClickListener(this);
+		
+		add4= (Button) view.findViewById(R.id.speedButtonAdd4);
+		add4.setOnClickListener(this);
+		
+		add5= (Button) view.findViewById(R.id.speedButtonAdd5);
+		add5.setOnClickListener(this);
+		
+		add6= (Button) view.findViewById(R.id.speedButtonAdd6);
+		add6.setOnClickListener(this);
+		
+		add7= (Button) view.findViewById(R.id.speedButtonAdd7);
+		add7.setOnClickListener(this);
+		
+		add8= (Button) view.findViewById(R.id.speedButtonAdd8);
+		add8.setOnClickListener(this);
+		
+		add9= (Button) view.findViewById(R.id.speedButtonAdd9);
+		add9.setOnClickListener(this);
+		
+		adddot= (Button) view.findViewById(R.id.speedButtonAdd_);
+		adddot.setOnClickListener(this);
+		
+		clear= (Button) view.findViewById(R.id.speedButtonClear);
+		clear.setOnClickListener(this);
 		return view;
 	}
 	private void createQuestion(){
@@ -113,5 +145,71 @@ public class GameSpeed1 extends Fragment {
 				e.printStackTrace();
 			}
 		}
+	}
+	@Override
+	public void onClick(View v) {
+		int id= v.getId();
+		if(id==R.id.speedButtonOK){
+			if(answer.getText().toString().equals(answerFile)){
+				listener.correctAnswer();
+				answer.setText("");
+				nextQuestion();
+			}else{
+				listener.wrongAnswer();
+				answer.setText("");
+				nextQuestion();
+			}	
+			
+		}
+
+
+		if(id==R.id.speedButtonAdd0){
+			if(!answer.getText().toString().equals("")){
+				answer.setText(answer.getText().toString()+"0");
+			}
+			
+		}
+		if(id==R.id.speedButtonAdd1){
+			answer.setText(answer.getText().toString()+"1");
+		}
+		
+		if(id==R.id.speedButtonAdd2){
+			answer.setText(answer.getText().toString()+"2");
+		}
+		if(id==R.id.speedButtonAdd3){
+			answer.setText(answer.getText().toString()+"3");
+		}
+		if(id==R.id.speedButtonAdd4){
+			answer.setText(answer.getText().toString()+"4");
+		}
+		if(id==R.id.speedButtonAdd5){
+			answer.setText(answer.getText().toString()+"5");
+		}
+		if(id==R.id.speedButtonAdd6){
+			answer.setText(answer.getText().toString()+"6");
+		}
+		if(id==R.id.speedButtonAdd7){
+			answer.setText(answer.getText().toString()+"7");
+		}
+		if(id==R.id.speedButtonAdd8){
+			answer.setText(answer.getText().toString()+"8");
+		}
+		if(id==R.id.speedButtonAdd9){
+			answer.setText(answer.getText().toString()+"9");
+		}
+		if(id==R.id.speedButtonClear){
+			answer.setText("");
+		}
+		if(id==R.id.speedButtonAdd_){
+			answer.setText(".");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }

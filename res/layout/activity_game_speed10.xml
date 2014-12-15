@@ -2,103 +2,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    tools:context="${relativePackage}.${activityClass}" 
+    android:background="@drawable/backgroundgreen">
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed04"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/ImageViewSpeed12"
-        android:layout_centerVertical="true"
-        android:src="@android:drawable/presence_busy" />
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" >
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed07"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/ImageViewSpeed01"
-        android:layout_toLeftOf="@+id/ImageViewSpeed04"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed07"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed05"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/ImageViewSpeed09"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed09"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed06"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/ImageViewSpeed10"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed02"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed12"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/ImageViewSpeed04"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="44dp"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed08"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed01"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignTop="@+id/ImageViewSpeed06"
-        android:layout_toLeftOf="@+id/ImageViewSpeed11"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed05"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed03"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/ImageViewSpeed07"
-        android:layout_toLeftOf="@+id/ImageViewSpeed04"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed10"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed09"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/ImageViewSpeed05"
-        android:layout_alignLeft="@+id/ImageViewSpeed06"
-        android:src="@android:drawable/presence_busy" />
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1" >
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed08"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/ImageViewSpeed05"
-        android:layout_toLeftOf="@+id/ImageViewSpeed06"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed04"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed11"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/ImageViewSpeed07"
-        android:layout_toLeftOf="@+id/ImageViewSpeed07"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed03"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed10"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignTop="@+id/ImageViewSpeed09"
-        android:layout_toLeftOf="@+id/ImageViewSpeed11"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed11"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
 
-    <ImageView
-        android:id="@+id/ImageViewSpeed02"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/ImageViewSpeed03"
-        android:layout_toLeftOf="@+id/ImageViewSpeed07"
-        android:src="@android:drawable/presence_busy" />
+        <ImageView
+            android:id="@+id/ImageViewSpeed12"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
+
+        <ImageView
+            android:id="@+id/ImageViewSpeed06"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
+
+        <ImageView
+            android:id="@+id/ImageViewSpeed01"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/presence_busy" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="92dp"
+        android:text="@string/speed_game_10"
+        android:textSize="100dp"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

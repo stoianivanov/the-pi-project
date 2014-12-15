@@ -24,5 +24,9 @@
     <string name="title_activity_game_speed10">GameSpeed10</string>
     <string name="title_activity_numbers_example">NumbersExample</string>
     <string name="title_activity_logic_final">LogicFinalActivity</string>
+	<string name="speed_next_button">Aswer and go to next -></string>
 
+	<string name="speed_game_1"> Calculate task !</string>
+	<string name="speed_game_5"> Sqrt number:</string>
+	<string name="speed_game_10"> Remove ticks</string>
 </resources>
