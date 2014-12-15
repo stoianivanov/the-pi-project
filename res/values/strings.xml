@@ -22,6 +22,7 @@
     <string name="title_activity_game_speed2">GameSpeed2</string>
     <string name="title_activity_game_speed5">GameSpeed5</string>
     <string name="title_activity_game_speed10">GameSpeed10</string>
-    <string name="title_activity_player">Player</string>
+    <string name="title_activity_numbers_example">NumbersExample</string>
+    <string name="title_activity_logic_final">LogicFinalActivity</string>
 
 </resources>

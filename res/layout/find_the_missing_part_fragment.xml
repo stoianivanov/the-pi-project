@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/FindimageView_missing_part"
         android:layout_width="fill_parent"
-        android:layout_height="420dp"
+        android:layout_height="445dp"
         android:layout_marginTop="30dp"
         android:scaleType="fitCenter" />
     
@@ -16,7 +16,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="525dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/q1a" />
@@ -25,7 +25,7 @@
         android:id="@+id/FindimageButton2"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="525dp"
         android:layout_marginLeft="150dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
@@ -35,7 +35,7 @@
         android:id="@+id/FindimageButton3"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="525dp"
         android:layout_marginLeft="300dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
@@ -45,7 +45,7 @@
         android:id="@+id/FindimageButton4"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="525dp"
         android:layout_marginLeft="440dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"

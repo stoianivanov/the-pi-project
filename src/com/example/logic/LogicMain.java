@@ -30,10 +30,13 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 
 	
 	private static final long INITIAL_SERIES_NUMBERS_TIME = 30000;
+	private static final int REQUEST_OK = 1;
 	
 	Fragment fragment;
 	ImageButton musicButton;
 
+	boolean firstStart = false;
+	
 	boolean mBound = false;
 	BackGroundMusic music;
 	ProgressBar pb;
@@ -61,12 +64,23 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 
 		fragment = new NumbersFragment();
 		getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
-//		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+		
+		Intent i = new Intent(getApplicationContext(),com.example.logic.NumbersExample.class);
+		i.putExtra("example", 1);
+		startActivity(i);
 		score = 0;
-		doBindService();
-
 	}
 	
+//	@Override
+//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//		if(requestCode == REQUEST_OK){
+//			if(resultCode == RESULT_OK){
+//				cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+//				cd.start();
+//				firstStart = false;
+//			}
+//		}
+//	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,8 +127,7 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 			} else if (fragment instanceof FindTheMissingPartFragment){
 				((FindTheMissingPartFragment) fragment).nextQuestion();
 			}
-			cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-			cd.start();
+			showDialog(false);
 		}
 
 	}
@@ -138,19 +151,29 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 	@Override
 	protected void onPause() {
 		super.onPause();
-		cd.cancel();
+		if(!firstStart){
+			cd.cancel();
+		}
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
 		setMusicButton();
 		result.setText(Long.toString(score));
 		if (timeLeft < 100) {
 			timeLeft = INITIAL_SERIES_NUMBERS_TIME;
 		}
-		cd = new CountDown(timeLeft, 50);
-		cd.start();
+		if(MainActivity.musicPlaying){
+			MainActivity.musicIntent = new Intent(this, BackGroundMusic.class);
+			startService(MainActivity.musicIntent);
+		}
+		
+		if(!firstStart){
+			cd = new CountDown(timeLeft, 50);
+			cd.start();
+		}
 	}
 
 	private void setMusicButton() {
@@ -180,6 +203,12 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		doUnbindService();
 	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+		doBindService();
+	}
+	
 	private void showDialog(boolean correct) {
 		dialog = new Dialog(this);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -193,7 +222,7 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		dialog.show();
 		dialog.getWindow().clearFlags(
 				WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-		new CountDownTimer(1500, 100) {
+		new CountDownTimer(1000, 100) {
 
 			@Override
 			public void onTick(long millisUntilFinished) {
@@ -253,10 +282,10 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 			fragment = new FindTheMissingPartFragment();
 			getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
 		} else if (fragment instanceof FindTheMissingPartFragment){
-			
-			fragment = new NumbersFragment();
-			
-			getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
+			Intent i = new Intent(getApplicationContext(),LogicFinalActivity.class);
+			i.putExtra("score", score);
+			finish();
+			startActivity(i);
 		}
 		
 	}

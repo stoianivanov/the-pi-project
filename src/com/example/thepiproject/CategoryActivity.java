@@ -25,6 +25,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 	private static final String LOGIC_ACTIVITY = "com.example.logic.LogicMain";
 	
 	
+	boolean activityStopped;
 	
 	ImageButton musicButton;
 	Button logicButton;
@@ -48,8 +49,12 @@ public class CategoryActivity extends Activity implements OnClickListener{
 		musicButton = (ImageButton)findViewById(R.id.soundButtonCategoryActivity);
 		musicButton.setOnClickListener(this);
 		
-		
-		
+	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		doBindService();
 	}
 	
 	@Override
@@ -57,6 +62,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 		super.onStop();
 		doUnbindService();
 	}
+	
 	private void setMusicButton(){
 		if(MainActivity.musicPlaying){
 			musicButton.setImageResource(R.drawable.icon_on);
@@ -68,8 +74,11 @@ public class CategoryActivity extends Activity implements OnClickListener{
 	@Override
 	protected void onResume() {
 		super.onResume();
-		doBindService();
 		setMusicButton();
+		if (MainActivity.musicPlaying) {
+			MainActivity.musicIntent = new Intent(this, BackGroundMusic.class);
+			startService(MainActivity.musicIntent);
+		}
 	}
 	
 	@Override
@@ -98,10 +107,10 @@ public class CategoryActivity extends Activity implements OnClickListener{
 			@Override
 			public void onServiceDisconnected(ComponentName name) {
 				music = null;
-			}
+				}
 
-			@Override
-			public void onServiceConnected(ComponentName name, IBinder service) {
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
 				LocalBinder binder = (LocalBinder) service;
 				music = binder.getService();
 			}
@@ -109,7 +118,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 		
 		  void doBindService(){
 		    	bindService(new Intent(this,BackGroundMusic.class), sCon, Context.BIND_AUTO_CREATE);
-		    	mBound = true;
+	    	mBound = true;
 		    }
 		    
 		  void doUnbindService(){
@@ -117,18 +126,18 @@ public class CategoryActivity extends Activity implements OnClickListener{
 		    		unbindService(sCon);
 		    		mBound = false;
 		    	}
-		    }
+	    }
 
 		@Override
 		public void onClick(View v) {
 			if(v.getId() == R.id.soundButtonCategoryActivity){
 				if(MainActivity.musicPlaying){
 					Log.e("PiProject", "ButtonOn");
-					music.onPause();
+					MainActivity.music.onPause();
 					musicButton.setImageResource(R.drawable.icon_off);
 					MainActivity.musicPlaying = false;
 				} else {
-					music.resumeMusic();
+					MainActivity.music.resumeMusic();
 					musicButton.setImageResource(R.drawable.icon_on);
 					MainActivity.musicPlaying = true;
 				}

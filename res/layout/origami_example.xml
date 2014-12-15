@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="500dp"
+    android:layout_height="650dp"
+    android:background="#062b76" >
+    
+
+    <TextView
+        android:id="@+id/exampleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Fold the paper Example"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    
+     <TextView
+        android:id="@+id/exampleGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="115dp"
+        android:gravity="center"
+        android:text="Goal of the Game is to choose the image that best suits the image above folded where the lines are"
+        android:textColor="@android:color/white"
+        android:textSize="27sp" />
+     
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:gravity="center"
+        android:text="Example:"
+        android:textColor="@android:color/white"
+        android:textSize="27sp" />
+     
+      <ImageButton
+        android:id="@+id/buttonExampleResult"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="550dp"
+        android:background="@android:color/transparent"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/next" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="555dp"
+        android:layout_marginLeft="100dp"
+        android:gravity="center"
+        android:text="Answer:"
+        android:textColor="@android:color/white"
+        android:textSize="27sp" />
+
+    <ImageView 
+        android:layout_height="250dp"
+        android:layout_width="350dp"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/s2" 
+        android:background="@android:color/transparent"/>
+    
+    <ImageView 
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_marginTop="525dp"
+        android:layout_marginLeft="220dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/s2a" 
+        android:background="@android:color/transparent"/>
+    
+</RelativeLayout>

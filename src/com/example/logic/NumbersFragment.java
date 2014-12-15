@@ -109,15 +109,24 @@ public class NumbersFragment extends Fragment implements OnClickListener {
 	}
 
 	public void nextQuestion() {
+		
 		if (numberOfAskedQuestions == MAX_NUMBER_OF_QUESTIONS) {
 			answerSelected.nextFragment();
+			return;
 		}
+		
 		enteredAnswer = "";
 		getRandomQuestionPosition();
 		current = numbers.get(questionPosition);
 		Log.e("Question", current.toString());
 		question.setText(current.getQuestion());
 		numberOfAskedQuestions++;
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		question.setText(current.getQuestion());
 	}
 
 	@Override

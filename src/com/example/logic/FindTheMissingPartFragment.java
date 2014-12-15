@@ -3,6 +3,7 @@ package com.example.logic;
 import java.util.Random;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -27,7 +29,9 @@ public class FindTheMissingPartFragment extends Fragment implements
 	int answer2ID;
 	int asnwer3ID;
 	int answer4ID;
-
+	
+	String prefix = "q";
+	
 	int correctAnswerID;
 
 	int currentQuestionNumber;
@@ -153,19 +157,24 @@ public class FindTheMissingPartFragment extends Fragment implements
 
 	private void getQuestionStrings() {
 
-		final String pre;
-
-		if (numberOfAskedQuestions > 5) {
-			pre = "s";
-		} else {
-			pre = "q";
+		
+		if(numberOfAskedQuestions == 1){
+			Intent i = new Intent(getActivity().getApplicationContext(),com.example.logic.NumbersExample.class);
+			i.putExtra("example", 2);
+			startActivity(i);
 		}
 
-		final String question = pre + currentQuestionNumber;
-		final String answer1 = pre + currentQuestionNumber + "a";
-		final String answer2 = pre + currentQuestionNumber + "b";
-		final String answer3 = pre + currentQuestionNumber + "c";
-		final String answer4 = pre + currentQuestionNumber + "d";
+		if (numberOfAskedQuestions == 6) {
+			prefix = "s";
+			Intent i = new Intent(getActivity().getApplicationContext(),com.example.logic.NumbersExample.class);
+			i.putExtra("example", 3);
+			startActivity(i);
+		}
+		final String question = prefix + currentQuestionNumber;
+		final String answer1 = prefix + currentQuestionNumber + "a";
+		final String answer2 = prefix + currentQuestionNumber + "b";
+		final String answer3 = prefix + currentQuestionNumber + "c";
+		final String answer4 = prefix + currentQuestionNumber + "d";
 
 		Resources res = getActivity().getResources();
 		String PACKAGE_NAME = getActivity().getApplicationContext()

@@ -18,10 +18,6 @@
             android:enabled="true" />
 
         <activity
-            android:name=".PlayerActivity"
-           >
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -41,8 +37,8 @@
         <activity
             android:name="com.example.logic.LogicMain"
             android:label="@string/title_activity_logic_main"
-            android:windowSoftInputMode="stateAlwaysHidden"
-             >
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
             <intent-filter>
                 <action android:name="com.example.logic.LogicMain" />
 
@@ -51,7 +47,6 @@
         </activity>
         <activity android:name=".speed.SpeedActivity" >
         </activity>
->
         <activity
             android:name=".GameSpeed_1"
             android:label="@string/title_activity_game_speed_1" >
@@ -73,8 +68,12 @@
             android:label="@string/title_activity_game_speed10" >
         </activity>
         <activity
-            android:name=".Player"
-            android:label="@string/title_activity_player" >
+            android:name="com.example.logic.NumbersExample"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.logic.LogicFinalActivity"
+            android:label="@string/title_activity_logic_final" >
         </activity>
     </application>
 
