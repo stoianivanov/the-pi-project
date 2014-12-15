@@ -29,40 +29,44 @@ public class MainActivity extends Activity implements OnClickListener{
 	Button changeLanguage;
 	ImageButton musicButton;
 	Button category;
+	Button player;
 	String language;
 	SharedPreferences pref;
-	
-	
+
+
 	boolean mBound = false;
 	private BackGroundMusic music;
 	public static boolean musicPlaying;
-	
-	
-	
+
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		Log.e("PiProject", "OnCreate");
-		
+
 		pref = getPreferences(MODE_PRIVATE);
 		doBindService();
-		
+
 		musicPlaying = pref.getBoolean("music", true);
 		language = pref.getString("language", "en");
-		
+
 		newGame = (Button) findViewById(R.id.randomGameButton);
 		newGame.setOnClickListener(this);
-		
+
 		changeLanguage = (Button) findViewById(R.id.languageButton);
 		changeLanguage.setOnClickListener(this);
-		
+
 		musicButton = (ImageButton) findViewById(R.id.soundButton);
 		musicButton.setOnClickListener(this);
-		
+
 		category = (Button) findViewById(R.id.categoryButton);
 		category.setOnClickListener(this);
+
+		player = (Button) findViewById(R.id.playerButton);
+		player.setOnClickListener(this);
 	}
 
 	@Override
@@ -76,41 +80,41 @@ public class MainActivity extends Activity implements OnClickListener{
 	protected void onStart() {
 		super.onStart();
 		Log.e("PiProject", "OnStart");
-		
+
 		if(musicPlaying){
-        	Intent music = new Intent(this,BackGroundMusic.class);
-        	startService(music);
-        }
+			Intent music = new Intent(this,BackGroundMusic.class);
+			startService(music);
+		}
 		setLocale(language);
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
 		if(musicPlaying){
 			musicButton.setImageResource(R.drawable.icon_on);
-    	} else {
-    		musicButton.setImageResource(R.drawable.icon_off);
-    	}
+		} else {
+			musicButton.setImageResource(R.drawable.icon_off);
+		}
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
-//		cd.cancel();
+		//		cd.cancel();
 		SharedPreferences.Editor editor = pref.edit();
 		editor.putBoolean("music", musicPlaying);
 		editor.putString("language", language);
 		editor.commit();
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		music.onDestroy();
 		doUnbindService();
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -122,7 +126,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void setLocale(String lang) {
 		language = lang;
 		Locale myLocale = new Locale(lang);
@@ -132,13 +136,13 @@ public class MainActivity extends Activity implements OnClickListener{
 		conf.locale = myLocale;
 		Locale.setDefault(myLocale);
 		res.updateConfiguration(conf, dm);
-		
+
 		newGame.setText(R.string.start_game);
 		category.setText(R.string.choose_category);
 		changeLanguage.setText(R.string.language);
-		
+
 	}
-	
+
 	//Bounding Music Service with the Activity
 
 	private ServiceConnection sCon = new ServiceConnection() {
@@ -154,26 +158,36 @@ public class MainActivity extends Activity implements OnClickListener{
 			music = binder.getService();
 		}
 	};
-	
-	  void doBindService(){
-	    	bindService(new Intent(this,BackGroundMusic.class), sCon, Context.BIND_AUTO_CREATE);
-	    	mBound = true;
-	    }
-	    
-	  void doUnbindService(){
-	    	if(mBound){
-	    		unbindService(sCon);
-	    		mBound = false;
-	    	}
-	    }
-	
 
-	
-	  
-	  @Override
+	void doBindService(){
+		bindService(new Intent(this,BackGroundMusic.class), sCon, Context.BIND_AUTO_CREATE);
+		mBound = true;
+	}
+
+	void doUnbindService(){
+		if(mBound){
+			unbindService(sCon);
+			mBound = false;
+		}
+	}
+
+
+
+
+	@Override
 	public void onClick(View v) {
-		
-		if(v.getId() == R.id.soundButton){
+
+		int r = v.getId();
+
+		if (r == R.id.playerButton){
+			Intent i = new Intent(getApplicationContext(),PlayerActivity.class);
+			startActivity(i);
+			Log.i("OnClick", "Start Activity");
+
+		}	
+
+
+		if(r == R.id.soundButton){
 			if(musicPlaying){
 				Log.e("PiProject", "ButtonOn");
 				music.onPause();
@@ -183,16 +197,18 @@ public class MainActivity extends Activity implements OnClickListener{
 				music.resumeMusic();
 				musicButton.setImageResource(R.drawable.icon_on);
 				musicPlaying = true;
-			}
-		} else if (v.getId() == R.id.categoryButton){
+			}			
+		} else if (r == R.id.categoryButton){
 			Intent i = new Intent(getApplicationContext(),CategoryActivity.class);
 			startActivity(i);
-		} else if (v.getId() == R.id.languageButton){
+		} else if (r == R.id.languageButton){
 			if (Locale.getDefault().getLanguage().equals("en")) {
 				setLocale("bg");
-		} else if (Locale.getDefault().getLanguage().equals("bg")) {
+			} else if (Locale.getDefault().getLanguage().equals("bg")) {
 				setLocale("en");
+			} 
 		}
-		}
+
+
 	}
 }

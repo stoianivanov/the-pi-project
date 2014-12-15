@@ -45,4 +45,12 @@
         android:layout_marginTop="46dp"
         android:text="Choose Category" />
 
+    <Button
+        android:id="@+id/playerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/languageButton"
+        android:layout_alignParentBottom="true"
+        android:text="Chose player" />
+
 </RelativeLayout>
