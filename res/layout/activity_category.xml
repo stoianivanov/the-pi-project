@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bkackground_category"
     tools:context="com.example.thepiproject.CategoryActivity" >
 
     <ImageButton
@@ -17,6 +18,7 @@
         android:padding="5dp"
         android:scaleType="fitCenter"
         android:contentDescription="Turn Sound On/Off"
+        android:background="@android:color/transparent"
         android:src="@drawable/icon_on" />
 
     <Button
