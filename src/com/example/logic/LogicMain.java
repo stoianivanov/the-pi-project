@@ -284,8 +284,6 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 			fragment = new FindTheMissingPartFragment();
 			getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
 		} else if (fragment instanceof FindTheMissingPartFragment){
-			Intent i = new Intent(getApplicationContext(),LogicFinalActivity.class);
-			i.putExtra("score", score);
 			if(caller == 1){
 				Intent callBack = new Intent();
 				callBack.putExtra("score", score);
@@ -293,6 +291,8 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 				finish();
 				return;
 			} else {
+				Intent i = new Intent(getApplicationContext(),LogicFinalActivity.class);
+				i.putExtra("score", score);
 				finish();
 				startActivity(i);
 			}
