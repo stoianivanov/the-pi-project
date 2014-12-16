@@ -10,6 +10,7 @@ import com.example.thepiproject.R.layout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,7 +25,7 @@ public class MemoryGame2 extends Fragment implements OnClickListener{
 	private ImageButton button2;
 	private ImageButton button3;
 	private ImageButton button4;
-	private ImageButton goButton;
+	private ImageView goButton;
 	private int  closeimage;
 	private ImageView image1;
 	private ImageView image2;
@@ -63,7 +64,7 @@ public class MemoryGame2 extends Fragment implements OnClickListener{
 		button4= (ImageButton) view.findViewById(R.id.memoryGame2Button4);
 		button4.setOnClickListener(this);
 		
-		goButton= (ImageButton) view.findViewById(R.id.imageButtonGoGame2);
+		goButton= (ImageView) view.findViewById(R.id.imageButtonGoGame2);
 		goButton.setOnClickListener(this);
 		return view;
 	}
@@ -138,40 +139,43 @@ public class MemoryGame2 extends Fragment implements OnClickListener{
 	public void onClick(View v) {
 		int id=v.getId();
 		int index=-1;
+		image3.setVisibility(View.INVISIBLE);
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i]==0){
+				Log.i("Onclick", ""+i);
+				index=i;
+			}
+		}
 		if(id==goButton.getId()){
 			buttonGoClick=true;
 			initButton();
 		}
 		if(buttonGoClick==true){
 			
-			for (int i = 0; i < arr.length; i++) {
-				if(arr[i]==0){
-					index=i;
-				}
-			}
+
 			if(id==button1.getId()){
-				if(index==0){
+				if(arr[0]==0){
 					listener.correctAnswer();
 				}else{
 					listener.wrongAnswer();
 				}
 			}
 			if(id==button2.getId()){
-				if(index==0){
+				if(arr[1]==0){
 					listener.correctAnswer();
 				}else{
 					listener.wrongAnswer();
 				}
 			}
 			if(id==button3.getId()){
-				if(index==0){
+				if(arr[2]==0){
 					listener.correctAnswer();
 				}else{
 					listener.wrongAnswer();
 				}
 			}
 			if(id==button4.getId()){
-				if(index==0){
+				if(arr[3]==0){
 					listener.correctAnswer();
 				}else{
 					listener.wrongAnswer();
