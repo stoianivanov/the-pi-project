@@ -13,6 +13,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:contentDescription="Turn Sound On/Off"
+        android:background="@android:color/transparent"
         android:padding="5dp"
         android:scaleType="fitCenter"
         android:src="@drawable/icon_on" />

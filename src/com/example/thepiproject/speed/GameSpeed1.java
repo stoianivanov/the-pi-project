@@ -50,6 +50,7 @@ public class GameSpeed1 extends Fragment implements OnClickListener {
 		View view = inflater.inflate(R.layout.activity_game_speed1, null);
 		questions= new ArrayList<QuestionGame1>();
 		answer= (EditText) view.findViewById(R.id.answerGame1);
+		answer.setFocusable(false);
 		question= (TextView) view.findViewById(R.id.questionGame1);
 
 		readFile();
@@ -92,6 +93,7 @@ public class GameSpeed1 extends Fragment implements OnClickListener {
 		
 		clear= (Button) view.findViewById(R.id.speedButtonClear);
 		clear.setOnClickListener(this);
+		
 		return view;
 	}
 	private void createQuestion(){

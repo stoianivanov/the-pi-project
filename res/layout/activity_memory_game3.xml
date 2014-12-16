@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroudn_memory_game_3"
+    tools:context="${relativePackage}.${activityClass}" >
+
+
+
+    <ImageView
+        android:id="@+id/key1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="39dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginRight="164dp"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="87dp"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="42dp"
+        android:layout_toLeftOf="@+id/ImageView01"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/ImageView02"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key6"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/ImageView04"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key7"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignRight="@+id/ImageView02"
+        android:layout_alignTop="@+id/ImageView04"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key8"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_marginBottom="128dp"
+        android:layout_marginRight="32dp"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key9"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/ImageView07"
+        android:layout_alignLeft="@+id/ImageView06"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key10"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/ImageView08"
+        android:layout_marginTop="27dp"
+        android:layout_toLeftOf="@+id/ImageView09"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key11"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/ImageView07"
+        android:layout_alignTop="@+id/ImageView03"
+        android:src="@drawable/key_memory" />
+
+    <ImageView
+        android:id="@+id/key12"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/ImageView01"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="31dp"
+        android:src="@drawable/key_memory" />
+
+</RelativeLayout>

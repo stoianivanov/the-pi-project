@@ -12,18 +12,17 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        >
-        
+        android:theme="@style/AppTheme" >
         <service
             android:name=".BackGroundMusic"
             android:enabled="true" />
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,95 +31,113 @@
         </activity>
         <activity
             android:name=".CategoryActivity"
-            android:label="@string/title_activity_category" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_category"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".LogicActivity"
-            android:label="@string/title_activity_logic" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_logic"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="com.example.logic.LogicMain"
             android:label="@string/title_activity_logic_main"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" 
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="stateAlwaysHidden" >
             <intent-filter>
                 <action android:name="com.example.logic.LogicMain" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".speed.SpeedActivity" >
+        <activity
+            android:name=".speed.SpeedActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".GameSpeed_1"
-            android:label="@string/title_activity_game_speed_1" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_game_speed_1"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".speed.GameSpeed1"
-            android:label="@string/title_activity_game_speed1" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_game_speed1"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".speed.GameSpeed2"
-            android:label="@string/title_activity_game_speed2" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_game_speed2"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".speed.GameSpeed5"
-            android:label="@string/title_activity_game_speed5" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_game_speed5"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".speed.GameSpeed10"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_game_speed10"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation" >
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="com.example.logic.NumbersExample"
-            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"
+            android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation" >
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
         </activity>
         <activity
             android:name="com.example.logic.LogicFinalActivity"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_logic_final"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation" >
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".memory.MemoryActivity"
-            android:label="@string/title_activity_memory" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_memory"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".memory.MemoryGame1"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_memory_game1"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation" >
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
-            android:name="com.example.thepiproject.memory.MemoryGame2"
-            android:label="@string/title_activity_memory_game2" 
+            android:name=".memory.MemoryGame2"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_memory_game2"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name=".AllGames"
-            android:label="@string/title_activity_all_games" 
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_all_games"
             android:screenOrientation="portrait"
-			android:configChanges="keyboardHidden|orientation">
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.thepiproject.memory.MemoryGame3"
+            android:label="@string/title_activity_memory_game3" >
         </activity>
     </application>
 

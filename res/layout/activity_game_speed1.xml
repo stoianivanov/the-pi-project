@@ -30,7 +30,7 @@
         android:ems="10"
         android:inputType="number" >
 
-        <requestFocus />
+
     </EditText>
 
     <LinearLayout

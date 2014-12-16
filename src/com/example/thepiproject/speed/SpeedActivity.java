@@ -36,7 +36,7 @@ import android.widget.TextView;
 public class SpeedActivity extends FragmentActivity implements OnClickListener, 
 												OnAnswerSelectedListener {
 	
-	private static final long INITIAL_SERIES_NUMBERS_TIME = 15000;
+	private static final long INITIAL_SERIES_NUMBERS_TIME = 5000;
 	private static final int MAX_FRAGMENT_GAME_10 = 5;
 	private ImageButton musicButton;
 
@@ -206,7 +206,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		@Override
 		public void onFinish() {
 			pb.setProgress(0);
-			result.setText("0");
+			result.setText("");
 		}
 
 	}
