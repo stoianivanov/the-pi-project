@@ -1,5 +1,7 @@
 package com.example.thepiproject;
 
+import java.util.Locale;
+
 import com.example.logic.LogicMain;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 import com.example.thepiproject.memory.MemoryActivity;
@@ -29,9 +31,9 @@ public class CategoryActivity extends Activity implements OnClickListener{
 	boolean activityStopped;
 	
 	ImageButton musicButton;
-	Button logicButton;
-	Button speedButton;
-	Button memoryButton;
+	ImageButton logicButton;
+	ImageButton speedButton;
+	ImageButton memoryButton;
 	
 	boolean mBound = false;
 	private BackGroundMusic music;
@@ -42,13 +44,13 @@ public class CategoryActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_category);
 		
-		logicButton = (Button) findViewById(R.id.categoryLogic);
+		logicButton = (ImageButton) findViewById(R.id.categoryLogic);
 		logicButton.setOnClickListener(this);
 		
-		speedButton = ( Button) findViewById(R.id.categorySpeed);
+		speedButton = (ImageButton) findViewById(R.id.categorySpeed);
 		speedButton.setOnClickListener(this);
 		
-		memoryButton= (Button) findViewById(R.id.categoryMemory);
+		memoryButton= (ImageButton) findViewById(R.id.categoryMemory);
 		memoryButton.setOnClickListener(this);
 		
 		musicButton = (ImageButton)findViewById(R.id.soundButtonCategoryActivity);
@@ -85,6 +87,17 @@ public class CategoryActivity extends Activity implements OnClickListener{
 			MainActivity.musicIntent = new Intent(this, BackGroundMusic.class);
 			startService(MainActivity.musicIntent);
 		}
+		
+		if (Locale.getDefault().getLanguage().equals("en")){
+			logicButton.setImageResource(R.drawable.rounded_blue_button);
+			speedButton.setImageResource(R.drawable.rounded_green_button);
+			memoryButton.setImageResource(R.drawable.rounded_red_button);
+		} else {
+			logicButton.setImageResource(R.drawable.rounded_blue_button_bg);
+			speedButton.setImageResource(R.drawable.rounded_green_button_bg);
+			memoryButton.setImageResource(R.drawable.rounded_red_button_bg);
+		}
+		
 	}
 	
 	@Override

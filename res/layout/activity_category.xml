@@ -9,43 +9,60 @@
     android:background="@drawable/bkackground_category"
     tools:context="com.example.thepiproject.CategoryActivity" >
 
-    <ImageButton
-        android:id="@+id/soundButtonCategoryActivity"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:padding="5dp"
-        android:scaleType="fitCenter"
-        android:contentDescription="Turn Sound On/Off"
-        android:background="@android:color/transparent"
-        android:src="@drawable/icon_on" />
-
-    <Button
-        android:id="@+id/categoryMemory"
+    <TextView
+        android:id="@+id/categoryActivtyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/categoryLogic"
-        android:layout_below="@+id/categoryLogic"
-        android:layout_marginTop="106dp"
-        android:text="@string/memory" />
-
-    <Button
-        android:id="@+id/categoryLogic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/categorySpeed"
-        android:layout_below="@+id/categorySpeed"
-        android:layout_marginTop="99dp"
-        android:text="@string/logic" />
-
-    <Button
-        android:id="@+id/categorySpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/soundButtonCategoryActivity"
+        android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="123dp"
-        android:text="@string/speed" />
+        android:gravity="center" 
+        android:text="Choose what to train"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/soundButtonCategoryActivity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="Turn Sound On/Off"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_on" />
+
+        <ImageButton
+            android:id="@+id/categoryLogic"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/rounded_blue_button"
+            android:text="@string/logic" />
+
+        <ImageButton
+            android:id="@+id/categorySpeed"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/rounded_green_button"
+            android:text="@string/speed" />
+
+        <ImageButton
+            android:id="@+id/categoryMemory"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="530dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/rounded_red_button"
+            android:text="@string/memory" />
     
 </RelativeLayout>
