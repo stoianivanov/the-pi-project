@@ -156,29 +156,37 @@ public class MemoryGame2 extends Fragment implements OnClickListener{
 			if(id==button1.getId()){
 				if(arr[0]==0){
 					listener.correctAnswer();
+					listener.nextFragment();
 				}else{
 					listener.wrongAnswer();
+					listener.nextFragment();
 				}
 			}
 			if(id==button2.getId()){
 				if(arr[1]==0){
 					listener.correctAnswer();
+					listener.nextFragment();
 				}else{
 					listener.wrongAnswer();
+					listener.nextFragment();
 				}
 			}
 			if(id==button3.getId()){
 				if(arr[2]==0){
 					listener.correctAnswer();
+					listener.nextFragment();
 				}else{
 					listener.wrongAnswer();
+					listener.nextFragment();
 				}
 			}
 			if(id==button4.getId()){
 				if(arr[3]==0){
 					listener.correctAnswer();
+					listener.nextFragment();
 				}else{
 					listener.wrongAnswer();
+					listener.nextFragment();
 				}
 			}
 		}

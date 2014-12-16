@@ -92,7 +92,7 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 		key12= (ImageView) view.findViewById(R.id.key12);
 		key12.setOnClickListener(this);
 		createImage(key12, 12);
-		CountDown cd =new CountDown(3000, 50);
+		CountDown cd =new CountDown(11000, 50);
 		return view;
 	}
 	private void initKeys(){

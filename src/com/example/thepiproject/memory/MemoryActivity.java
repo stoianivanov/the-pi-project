@@ -76,7 +76,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		caller= getIntent().getExtras().getInt("caller",0);
 		
 		gameLayout= (FrameLayout) findViewById(R.id.gameMemory);
-		StartFragment(new MemoryGame2());
+		StartFragment(new MemoryGame3());
 	}
 	
 	@Override
@@ -245,7 +245,8 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 	@Override
 	public void nextFragment() {
 		
-		if(counterGame2<MAX_GAME_2){
+		if(counterGame2 < MAX_GAME_2){
+			Log.i("NExt Fragment", ""+counterGame2);
 			StartFragment(new MemoryGame2());
 		}else {
 			if(caller ==3){
