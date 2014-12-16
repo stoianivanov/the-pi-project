@@ -62,6 +62,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		category = (Button) findViewById(R.id.categoryButton);
 		category.setOnClickListener(this);
+		
+		
 
 	}
 
@@ -203,6 +205,9 @@ public class MainActivity extends Activity implements OnClickListener {
 			} else if (Locale.getDefault().getLanguage().equals("bg")) {
 				setLocale("en");
 			}
+		} else if (v.getId() == R.id.randomGameButton){
+			Intent i = new Intent(getApplicationContext(),AllGames.class);
+			startActivity(i);
 		}
 	}
 }

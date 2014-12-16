@@ -28,6 +28,7 @@
     <string name="speed_game_1"> Calculate task !</string>
     <string name="speed_game_5"> Sqrt number:</string>
     <string name="speed_game_10"> Remove ticks</string>
+    <string name="title_activity_all_games">AllGames</string>
     <string name="title_activity_memory">MemoryActivity</string>
     <string name="title_activity_memory_game1">MemoryGame1</string>
     <string name="title_activity_memory_game2">MemoryGame2</string>

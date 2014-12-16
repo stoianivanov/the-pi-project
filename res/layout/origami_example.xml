@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="555dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="80dp"
         android:gravity="center"
         android:text="Answer:"
         android:textColor="@android:color/white"
@@ -70,7 +70,7 @@
         android:layout_height="100dp"
         android:layout_width="100dp"
         android:layout_marginTop="525dp"
-        android:layout_marginLeft="220dp"
+        android:layout_centerHorizontal="true"
         android:scaleType="fitCenter"
         android:src="@drawable/s2a" 
         android:background="@android:color/transparent"/>

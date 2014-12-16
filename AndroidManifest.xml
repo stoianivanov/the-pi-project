@@ -87,6 +87,10 @@
             android:name="com.example.thepiproject.memory.MemoryGame2"
             android:label="@string/title_activity_memory_game2" >
         </activity>
+        <activity
+            android:name=".AllGames"
+            android:label="@string/title_activity_all_games" >
+        </activity>
     </application>
 
 </manifest>

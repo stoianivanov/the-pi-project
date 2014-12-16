@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -103,9 +104,13 @@ public class NumbersFragment extends Fragment implements OnClickListener {
 		answerText.setFocusable(false);
 
 		numberOfAskedQuestions = 0;
-
+		
 		question = (TextView) getView().findViewById(R.id.numericProblem);
 		nextQuestion();
+		
+		Intent i = new Intent(getActivity().getApplicationContext(),com.example.logic.NumbersExample.class);
+		i.putExtra("example", 1);
+		startActivity(i);
 	}
 
 	public void nextQuestion() {

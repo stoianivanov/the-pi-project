@@ -45,6 +45,8 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 	TextView result;
 	Dialog dialog;
 	long score;
+	
+	int caller;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +67,9 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		fragment = new NumbersFragment();
 		getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment).commit();
 		
-		Intent i = new Intent(getApplicationContext(),com.example.logic.NumbersExample.class);
-		i.putExtra("example", 1);
-		startActivity(i);
+		
+		caller = getIntent().getExtras().getInt("caller", 0);
+		
 		score = 0;
 	}
 	
@@ -151,9 +153,9 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 	@Override
 	protected void onPause() {
 		super.onPause();
-		if(!firstStart){
+//		if(!firstStart){
 			cd.cancel();
-		}
+//		}
 	}
 
 	@Override
@@ -170,10 +172,10 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 			startService(MainActivity.musicIntent);
 		}
 		
-		if(!firstStart){
+//		if(!firstStart){
 			cd = new CountDown(timeLeft, 50);
 			cd.start();
-		}
+//		}
 	}
 
 	private void setMusicButton() {
@@ -284,8 +286,16 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 		} else if (fragment instanceof FindTheMissingPartFragment){
 			Intent i = new Intent(getApplicationContext(),LogicFinalActivity.class);
 			i.putExtra("score", score);
-			finish();
-			startActivity(i);
+			if(caller == 1){
+				Intent callBack = new Intent();
+				callBack.putExtra("score", score);
+				setResult(RESULT_OK,callBack);
+				finish();
+				return;
+			} else {
+				finish();
+				startActivity(i);
+			}
 		}
 		
 	}

@@ -79,6 +79,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
 		setMusicButton();
 		if (MainActivity.musicPlaying) {
 			MainActivity.musicIntent = new Intent(this, BackGroundMusic.class);
@@ -148,6 +149,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 				}
 			} else if (v.getId() == R.id.categoryLogic){
 				Intent i = new Intent(getApplicationContext(),LogicMain.class);
+				i.putExtra("caller", 0);
 				startActivity(i);
 			} else if(v.getId()== R.id.categorySpeed){
 				Intent i = new Intent (getApplicationContext(),SpeedActivity.class);
