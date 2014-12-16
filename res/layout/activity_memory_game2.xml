@@ -41,16 +41,6 @@
         android:layout_weight="0.48" >
 
         <ImageButton
-            android:id="@+id/memoryGame2Button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="118dp"
-            android:layout_marginLeft="99dp"
-            android:src="@drawable/memory_game_2_default_a" />
-
-        <ImageButton
             android:id="@+id/memoryGame2Button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,8 +72,20 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
             android:src="@drawable/button_go" />
- 
+
+        <ImageButton
+            android:id="@+id/memoryGame2Button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/imageButtonGoGame2"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="87dp"
+            android:src="@drawable/memory_game_2_default_a" />
+
     </RelativeLayout>
 
 </LinearLayout>
