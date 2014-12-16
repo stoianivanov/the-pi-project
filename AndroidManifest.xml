@@ -75,6 +75,18 @@
             android:name="com.example.logic.LogicFinalActivity"
             android:label="@string/title_activity_logic_final" >
         </activity>
+        <activity
+            android:name=".memory.MemoryActivity"
+            android:label="@string/title_activity_memory" >
+        </activity>
+        <activity
+            android:name=".memory.MemoryGame1"
+            android:label="@string/title_activity_memory_game1" >
+        </activity>
+        <activity
+            android:name="com.example.thepiproject.memory.MemoryGame2"
+            android:label="@string/title_activity_memory_game2" >
+        </activity>
     </application>
 
 </manifest>

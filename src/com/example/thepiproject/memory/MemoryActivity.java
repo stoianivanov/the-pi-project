@@ -1,4 +1,4 @@
-package com.example.thepiproject.speed;
+package com.example.thepiproject.memory;
 
 import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.BackGroundMusic;
@@ -6,6 +6,9 @@ import com.example.thepiproject.MainActivity;
 import com.example.thepiproject.R;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 import com.example.thepiproject.R.layout;
+import com.example.thepiproject.speed.GameSpeed1;
+
+
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -25,19 +28,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class SpeedActivity extends FragmentActivity implements OnClickListener, 
+public class MemoryActivity extends FragmentActivity implements OnClickListener,
 												OnAnswerSelectedListener {
-	
+
 	private static final long INITIAL_SERIES_NUMBERS_TIME = 15000;
-	private static final int MAX_FRAGMENT_GAME_10 = 5;
+
 	private ImageButton musicButton;
 
 	private boolean mBound = false;
@@ -50,18 +53,17 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 	private long score;
 	private Fragment currentFragment;
 	private FrameLayout gameLayout;
-	private int currentGame10=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_speed);
+		setContentView(R.layout.activity_memory);
 		
-		musicButton= (ImageButton) findViewById(R.id.soundButtonSpeedActivity);
+		musicButton= (ImageButton) findViewById(R.id.soundButtonMemoryActivity);
 		musicButton.setOnClickListener(this);
 		
-		result= (TextView) findViewById(R.id.resultSpeed);
+		result= (TextView) findViewById(R.id.resultMemory);
 		
-		pb = (ProgressBar) findViewById(R.id.progressBarSpeed);
+		pb = (ProgressBar) findViewById(R.id.progressBarMemory);
 		
 		Drawable draw = getResources().getDrawable(R.drawable.progress_bar);
 		pb.setProgressDrawable(draw);
@@ -70,22 +72,9 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		doBindService();
 		
 		
-		gameLayout= (FrameLayout) findViewById(R.id.gameSpeed);
-		StartFragment(new GameSpeed1());
+		gameLayout= (FrameLayout) findViewById(R.id.gameMemory);
+		StartFragment(new MemoryGame2());
 	}
-	
-    private void StartFragment(Fragment fr){
-    	
-   	 final FragmentManager fm =  getSupportFragmentManager();
-   	 currentFragment= fr;
-        if(fm!=null){
-       	 final FragmentTransaction tr= fm.beginTransaction();
-       	 tr.replace(R.id.gameSpeed, fr, null);
-       	 tr.commitAllowingStateLoss();
-       	 
-        }
-        
-   }
 	
 	@Override
 	protected void onPause() {
@@ -171,24 +160,6 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		}
 	}
 	
-	@Override
-	public void onClick(View v) {
-		if (v.getId() == R.id.soundButtonSpeedActivity) {
-			if (MainActivity.musicPlaying) {
-				Log.e("PiProject", "ButtonOn");
-				music.onPause();
-				musicButton.setImageResource(R.drawable.icon_off);
-				MainActivity.musicPlaying = false;
-			} else {
-				music.resumeMusic();
-				musicButton.setImageResource(R.drawable.icon_on);
-				MainActivity.musicPlaying = true;
-			}
-		} 
-		
-	}
-
-
 	
 	private class CountDown extends CountDownTimer {
 
@@ -265,24 +236,41 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
 		cd.start();
 		
+		
 	}
 
 	@Override
 	public void nextFragment() {
-		if(currentFragment instanceof GameSpeed1){
-			Log.i("Start", "AStart game5");
-			
-			StartFragment(new GameSpeed5());
-		}else if( currentFragment instanceof GameSpeed5 ){
-			StartFragment(new GameSpeed10());
-			++currentGame10;
-		}else if((currentFragment instanceof GameSpeed10 )&& 
-					currentGame10<=MAX_FRAGMENT_GAME_10){
-			StartFragment(new GameSpeed10());
-			++currentGame10;
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
-
-
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.soundButtonSpeedActivity) {
+			if (MainActivity.musicPlaying) {
+				Log.e("PiProject", "ButtonOn");
+				music.onPause();
+				musicButton.setImageResource(R.drawable.icon_off);
+				MainActivity.musicPlaying = false;
+			} else {
+				music.resumeMusic();
+				musicButton.setImageResource(R.drawable.icon_on);
+				MainActivity.musicPlaying = true;
+			}
+		} 
+	}
+	
+    private void StartFragment(Fragment fr){
+    	
+      	 final FragmentManager fm =  getSupportFragmentManager();
+      	 currentFragment= fr;
+           if(fm!=null){
+          	 final FragmentTransaction tr= fm.beginTransaction();
+          	 tr.replace(R.id.gameMemory, fr, null);
+          	 tr.commitAllowingStateLoss();
+          	 
+           }
+           
+      }
 }

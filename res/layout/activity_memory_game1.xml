@@ -1,0 +1,178 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="60dp">
+
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage1"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="invisible"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage1Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>    
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage2"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="invisible"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage2Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>    
+
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage5"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="gone"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage5Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage6"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="invisible"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage6Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>        
+
+     
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage3"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="invisible"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage3Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>    
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage4"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="invisible"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage4Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>    
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage7"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="invisible"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage7Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>    
+        <FrameLayout
+        	android:layout_width="150dp"
+        	android:layout_height="150dp" >
+
+	         <ImageView
+	            android:id="@+id/MemoryImage8"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:visibility="invisible"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/androidimage" /> 
+	            
+	         <ImageView
+	            android:id="@+id/MemoryImage8Shadow"
+	            android:layout_width="150dp"
+	            android:layout_height="150dp"
+	            android:background="@android:color/transparent"
+	            android:src="@drawable/csimage" /> 	        	
+        </FrameLayout>       
+    </LinearLayout>
+
+
+</LinearLayout>

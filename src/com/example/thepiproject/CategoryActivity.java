@@ -2,6 +2,7 @@ package com.example.thepiproject;
 
 import com.example.logic.LogicMain;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
+import com.example.thepiproject.memory.MemoryActivity;
 import com.example.thepiproject.speed.SpeedActivity;
 
 import android.app.Activity;
@@ -30,6 +31,7 @@ public class CategoryActivity extends Activity implements OnClickListener{
 	ImageButton musicButton;
 	Button logicButton;
 	Button speedButton;
+	Button memoryButton;
 	
 	boolean mBound = false;
 	private BackGroundMusic music;
@@ -45,6 +47,9 @@ public class CategoryActivity extends Activity implements OnClickListener{
 		
 		speedButton = ( Button) findViewById(R.id.categorySpeed);
 		speedButton.setOnClickListener(this);
+		
+		memoryButton= (Button) findViewById(R.id.categoryMemory);
+		memoryButton.setOnClickListener(this);
 		
 		musicButton = (ImageButton)findViewById(R.id.soundButtonCategoryActivity);
 		musicButton.setOnClickListener(this);
@@ -147,6 +152,11 @@ public class CategoryActivity extends Activity implements OnClickListener{
 			} else if(v.getId()== R.id.categorySpeed){
 				Intent i = new Intent (getApplicationContext(),SpeedActivity.class);
 				startActivity(i);
+			}else if(v.getId() == R.id.categoryMemory){
+				Log.i("ONclick", "Click memory");
+				Intent i = new Intent (getApplicationContext(),MemoryActivity.class);
+				startActivity(i);
+
 			}
 		}
 	
