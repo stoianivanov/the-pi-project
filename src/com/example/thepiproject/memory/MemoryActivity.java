@@ -39,10 +39,12 @@ import android.widget.TextView;
 public class MemoryActivity extends FragmentActivity implements OnClickListener,
 												OnAnswerSelectedListener {
 
+	private static final int MAX_GAME_2 = 5;
+
 	private static final long INITIAL_SERIES_NUMBERS_TIME = 15000;
 
 	private ImageButton musicButton;
-
+	private int counterGame2=0;
 	private boolean mBound = false;
 	private BackGroundMusic music;
 	private ProgressBar pb;
@@ -53,6 +55,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 	private long score;
 	private Fragment currentFragment;
 	private FrameLayout gameLayout;
+	private int caller;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,7 +73,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		timeLeft=10000;
 		
 		doBindService();
-		
+		caller= getIntent().getExtras().getInt("caller",0);
 		
 		gameLayout= (FrameLayout) findViewById(R.id.gameMemory);
 		StartFragment(new MemoryGame2());
@@ -241,7 +244,20 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 
 	@Override
 	public void nextFragment() {
-		// TODO Auto-generated method stub
+		
+		if(counterGame2<MAX_GAME_2){
+			StartFragment(new MemoryGame2());
+		}else {
+			if(caller ==3){
+				Intent i = new Intent();
+				i.putExtra("score", score);
+				setResult(RESULT_OK,i);
+				finish();
+				return;
+			}else{
+				//startira poslednoto activyti
+			}
+		}
 		
 	}
 
@@ -269,6 +285,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
           	 final FragmentTransaction tr= fm.beginTransaction();
           	 tr.replace(R.id.gameMemory, fr, null);
           	 tr.commitAllowingStateLoss();
+          	 ++counterGame2;
           	 
            }
            

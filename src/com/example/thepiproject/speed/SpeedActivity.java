@@ -51,6 +51,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 	private Fragment currentFragment;
 	private FrameLayout gameLayout;
 	private int currentGame10=0;
+	private int caller;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,7 +70,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		
 		doBindService();
 		
-		
+		caller=getIntent().getExtras().getInt("caller",0);
 		gameLayout= (FrameLayout) findViewById(R.id.gameSpeed);
 		StartFragment(new GameSpeed1());
 	}
@@ -280,6 +281,17 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 					currentGame10<=MAX_FRAGMENT_GAME_10){
 			StartFragment(new GameSpeed10());
 			++currentGame10;
+			
+		}else if(currentFragment instanceof GameSpeed10){
+			if(caller ==2){
+				Intent i = new Intent();
+				i.putExtra("score", score);
+				setResult(RESULT_OK,i);
+				finish();
+				return;
+			}else{
+				//startira poslednoto activyti
+			}
 		}
 	}
 

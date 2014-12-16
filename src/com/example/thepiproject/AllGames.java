@@ -1,5 +1,9 @@
 package com.example.thepiproject;
 
+import com.example.thepiproject.memory.MemoryActivity;
+import com.example.thepiproject.memory.MemoryGame2;
+import com.example.thepiproject.speed.SpeedActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +29,8 @@ public class AllGames extends Activity {
 				com.example.logic.LogicMain.class);
 		intentLogic.putExtra("caller", 1);
 		startActivityForResult(intentLogic, 1);
+		
+
 
 	}
 
@@ -43,8 +49,31 @@ public class AllGames extends Activity {
 
 				Intent intentSpeed = new Intent(getApplicationContext(),
 						com.example.thepiproject.speed.SpeedActivity.class);
-				startActivity(intentSpeed);
+				intentSpeed.putExtra("caller", 2);
+				startActivityForResult(intentSpeed, 2);
 			}
+		}else if(requestCode == 2){
+			Log.e("AllGames","requestCode == 2");
+			if (resultCode == RESULT_OK) {
+
+				Log.e("AllGames","Code:1 ResultOK");
+				score += data.getLongExtra("score", 0);
+				scoreView.setText(Long.toString(score));
+
+				Intent intentMemory = new Intent(getApplicationContext(),
+						MemoryActivity.class);
+				intentMemory.putExtra("caller", 3);
+				startActivityForResult(intentMemory, 3);
+			}
+		}else if(requestCode == 3){
+			Log.e("AllGames","requestCode == 3");
+			if (resultCode == RESULT_OK) {
+
+				Log.e("AllGames","Code:1 ResultOK");
+				score += data.getLongExtra("score", 0);
+				scoreView.setText(Long.toString(score));
+			}
+
 		}
 	}
 

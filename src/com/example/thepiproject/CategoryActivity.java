@@ -166,10 +166,12 @@ public class CategoryActivity extends Activity implements OnClickListener{
 				startActivity(i);
 			} else if(v.getId()== R.id.categorySpeed){
 				Intent i = new Intent (getApplicationContext(),SpeedActivity.class);
+				i.putExtra("caller", 0);
 				startActivity(i);
 			}else if(v.getId() == R.id.categoryMemory){
 				Log.i("ONclick", "Click memory");
 				Intent i = new Intent (getApplicationContext(),MemoryActivity.class);
+				i.putExtra("caller", 0);
 				startActivity(i);
 
 			}
