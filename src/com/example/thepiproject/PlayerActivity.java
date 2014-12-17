@@ -3,7 +3,12 @@ package com.example.thepiproject;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,9 +18,12 @@ import android.widget.EditText;
 
 import com.example.playerdatabase.Player;
 import com.example.playerdatabase.PlayerHelper;
+import com.example.thepiproject.BackGroundMusic.LocalBinder;
 
 public class PlayerActivity extends ListActivity implements OnClickListener{
 	
+	boolean mBound = false;
+	BackGroundMusic music;
 
 	private Button AddPlayer;
 	private EditText nameEdit;
@@ -80,5 +88,48 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		((ArrayAdapter<Player>)getListAdapter()).notifyDataSetChanged();
 	
 	
+	}
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		doUnbindService();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		doBindService();
+		if(MainActivity.musicPlaying){
+			MainActivity.musicIntent = new Intent(this, BackGroundMusic.class);
+			startService(MainActivity.musicIntent);
+		}
+	}
+	
+	private ServiceConnection sCon = new ServiceConnection() {
+
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+			music = null;	
+		}
+
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
+			LocalBinder binder = (LocalBinder) service;
+			music = binder.getService();
+		}
+	};
+	
+	void doBindService() {
+		bindService(new Intent(this, BackGroundMusic.class), sCon,
+				Context.BIND_AUTO_CREATE);
+		mBound = true;
+	}
+
+	void doUnbindService() {
+		if (mBound) {
+			unbindService(sCon);
+			mBound = false;
+		}
 	}
 }

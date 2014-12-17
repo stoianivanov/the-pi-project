@@ -3,22 +3,35 @@ package com.example.logic;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.thepiproject.BackGroundMusic;
+import com.example.thepiproject.BackGroundMusic.LocalBinder;
+import com.example.thepiproject.MainActivity;
 import com.example.thepiproject.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
-public class LogicFinalActivity extends Activity {
+public class LogicFinalActivity extends Activity implements OnClickListener{
 
 	LineChart lineChart;
 	long score;
+	boolean mBound = false;
+	BackGroundMusic music;
+	ImageButton musicButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +42,29 @@ public class LogicFinalActivity extends Activity {
 		TextView tv = (TextView) findViewById(R.id.logicFinalTextView);
 		tv.setText(Long.toString(score));
 		
+		musicButton = (ImageButton) findViewById (R.id.soundButtonLogicFinal);
+		musicButton.setOnClickListener(this);
 		lineChart = (LineChart) findViewById(R.id.logifFinalLineChart);
 		createChart();
 		
 	}
 	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		doUnbindService();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		doBindService();
+		setMusicButton();
+		if(MainActivity.musicPlaying){
+			MainActivity.musicIntent = new Intent(this, BackGroundMusic.class);
+			startService(MainActivity.musicIntent);
+		}
+	}
 	private void createChart(){
 		
 		ArrayList<Entry> comp1 = new ArrayList<Entry>();
@@ -48,8 +79,8 @@ public class LogicFinalActivity extends Activity {
 		LineDataSet setComp1 = new LineDataSet(comp1, "Company 1");
 		LineDataSet setcomp2 = new LineDataSet(comp2, "Company 2");
 		
-//		setComp1.setColors(new int[] {getResources().getColor(Color.RED),getResources().getColor(Color.RED),
-//				getResources().getColor(Color.RED), getResources().getColor(Color.RED)}, getApplicationContext());
+		setComp1.setColors(new int[] {R.color.Brown,R.color.Brown,
+				R.color.Brown,R.color.Brown}, getApplicationContext());
 //		setcomp2.setColors(new int[] {getResources().getColor(Color.GREEN),getResources().getColor(Color.GREEN),
 //				getResources().getColor(Color.GREEN), getResources().getColor(Color.GREEN)}, getApplicationContext());
 		
@@ -84,5 +115,55 @@ public class LogicFinalActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private ServiceConnection sCon = new ServiceConnection() {
+
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+			music = null;	
+		}
+
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
+			LocalBinder binder = (LocalBinder) service;
+			music = binder.getService();
+		}
+	};
+	
+	private void setMusicButton() {
+		if (MainActivity.musicPlaying) {
+			musicButton.setImageResource(R.drawable.icon_on);
+		} else {
+			musicButton.setImageResource(R.drawable.icon_off);
+		}
+	}
+
+	void doBindService() {
+		bindService(new Intent(this, BackGroundMusic.class), sCon,
+				Context.BIND_AUTO_CREATE);
+		mBound = true;
+	}
+
+	void doUnbindService() {
+		if (mBound) {
+			unbindService(sCon);
+			mBound = false;
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.soundButtonLogicFinal) {
+			if (MainActivity.musicPlaying) {
+				music.onPause();
+				musicButton.setImageResource(R.drawable.icon_off);
+				MainActivity.musicPlaying = false;
+			} else {
+				music.resumeMusic();
+				musicButton.setImageResource(R.drawable.icon_on);
+				MainActivity.musicPlaying = true;
+			}
+		}
 	}
 }

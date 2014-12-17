@@ -2,6 +2,7 @@ package com.example.thepiproject;
 
 import java.util.Locale;
 
+import com.example.playerdatabase.Player;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 
 import android.app.Activity;
@@ -34,6 +35,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	Button player;
 	String language;
 	SharedPreferences pref;
+	
+	public static int currentPlayerID;
 
 
 	boolean mBound = false;
@@ -185,15 +188,24 @@ public class MainActivity extends Activity implements OnClickListener {
 			mBound = false;
 		}
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == 1){
+			if(resultCode == RESULT_OK){
+				currentPlayerID = data.getIntExtra("currentPlayer",0);
+			}
+		}
+	}
 
 	@Override
 	public void onClick(View v) {
 
 		if (v.getId() == R.id.playerButton){		
 			Intent i = new Intent(getApplicationContext(),PlayerActivity.class);		
-			startActivity(i);		
+			startActivityForResult(i, 1);		
 			Log.i("OnClick", "Start Activity");		
-
 		}		
 
 

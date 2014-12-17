@@ -26,6 +26,16 @@
         android:textSize="40sp"
         android:text="@string/hello_world" />
     
-    
+    <ImageButton
+            android:id="@+id/soundButtonLogicFinal"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="Turn Sound On/Off"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_on" />
 
 </RelativeLayout>
