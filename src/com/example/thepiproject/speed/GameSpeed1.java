@@ -88,6 +88,9 @@ public class GameSpeed1 extends Fragment implements OnClickListener {
 		add9= (Button) view.findViewById(R.id.speedButtonAdd9);
 		add9.setOnClickListener(this);
 		
+		add0= (Button) view.findViewById(R.id.speedButtonAdd0);
+		add0.setOnClickListener(this);
+		
 		adddot= (Button) view.findViewById(R.id.speedButtonAdd_);
 		adddot.setOnClickListener(this);
 		
@@ -96,11 +99,15 @@ public class GameSpeed1 extends Fragment implements OnClickListener {
 		
 		return view;
 	}
-	private void createQuestion(){
+	public void createQuestion(){
 		QuestionGame1 q = getQuestion();
 		question.setText(q.getQuestion());
 		answerFile=q.getAnswer();
 		++currentQuestion;
+		Log.i("Current question", ""+currentQuestion);
+		if(currentQuestion>MAX_QUESTION){
+			listener.nextFragment();
+		}
 	}
 	private QuestionGame1 getQuestion(){
 		Random r= new Random();
@@ -163,7 +170,9 @@ public class GameSpeed1 extends Fragment implements OnClickListener {
 			}	
 			
 		}
-
+		if(currentQuestion==MAX_QUESTION){
+			listener.nextFragment();
+		}
 
 		if(id==R.id.speedButtonAdd0){
 			if(!answer.getText().toString().equals("")){
@@ -214,4 +223,5 @@ public class GameSpeed1 extends Fragment implements OnClickListener {
 		
 		
 	}
+
 }

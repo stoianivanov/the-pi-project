@@ -22,10 +22,8 @@ import android.widget.ProgressBar;
 
 public class MemoryGame3 extends Fragment implements OnClickListener{
 
-	
 
-	
-	
+	private int currentAnswer=0;
 	private long timeLeft;
 	private ImageView key1;
 	private ImageView key2;
@@ -44,7 +42,7 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 	private View view;
 	private boolean start=false;
 	private int counterKey=0;
-	private int maxKey=1;
+	private int maxKey=0;
 	private OnAnswerSelectedListener listener;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,7 +129,7 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		int correctAnswer=countCorrectAnswer();
-		int currentAnswer=0;
+
 		int id=v.getId();
 		if(id==R.id.key1){
 			if(keys[0]==2){
@@ -229,7 +227,9 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 				listener.wrongAnswer();
 			}
 		}
-		if(currentAnswer ==correctAnswer){
+		Log.i("Current answer", ""+currentAnswer);
+		if(currentAnswer == correctAnswer){
+			
 			listener.correctAnswer();
 		}
 		
@@ -238,10 +238,11 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 	private int countCorrectAnswer(){
 		int counter=0;
 		for (int i = 0; i < keys.length; i++) {
-			if(keys[i]==2){
+			if(keys[i]== 2){
 				++counter;
 			}
 		}
+		Log.i("Correct answer", ""+counter);
 		return counter;
 	}
 	private class CountDown extends CountDownTimer {

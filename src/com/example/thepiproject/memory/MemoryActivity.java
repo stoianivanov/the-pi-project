@@ -39,8 +39,8 @@ import android.widget.TextView;
 public class MemoryActivity extends FragmentActivity implements OnClickListener,
 												OnAnswerSelectedListener {
 
-	private static final int MAX_GAME_2 = 5;
-	private static final int MAX_GAME_3 = 5;
+	private static final int MAX_GAME_2 = 8;
+	private static final int MAX_GAME_3 = 7;
 
 	private static final long INITIAL_SERIES_NUMBERS_TIME = 15000;
 
@@ -182,7 +182,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		@Override
 		public void onFinish() {
 			pb.setProgress(0);
-			nextFragment();
+			wrongAnswer();
 		}
 
 	}
@@ -228,8 +228,8 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		score += timeLeft / 3;
 		result.setText(Long.toString(score));
 		nextFragment();
-	//	cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-	//	cd.start();
+		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+		cd.start();
 	}
 
 	@Override
@@ -237,25 +237,25 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		if(MainActivity.musicPlaying){
 			music.wrongSound();
 		}
-		nextFragment();
+		
 		cd.cancel();
 		showDialog(false);
+		nextFragment();
 		
-	//	cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-	//	cd.start();
+		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+		cd.start();
 		
 	}
 
 	@Override
 	public void nextFragment() {
-		
-		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-		cd.start();
+
 		
 		if(counterGame2 < MAX_GAME_2){
 			Log.i("NExt Fragment", ""+counterGame2);
 			StartFragment(new MemoryGame2());
 			++counterGame2;
+			Log.i("Counetr", ""+counterGame2);
 		}else if(counterGame3 <MAX_GAME_3){
 			StartFragment(new MemoryGame3());
 			++counterGame3;

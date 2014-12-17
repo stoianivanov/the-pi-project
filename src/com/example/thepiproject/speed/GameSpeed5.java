@@ -105,7 +105,7 @@ public class GameSpeed5 extends Fragment implements OnClickListener {
 		}
 		nextQuestion();
 	}
-	private void createFragment(){
+	public void createFragment(){
 		
 		currentQuestion= getQuestion();
 		questionText.setText(currentQuestion.getQuestion());
@@ -115,7 +115,9 @@ public class GameSpeed5 extends Fragment implements OnClickListener {
 		answer4.setText(currentQuestion.getAnswer4());	
 		
 		++currentQ;
-
+		if(currentQ>MAX_QUESTION){
+			listener.nextFragment();
+		}
 		
 	}
 	private QuestionGame2 getQuestion(){

@@ -39,7 +39,6 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 	private static final long INITIAL_SERIES_NUMBERS_TIME = 5000;
 	private static final int MAX_FRAGMENT_GAME_10 = 5;
 	private ImageButton musicButton;
-
 	private boolean mBound = false;
 	private BackGroundMusic music;
 	private ProgressBar pb;
@@ -56,7 +55,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_speed);
-		currentFragment= new GameSpeed1();
+		
 		musicButton= (ImageButton) findViewById(R.id.soundButtonSpeedActivity);
 		musicButton.setOnClickListener(this);
 		
@@ -207,6 +206,22 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		@Override
 		public void onFinish() {
 			pb.setProgress(0);
+			if(currentFragment instanceof GameSpeed1){
+				((GameSpeed1) currentFragment).createQuestion();
+				cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+				cd.start();
+			}else if(currentFragment instanceof GameSpeed5){
+				((GameSpeed5) currentFragment).createFragment();
+				cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+				cd.start();
+			}else if(currentGame10<MAX_FRAGMENT_GAME_10){
+				StartFragment(new GameSpeed10());
+				++currentGame10;
+				cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+				cd.start();
+			}
+
+			
 		}
 
 
@@ -271,6 +286,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 
 	@Override
 	public void nextFragment() {
+
 		if(currentFragment instanceof GameSpeed1){
 			Log.i("Start", "AStart game5");
 			
