@@ -108,8 +108,11 @@ public class Player {
 	public String toString() {
 		return Name + "\n" +
 				"Total point: " + PlayerTPointBest
-				+ ", Logic point: " + PlayerLPointBest + ", Memory point: "
-				+ PlayerMPointBest + ", Speed point: " + PlayerSPointBest;
+//				+ ", Logic point: " + PlayerLPointBest + ", Memory point: "
+//				+ PlayerMPointBest + ", Speed point: " + PlayerSPointBest
+//				
+				+ "\n Current logic point: " + PlayerLPointCurrent + ", Current memory point: "
+				+ PlayerMPointCurrent + ", Current speed point: " + PlayerSPointCurrent;
 	}
 	
 }

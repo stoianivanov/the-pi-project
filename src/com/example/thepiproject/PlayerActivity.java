@@ -28,16 +28,26 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		setContentView(R.layout.activity_player);
 		
 		ph = new PlayerHelper(this);
-		Player p = ph.getPlayer(1);
-		Log.i("Player from geter", p.toString());
-		PlayerList =  ph.getAll2Player();
+		
+		
+//		Player update = ph.getPlayer(1);
+//		
+//		update.setPlayerLPointCurrent(50011);
+//		update.setPlayerMPointCurrent(1000);
+//		update.setPlayerSPointCurrent(2000);
+//		
+//		Log.i("Before update", update.toString());
+//		ph.updateScore(1, update);
+		
+		
 		
 		
 		AddPlayer = (Button) findViewById(R.id.addPlayer);
 		AddPlayer.setOnClickListener(this);
 
 		nameEdit = (EditText) findViewById(R.id.PlayerName);
-		
+//
+		PlayerList =  ph.getAll2Player();
 		setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
 	
 		//setListAdapter(adapter);

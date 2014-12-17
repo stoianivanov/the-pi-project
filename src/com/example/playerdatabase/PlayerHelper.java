@@ -17,7 +17,6 @@ public class PlayerHelper extends SQLiteOpenHelper{
 
 	public static class Players{
 
-
 		private static final String TABLE_NAME = "Player";
 		private static final String COLUMN_ID = "_id";
 		private static final String COLUMN_NAME = "Name";
@@ -33,22 +32,34 @@ public class PlayerHelper extends SQLiteOpenHelper{
 		private static final String INT_TYPE = " INTEGER DEFAULT 0";
 		private static final String COMMA_SEP = ", ";
 
+		private static final String CREATE_DB = "CREATE TABLE " + Players.TABLE_NAME
+				+ "( " + Players.COLUMN_ID + " integer primary key autoincrement, "
+				+ Players.COLUMN_NAME + Players.TEXT_TYPE + Players.COMMA_SEP
+				+ Players.COLUMN_TOTAL_POINT_CURRENT + Players.INT_TYPE + Players.COMMA_SEP
+				+ Players.COLUMN_LOGIC_POINT_CURRENT +  Players.INT_TYPE + Players.COMMA_SEP 
+				+ Players.COLUMN_MEMORY_POINT_CURRENT + Players.INT_TYPE + Players.COMMA_SEP
+				+ Players.COLUMN_SPEED_POINT_CURRENT +  Players.INT_TYPE + Players.COMMA_SEP
+				+ Players.COLUMN_TOTAL_POINT_BEST +  Players.INT_TYPE + Players.COMMA_SEP 
+				+ Players.COLUMN_LOGIC_POINT_BEST +  Players.INT_TYPE + Players.COMMA_SEP
+				+ Players.COLUMN_MEMORY_POINT_BEST +  Players.INT_TYPE + Players.COMMA_SEP
+				+ Players.COLUMN_SPEED_POINT_BEST +  Players.INT_TYPE + ")";
+
+
+		private static final String DELETE_STATEMENT = "DELETE IF EXISTS TABLE " + Players.TABLE_NAME;
+
+		private static final String[] allColumn = {Players.COLUMN_ID, Players.COLUMN_NAME, 
+			//Player's best point 
+			Players.COLUMN_LOGIC_POINT_BEST,
+			Players.COLUMN_MEMORY_POINT_BEST, Players.COLUMN_SPEED_POINT_BEST,
+			//Player's current point
+			Players.COLUMN_LOGIC_POINT_CURRENT,
+			Players.COLUMN_MEMORY_POINT_CURRENT, Players.COLUMN_SPEED_POINT_CURRENT};
+
+
+
 	}
 
-	private static final String CREATE_DB = "CREATE TABLE " + Players.TABLE_NAME
-			+ "( " + Players.COLUMN_ID + " integer primary key autoincrement, "
-			+ Players.COLUMN_NAME + Players.TEXT_TYPE + Players.COMMA_SEP
-			+ Players.COLUMN_TOTAL_POINT_CURRENT + Players.INT_TYPE + Players.COMMA_SEP
-			+ Players.COLUMN_LOGIC_POINT_CURRENT +  Players.INT_TYPE + Players.COMMA_SEP 
-			+ Players.COLUMN_MEMORY_POINT_CURRENT + Players.INT_TYPE + Players.COMMA_SEP
-			+ Players.COLUMN_SPEED_POINT_CURRENT +  Players.INT_TYPE + Players.COMMA_SEP
-			+ Players.COLUMN_TOTAL_POINT_BEST +  Players.INT_TYPE + Players.COMMA_SEP 
-			+ Players.COLUMN_LOGIC_POINT_BEST +  Players.INT_TYPE + Players.COMMA_SEP
-			+ Players.COLUMN_MEMORY_POINT_BEST +  Players.INT_TYPE + Players.COMMA_SEP
-			+ Players.COLUMN_SPEED_POINT_BEST +  Players.INT_TYPE + ")";
 
-
-	private static final String DELETE_STATEMENT = "DELETE IF EXISTS TABLE " + Players.TABLE_NAME;
 
 	public PlayerHelper(Context context){
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -57,14 +68,14 @@ public class PlayerHelper extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		Log.i("Databse", "Creating");
-		db.execSQL(CREATE_DB);
+		db.execSQL(Players.CREATE_DB);
 		setDefaultLabel(db);
 		Log.i("Database", "Created");
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL(DELETE_STATEMENT);
+		db.execSQL(Players.DELETE_STATEMENT);
 		onCreate(db);
 	}
 
@@ -73,19 +84,12 @@ public class PlayerHelper extends SQLiteOpenHelper{
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
-		//Creating the player with 0 points in all category
-//		values.put(Players.COLUMN_ID, id);
-		values.put(Players.COLUMN_NAME, player.getName());
-//		values.put(Players.COLUMN_LOGIC_POINT_N, 0);
-//		values.put(Players.COLUMN_MEMORY_POINT_N, 0);
-//		values.put(Players.COLUMN_SPEED_POINT_N,0);
-//		values.put(Players.COLUMN_TOTAL_POINT_N,0);
-//		values.put(Players.COLUMN_LOGIC_POINT_O, 0);
-//		values.put(Players.COLUMN_MEMORY_POINT_O, 0);
-//		values.put(Players.COLUMN_SPEED_POINT_O,0);
-//		values.put(Players.COLUMN_TOTAL_POINT_O,0);
-
 		
+		//Creating the player with 0 points in all category
+		values.put(Players.COLUMN_NAME, player.getName());
+
+
+		//Inserting a player in DB
 		db.insert(Players.TABLE_NAME, null , values);
 
 
@@ -93,88 +97,99 @@ public class PlayerHelper extends SQLiteOpenHelper{
 
 	}
 
-	//	TODO!!!	
-	public void updateScore(SQLiteDatabase db ,int RowID, int newScore){
+	public void updateScore(int id, Player player){
+		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues cv = new ContentValues();
 
-		cv.put("Point", newScore);
+		cv.put(Players.COLUMN_LOGIC_POINT_CURRENT, player.getPlayerLPointCurrent());
+		cv.put(Players.COLUMN_MEMORY_POINT_CURRENT, player.getPlayerMPointCurrent());
+		cv.put(Players.COLUMN_SPEED_POINT_CURRENT, player.getPlayerSPointCurrent());
 
-		db.update(Players.TABLE_NAME, cv, "_id" + "=" + RowID, null);
+		db.update(Players.TABLE_NAME, cv, Players.COLUMN_ID + "=?", new String[] {String.valueOf(id)});
+
+		Log.i("After update", player.toString());
+
+		Player p = getPlayer(id);
+
+		Log.i("After update", p.toString() );
 
 	}
 
-		public Player getPlayer(int id){
-			
-			//reach DB
-			final SQLiteDatabase db = this.getReadableDatabase();
-			
-			
-			final String[] allColumn = {Players.COLUMN_ID, Players.COLUMN_NAME, 
-					//Player's best point 
-					Players.COLUMN_LOGIC_POINT_BEST,
-					Players.COLUMN_MEMORY_POINT_BEST, Players.COLUMN_SPEED_POINT_BEST,
-					//Player's current point
-					Players.COLUMN_LOGIC_POINT_CURRENT,
-					Players.COLUMN_MEMORY_POINT_CURRENT, Players.COLUMN_SPEED_POINT_CURRENT};
-		
-			//Creating cursor with allColumnn string
-			Cursor cursor = db.query(DATABASE_NAME, allColumn, Players.COLUMN_ID + "=?",
-					new String[] {String.valueOf(id)}, null, null, null);
 
-			//Creating player and set 
-			if (cursor != null && cursor.moveToFirst()){
-				cursor.moveToFirst();
+
+	public Player getPlayer(int id){
+
+		//reach DB
+		final SQLiteDatabase db = this.getReadableDatabase();
+
+
+		//			final String[] allColumn = {Players.COLUMN_ID, Players.COLUMN_NAME, 
+		//					//Player's best point 
+		//					Players.COLUMN_LOGIC_POINT_BEST,
+		//					Players.COLUMN_MEMORY_POINT_BEST, Players.COLUMN_SPEED_POINT_BEST,
+		//					//Player's current point
+		//					Players.COLUMN_LOGIC_POINT_CURRENT,
+		//					Players.COLUMN_MEMORY_POINT_CURRENT, Players.COLUMN_SPEED_POINT_CURRENT};
+
+		//Creating cursor with allColumnn string
+		Cursor cursor = db.query(DATABASE_NAME, Players.allColumn, Players.COLUMN_ID + "=?",
+				new String[] {String.valueOf(id)}, null, null, null);
+
+		//Creating player and set 
+		if (cursor != null && cursor.moveToFirst()){
+			cursor.moveToFirst();
 			Player pl = new Player();
-			
-//			//set attributes to the player
+
+			//			//set attributes to the player
 			Log.i("setId", cursor.getString(0));
 			pl.setId(cursor.getInt(0));
 			Log.i("setName", cursor.getString(1));
 			pl.setName(cursor.getString(1));
-			
+
 			//Set score to the player
 			//Best score
 			Log.i("setPlayerLPointBest", cursor.getString(2));
 			pl.setPlayerLPointBest(cursor.getInt(2));
 			pl.setPlayerMPointBest(cursor.getInt(3));
 			pl.setPlayerSPointBest(cursor.getInt(4));
-			
-//			Current score
+
+			//			Current score
 			pl.setPlayerLPointCurrent(cursor.getInt(5));
 			pl.setPlayerMPointCurrent(cursor.getInt(6));
 			pl.setPlayerSPointCurrent(cursor.getInt(7));
-//			
+			//			
 			Log.i("Player from getPlayer", pl.toString());
 			return pl;
-			}
-			return null;
 		}
+		return null;
+	}
 
 
-//	public List<Player> getAllPlayer(){
-//		List<Player> all = new ArrayList<Player>();
-//
-//		final SQLiteDatabase db = getReadableDatabase();
-//
-//		//		Cursor b = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy)
-//		Cursor c = db.query(Players.TABLE_NAME, new String[] {}, Players.COLUMN_ID + "=?", null, null ,null, "name");
-//
-//		c.moveToFirst();
-//
-//		while(!c.isAfterLast()){
-//			final Player player = cursorToPlayer(c);
-//			all.add(player);
-//			c.moveToNext(); 
-//		}
-//
-//		c.close();
-//		db.close();
-//
-//		return all;
-//	}
+	//	public List<Player> getAllPlayer(){
+	//		List<Player> all = new ArrayList<Player>();
+	//
+	//		final SQLiteDatabase db = getReadableDatabase();
+	//
+	//		//		Cursor b = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy)
+	//		Cursor c = db.query(Players.TABLE_NAME, new String[] {}, Players.COLUMN_ID + "=?", null, null ,null, "name");
+	//
+	//		c.moveToFirst();
+	//
+	//		while(!c.isAfterLast()){
+	//			final Player player = cursorToPlayer(c);
+	//			all.add(player);
+	//			c.moveToNext(); 
+	//		}
+	//
+	//		c.close();
+	//		db.close();
+	//
+	//		return all;
+	//	}
 
 	private static Player cursorToPlayer(Cursor c){
+		
 		int idIndex = c.getColumnIndex(Players.COLUMN_ID);
 		int nameIndex = c.getColumnIndex(Players.COLUMN_NAME);
 		int tnPoint = c.getColumnIndex(Players.COLUMN_TOTAL_POINT_CURRENT);
@@ -189,12 +204,12 @@ public class PlayerHelper extends SQLiteOpenHelper{
 		int id = c.getInt(idIndex);
 		String name = c.getString(nameIndex);
 		//Best
-//		int totalPointBest = c.getInt(tnPoint);
+		//		int totalPointBest = c.getInt(tnPoint);
 		int logicPointBest = c.getInt(lnPoint);
 		int memoryPointBest = c.getInt(mnPoint);
 		int speedPointBest = c.getInt(snPoint);
 		//Current
-//		int totalPointCurrent = c.getInt(toPoint);
+		//		int totalPointCurrent = c.getInt(toPoint);
 		int logicPointCurrent = c.getInt(loPoint);
 		int memoryPointCurrent = c.getInt(moPoint);
 		int speedPointCurrent = c.getInt(soPoint);
@@ -208,7 +223,7 @@ public class PlayerHelper extends SQLiteOpenHelper{
 		p.setPlayerLPointBest(logicPointBest);
 		p.setPlayerSPointBest(speedPointBest);
 		p.setPlayerMPointBest(memoryPointBest);
-		
+
 		p.setPlayerLPointCurrent(logicPointCurrent);
 		p.setPlayerMPointCurrent(memoryPointCurrent);
 		p.setPlayerSPointCurrent(speedPointCurrent);
@@ -227,18 +242,37 @@ public class PlayerHelper extends SQLiteOpenHelper{
 
 		Cursor cursor = db.rawQuery(selectQuery, null);
 
-//		Log.i("cursor", Integer.toString(cursor.getCount()));
+		//		Log.i("cursor", Integer.toString(cursor.getCount()));
 		if (cursor.getCount() != 0) {
 			cursor.moveToFirst();
 
 			do {
 				Player pl = new Player();
-				Log.i("Players IDDD" , cursor.getString(0).toString());
-				//pl.setId(Integer.parseInt(cursor.getString(0)));
+
+				//				//set attributes to the player
+				Log.i("setId", cursor.getString(0));
+				pl.setId(cursor.getInt(0));
+				Log.i("setName", cursor.getString(1));
 				pl.setName(cursor.getString(1));
-				pl.setPlayerTotalPoint(Integer.parseInt(cursor.getString(2)));
-				//// Adding player to list
+
+				//Set score to the player
+				//Best score
+				Log.i("setPlayerLPointBest", cursor.getString(3));
+				pl.setPlayerLPointBest(cursor.getInt(3));
+				Log.i("setPlayerLPointBest", cursor.getString(4));
+				pl.setPlayerMPointBest(cursor.getInt(4));
+				Log.i("setPlayerLPointBest", cursor.getString(5));
+				pl.setPlayerSPointBest(cursor.getInt(5));
+
+				//				Current score
+				Log.i("setPlayerLPointCurrent", cursor.getString(6));
+				pl.setPlayerLPointCurrent(cursor.getInt(6));
+				Log.i("setPlayerMPointCurrent", cursor.getString(7));
+				pl.setPlayerMPointCurrent(cursor.getInt(7));
+				Log.i("setPlayerSPointCurrent", cursor.getString(8));
+				pl.setPlayerSPointCurrent(cursor.getInt(8));
 				playerList.add(pl);
+				Log.i("Player", pl.toString());
 			} while (cursor.moveToNext());
 		}
 
@@ -274,9 +308,9 @@ public class PlayerHelper extends SQLiteOpenHelper{
 
 	public void setDefaultLabel(SQLiteDatabase db) {
 		// create default label
-//		ContentValues values = new ContentValues();
-//		values.put(Players.COLUMN_ID, "Default");
-//		db.insert(Players.TABLE_NAME, null, values);
+		//		ContentValues values = new ContentValues();
+		//		values.put(Players.COLUMN_ID, "Default");
+		//		db.insert(Players.TABLE_NAME, null, values);
 	}
 
 }
