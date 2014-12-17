@@ -3,6 +3,7 @@ package com.example.thepiproject;
 import java.util.Locale;
 
 import com.example.playerdatabase.Player;
+import com.example.playerdatabase.PlayerHelper;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 
 import android.app.Activity;
@@ -90,6 +91,13 @@ public class MainActivity extends Activity implements OnClickListener {
 			startService(musicIntent);
 		}
 		setLocale(language);
+		
+		//This will create and default player
+		PlayerHelper ph = new PlayerHelper(this);
+		if(currentPlayerID == 0){
+			currentPlayerID = 1;
+			ph = null;
+		}
 	}
 
 	@Override
@@ -114,6 +122,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		SharedPreferences.Editor editor = pref.edit();
 		editor.putBoolean("music", musicPlaying);
 		editor.putString("language", language);
+		editor.putInt("currentPlay", currentPlayerID);
 		editor.commit();
 	}
 
