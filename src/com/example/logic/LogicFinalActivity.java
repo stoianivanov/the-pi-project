@@ -2,11 +2,13 @@ package com.example.logic;
 
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
@@ -26,6 +28,11 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.utils.Legend;
+import com.github.mikephil.charting.utils.LimitLine;
+import com.github.mikephil.charting.utils.XLabels;
+import com.github.mikephil.charting.utils.YLabels;
 
 public class LogicFinalActivity extends Activity implements OnClickListener{
 
@@ -38,6 +45,8 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 	Player player;
 	PlayerHelper ph;
 	
+	String calledFrom;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,18 +55,26 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 		ph = new PlayerHelper(this);
 		player = ph.getPlayer(MainActivity.currentPlayerID);
 		
-		long score = getIntent().getExtras().getLong("score");
+		score = getIntent().getExtras().getLong("score");
+		calledFrom = getIntent().getExtras().getString("from");
+		
 		TextView tv = (TextView) findViewById(R.id.logicFinalTextView);
-		tv.setText(Integer.toString(player.getPlayerLPointBest()));
+		tv.setText("Congratulations!!");
+		
+		lineChart = (LineChart) findViewById(R.id.logifFinalLineChart);
+		createChart();
 		
 		
-		player.setPlayerLPointCurrent((int)score);
+		if(calledFrom.equals("logic")){
+			player.setPlayerLPointCurrent((int)score);
+		} else if (calledFrom.equals("speed")){
+			player.setPlayerSPointCurrent((int)score);
+		}
+		
 		ph.updateScore(MainActivity.currentPlayerID, player);
 		
 		musicButton = (ImageButton) findViewById (R.id.soundButtonLogicFinal);
 		musicButton.setOnClickListener(this);
-		lineChart = (LineChart) findViewById(R.id.logifFinalLineChart);
-		createChart();
 		
 	}
 	
@@ -77,37 +94,69 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 			startService(MainActivity.musicIntent);
 		}
 	}
-	private void createChart(){
+	@SuppressLint("ResourceAsColor") private void createChart(){
 		
 		ArrayList<Entry> comp1 = new ArrayList<Entry>();
-		ArrayList<Entry> comp2 = new ArrayList<Entry>();
 		
-		comp1.add(new Entry(100.00f, 0));
-		comp1.add(new Entry(50.00f,1));
+		float bestScore = 0;
+		float lastScore = 0;
 		
-		comp2.add(new Entry(120.00f,0));
-		comp2.add(new Entry(110.00f,1));
+		if(calledFrom.equals("logic")){
+			bestScore = (float)player.getPlayerLPointBest();
+			lastScore = (float)player.getPlayerLPointCurrent();
+		} else if (calledFrom.equals("speed")){
+			bestScore = (float)player.getPlayerSPointBest();
+			lastScore = (float)player.getPlayerSPointCurrent();
+		}
 		
-		LineDataSet setComp1 = new LineDataSet(comp1, "Company 1");
-		LineDataSet setcomp2 = new LineDataSet(comp2, "Company 2");
+		comp1.add(new Entry(lastScore,1));
+		comp1.add(new Entry(bestScore, 2));
+		comp1.add(new Entry((float) score, 3));
 		
-//		setComp1.setColors(new int[] {R.color.Brown,R.color.Brown,
-//				R.color.Brown,R.color.Brown}, getApplicationContext());
-//		setcomp2.setColors(new int[] {getResources().getColor(Color.GREEN),getResources().getColor(Color.GREEN),
-//				getResources().getColor(Color.GREEN), getResources().getColor(Color.GREEN)}, getApplicationContext());
+		LineDataSet setComp1 = new LineDataSet(comp1,calledFrom);
+		if(calledFrom.equals("logic")){
+			setComp1.setColor(Color.BLUE);
+		} else if (calledFrom.equals("speed")){
+			setComp1.setColor(Color.GREEN);
+		}
 		
 		ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
 		dataSets.add(setComp1);
-		dataSets.add(setcomp2);
+		
+		
 		
 		ArrayList<String> xVals = new ArrayList<String>();
-		xVals.add("1.Q");
-		xVals.add("2.Q");
-		xVals.add("3.Q");
-		xVals.add("4.Q");
+		xVals.add("0");
+		xVals.add("Previous Score");
+		xVals.add("Best Score");
+		xVals.add("Current Score");
+		xVals.add("");
+		
 		LineData data = new LineData(xVals,dataSets);
+		
 		lineChart.animateXY(2000, 2000);
+		lineChart.setTouchEnabled(false);
+		lineChart.setDescription("");
+		lineChart.setDrawYLabels(true);
+		lineChart.setValueTextSize(22f);
+		lineChart.setValueTextColor(Color.YELLOW);
+		lineChart.setBackgroundColor(Color.TRANSPARENT);
 		lineChart.setData(data);
+		lineChart.setDrawGridBackground(false);
+		lineChart.setGridColor(Color.BLACK);
+		
+		Legend legend =	lineChart.getLegend();
+		legend.setTextSize(13f);
+		
+		XLabels xLabels = lineChart.getXLabels();
+		xLabels.setTextSize(20f);
+		xLabels.setTextColor(Color.GREEN);
+		
+		
+		YLabels yLabels = lineChart.getYLabels();
+		yLabels.setTextSize(12f);
+		yLabels.setTextColor(Color.CYAN);
+		yLabels.setLabelCount(4);
 	}
 
 	@Override

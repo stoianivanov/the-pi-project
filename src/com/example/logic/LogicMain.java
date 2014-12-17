@@ -294,6 +294,7 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 			} else {
 				Intent i = new Intent(getApplicationContext(),LogicFinalActivity.class);
 				i.putExtra("score", score);
+				i.putExtra("from", "logic");
 				finish();
 				startActivity(i);
 			}
