@@ -40,11 +40,13 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 												OnAnswerSelectedListener {
 
 	private static final int MAX_GAME_2 = 5;
+	private static final int MAX_GAME_3 = 5;
 
 	private static final long INITIAL_SERIES_NUMBERS_TIME = 15000;
 
 	private ImageButton musicButton;
 	private int counterGame2=0;
+	private int counterGame3=0;
 	private boolean mBound = false;
 	private BackGroundMusic music;
 	private ProgressBar pb;
@@ -76,7 +78,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		caller= getIntent().getExtras().getInt("caller",0);
 		
 		gameLayout= (FrameLayout) findViewById(R.id.gameMemory);
-		StartFragment(new MemoryGame3());
+		StartFragment(new MemoryGame2());
 	}
 	
 	@Override
@@ -180,7 +182,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		@Override
 		public void onFinish() {
 			pb.setProgress(0);
-			result.setText("0");
+			nextFragment();
 		}
 
 	}
@@ -208,6 +210,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 			@Override
 			public void onFinish() {
 				dialog.cancel();
+				
 			}
 		}.start();
 		
@@ -224,9 +227,9 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		cd.cancel();
 		score += timeLeft / 3;
 		result.setText(Long.toString(score));
-		
-		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-		cd.start();
+		nextFragment();
+	//	cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+	//	cd.start();
 	}
 
 	@Override
@@ -234,21 +237,29 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		if(MainActivity.musicPlaying){
 			music.wrongSound();
 		}
+		nextFragment();
 		cd.cancel();
 		showDialog(false);
-		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
-		cd.start();
 		
+	//	cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+	//	cd.start();
 		
 	}
 
 	@Override
 	public void nextFragment() {
 		
+		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
+		cd.start();
+		
 		if(counterGame2 < MAX_GAME_2){
 			Log.i("NExt Fragment", ""+counterGame2);
 			StartFragment(new MemoryGame2());
-		}else {
+			++counterGame2;
+		}else if(counterGame3 <MAX_GAME_3){
+			StartFragment(new MemoryGame3());
+			++counterGame3;
+		} else {
 			if(caller ==3){
 				Intent i = new Intent();
 				i.putExtra("score", score);
@@ -259,12 +270,14 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 				//startira poslednoto activyti
 			}
 		}
+			
+		
 		
 	}
 
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.soundButtonSpeedActivity) {
+		if (v.getId() == R.id.soundButtonMemoryActivity) {
 			if (MainActivity.musicPlaying) {
 				Log.e("PiProject", "ButtonOn");
 				music.onPause();
@@ -286,7 +299,6 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
           	 final FragmentTransaction tr= fm.beginTransaction();
           	 tr.replace(R.id.gameMemory, fr, null);
           	 tr.commitAllowingStateLoss();
-          	 ++counterGame2;
           	 
            }
            

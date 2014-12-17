@@ -56,7 +56,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_speed);
-		
+		currentFragment= new GameSpeed1();
 		musicButton= (ImageButton) findViewById(R.id.soundButtonSpeedActivity);
 		musicButton.setOnClickListener(this);
 		
@@ -207,8 +207,8 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		@Override
 		public void onFinish() {
 			pb.setProgress(0);
-			result.setText("");
 		}
+
 
 	}
 	
@@ -235,6 +235,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 			@Override
 			public void onFinish() {
 				dialog.cancel();
+				
 			}
 		}.start();
 		
