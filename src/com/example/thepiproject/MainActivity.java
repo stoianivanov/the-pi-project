@@ -26,11 +26,12 @@ import android.widget.ImageButton;
 public class MainActivity extends Activity implements OnClickListener {
 
 	public static Intent musicIntent;
-	
+
 	Button newGame;
 	Button changeLanguage;
 	ImageButton musicButton;
 	Button category;
+	Button player;
 	String language;
 	SharedPreferences pref;
 
@@ -64,6 +65,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		category.setOnClickListener(this);
 		
 		
+
+		player = (Button) findViewById(R.id.playerButton);		
+		player.setOnClickListener(this);
+
 
 	}
 
@@ -100,7 +105,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			startService(MainActivity.musicIntent);
 		}
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
@@ -115,7 +120,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onDestroy() {
 		super.onDestroy();
 		music.onDestroy();
-		
+
 	}
 
 	@Override
@@ -183,6 +188,14 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+
+		if (v.getId() == R.id.playerButton){		
+			Intent i = new Intent(getApplicationContext(),PlayerActivity.class);		
+			startActivity(i);		
+			Log.i("OnClick", "Start Activity");		
+
+		}		
+
 
 		if (v.getId() == R.id.soundButton) {
 			if (musicPlaying) {

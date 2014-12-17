@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,8 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		setContentView(R.layout.activity_player);
 		
 		ph = new PlayerHelper(this);
+		Player p = ph.getPlayer(1);
+		Log.i("Player from geter", p.toString());
 		PlayerList =  ph.getAll2Player();
 		
 		
@@ -35,9 +38,9 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 
 		nameEdit = (EditText) findViewById(R.id.PlayerName);
 		
-		ArrayAdapter<Player> adapter = new ArrayAdapter<Player>(this, R.layout.activity_player, PlayerList);
+		setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
 	
-		setListAdapter(adapter);
+		//setListAdapter(adapter);
 		
 		//ArrayAdapter<Player> adapt = new ArrayAdapter<Player>(this, R.id.PlayerList, list);
 		//setListAdapter(new ArrayAdapter<Player>(this,R.layout.activity_player,PlayerList));
@@ -49,17 +52,13 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		
-		
 
 		if(v.getId() == AddPlayer.getId()){
 			final String name = nameEdit.getText().toString();
 
 			final Player player = new Player();
 			player.setName(name);
-			player.setPlayerLPoint(0);
-			player.setPlayerMPoint(0);
-			player.setPlayerSPoint(0);
-			player.setPlayerTotalPoint(0);
+
 					
 			ph.addPlayer(player);
 			
@@ -69,5 +68,7 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 	
 	private void notifyDataSetChanged() {
 		((ArrayAdapter<Player>)getListAdapter()).notifyDataSetChanged();
+	
+	
 	}
 }

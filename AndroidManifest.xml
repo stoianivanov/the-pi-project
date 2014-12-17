@@ -17,6 +17,9 @@
             android:name=".BackGroundMusic"
             android:enabled="true" />
 
+        <activity 
+            android:name=".PlayerActivity">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"
