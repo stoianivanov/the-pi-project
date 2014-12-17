@@ -2,8 +2,6 @@ package com.example.playerdatabase;
 
 public class Player {
 	
-	
-
 	private int id;
 	private String Name;
 	private int PlayerTPointBest;

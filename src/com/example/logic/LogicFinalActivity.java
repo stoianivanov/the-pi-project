@@ -1,18 +1,25 @@
 package com.example.logic;
 
-import com.example.thepiproject.R;
-import com.example.thepiproject.R.id;
-import com.example.thepiproject.R.layout;
-import com.example.thepiproject.R.menu;
+import java.util.ArrayList;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.thepiproject.R;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
 public class LogicFinalActivity extends Activity {
 
+	LineChart lineChart;
+	long score;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,6 +29,42 @@ public class LogicFinalActivity extends Activity {
 		TextView tv = (TextView) findViewById(R.id.logicFinalTextView);
 		tv.setText(Long.toString(score));
 		
+		lineChart = (LineChart) findViewById(R.id.logifFinalLineChart);
+		createChart();
+		
+	}
+	
+	private void createChart(){
+		
+		ArrayList<Entry> comp1 = new ArrayList<Entry>();
+		ArrayList<Entry> comp2 = new ArrayList<Entry>();
+		
+		comp1.add(new Entry(100.00f, 0));
+		comp1.add(new Entry(50.00f,1));
+		
+		comp2.add(new Entry(120.00f,0));
+		comp2.add(new Entry(110.00f,1));
+		
+		LineDataSet setComp1 = new LineDataSet(comp1, "Company 1");
+		LineDataSet setcomp2 = new LineDataSet(comp2, "Company 2");
+		
+//		setComp1.setColors(new int[] {getResources().getColor(Color.RED),getResources().getColor(Color.RED),
+//				getResources().getColor(Color.RED), getResources().getColor(Color.RED)}, getApplicationContext());
+//		setcomp2.setColors(new int[] {getResources().getColor(Color.GREEN),getResources().getColor(Color.GREEN),
+//				getResources().getColor(Color.GREEN), getResources().getColor(Color.GREEN)}, getApplicationContext());
+		
+		ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
+		dataSets.add(setComp1);
+		dataSets.add(setcomp2);
+		
+		ArrayList<String> xVals = new ArrayList<String>();
+		xVals.add("1.Q");
+		xVals.add("2.Q");
+		xVals.add("3.Q");
+		xVals.add("4.Q");
+		LineData data = new LineData(xVals,dataSets);
+		lineChart.animateXY(2000, 2000);
+		lineChart.setData(data);
 	}
 
 	@Override

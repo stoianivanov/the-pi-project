@@ -37,7 +37,7 @@
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_category"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name=".LogicActivity"
@@ -108,7 +108,7 @@
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_logic_final"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.NoActionBar" >
+           >
         </activity>
         <activity
             android:name=".memory.MemoryActivity"
