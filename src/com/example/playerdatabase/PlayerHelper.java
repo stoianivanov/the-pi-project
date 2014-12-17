@@ -67,7 +67,10 @@ public class PlayerHelper extends SQLiteOpenHelper{
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		Log.i("Database cr", Players.CREATE_DB);
 		db.execSQL(Players.CREATE_DB);
+		db.execSQL("insert into " + Players.TABLE_NAME + "(" + Players.COLUMN_ID + ","
+                + Players.COLUMN_NAME + ") values(1,'Guest')");
 	}
 
 	@Override
