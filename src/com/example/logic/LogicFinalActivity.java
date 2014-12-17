@@ -16,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.playerdatabase.Player;
+import com.example.playerdatabase.PlayerHelper;
 import com.example.thepiproject.BackGroundMusic;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 import com.example.thepiproject.MainActivity;
@@ -33,14 +35,20 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 	BackGroundMusic music;
 	ImageButton musicButton;
 	
+	Player player;
+	PlayerHelper ph;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_logic_final);
 		
+		ph = new PlayerHelper(this);
+		player = ph.getPlayer(MainActivity.currentPlayerID);
+		
 		long score = getIntent().getExtras().getLong("score");
 		TextView tv = (TextView) findViewById(R.id.logicFinalTextView);
-		tv.setText(Long.toString(MainActivity.currentPlayerID));
+		tv.setText(player.toString());
 		
 		musicButton = (ImageButton) findViewById (R.id.soundButtonLogicFinal);
 		musicButton.setOnClickListener(this);
@@ -79,8 +87,8 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 		LineDataSet setComp1 = new LineDataSet(comp1, "Company 1");
 		LineDataSet setcomp2 = new LineDataSet(comp2, "Company 2");
 		
-		setComp1.setColors(new int[] {R.color.Brown,R.color.Brown,
-				R.color.Brown,R.color.Brown}, getApplicationContext());
+//		setComp1.setColors(new int[] {R.color.Brown,R.color.Brown,
+//				R.color.Brown,R.color.Brown}, getApplicationContext());
 //		setcomp2.setColors(new int[] {getResources().getColor(Color.GREEN),getResources().getColor(Color.GREEN),
 //				getResources().getColor(Color.GREEN), getResources().getColor(Color.GREEN)}, getApplicationContext());
 		

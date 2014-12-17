@@ -15,6 +15,8 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+
 
 import com.example.playerdatabase.Player;
 import com.example.playerdatabase.PlayerHelper;
@@ -29,6 +31,8 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 	private EditText nameEdit;
 	private PlayerHelper ph;
 	private List<com.example.playerdatabase.Player> PlayerList;
+	
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +44,7 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		
 //		Player update = ph.getPlayer(1);
 //		
-//		update.setPlayerLPointCurrent(50011);
+//		update.setPlayerLPointCurrent(5000);
 //		update.setPlayerMPointCurrent(1000);
 //		update.setPlayerSPointCurrent(2000);
 //		
@@ -54,17 +58,10 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		AddPlayer.setOnClickListener(this);
 
 		nameEdit = (EditText) findViewById(R.id.PlayerName);
-//
+
 		PlayerList =  ph.getAll2Player();
 		setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
-	
-		//setListAdapter(adapter);
 		
-		//ArrayAdapter<Player> adapt = new ArrayAdapter<Player>(this, R.id.PlayerList, list);
-		//setListAdapter(new ArrayAdapter<Player>(this,R.layout.activity_player,PlayerList));
-//		ListView l = (ListView) findViewById(R.id.)
-//		lv.setAdapter(adapter);
-
 	}
 
 	@Override
@@ -80,14 +77,32 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 					
 			ph.addPlayer(player);
 			
+			setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
+			
 			notifyDataSetChanged();
 		}		
 	}
 	
+
+	
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		Player current = (Player) this.getListAdapter().getItem(position);
+		Intent i = new Intent();
+		i.putExtra("currentPlayer", current.getId());
+		setResult(RESULT_OK, i);
+		String str = current.getName()+  " " + current.getId();
+		Log.i("Player fro activity", str);
+		finish();
+		return;
+	}
+
+
+	@SuppressWarnings("unchecked")
 	private void notifyDataSetChanged() {
-		((ArrayAdapter<Player>)getListAdapter()).notifyDataSetChanged();
-	
-	
+		((ArrayAdapter<Player>)getListAdapter()).notifyDataSetChanged();	
 	}
 	
 	@Override
@@ -132,4 +147,5 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 			mBound = false;
 		}
 	}
+
 }

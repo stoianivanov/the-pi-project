@@ -43,12 +43,13 @@ public class Player {
 	public void setName (String name) {
 		Name = name;
 	}
-	public int getPlayerTotalPoint() {
+	public int getPlayerTotalPointBest() {
 		int tPoint = PlayerLPointBest + PlayerMPointBest + PlayerSPointBest;
 		return tPoint;
 	}
-	public void setPlayerTotalPoint(int playerTotalPoint) {
-		PlayerTPointBest = playerTotalPoint;
+	public void setPlayerTotalPointBest() {
+		PlayerTPointBest = PlayerLPointBest +
+				PlayerMPointBest + PlayerSPointBest;
 	}
 
 	public int getPlayerLPointBest() {
@@ -56,7 +57,7 @@ public class Player {
 	}
 
 	public void setPlayerLPointBest(int playerLPointBest) {
-		PlayerLPointBest = playerLPointBest;
+		PlayerLPointBest = playerLPointBest;		
 	}
 
 	public int getPlayerMPointBest() {
@@ -78,6 +79,10 @@ public class Player {
 	public int getPlayerTotalPointCurrent() {
 		int tPointOld = PlayerLPointCurrent + PlayerMPointCurrent + PlayerSPointCurrent;
 		return tPointOld;
+	}
+	
+	public void setPlayerTotalPointCurrent() {
+		PlayerTPointBest = PlayerLPointCurrent + PlayerMPointCurrent + PlayerSPointCurrent;
 	}
 
 	public int getPlayerLPointCurrent() {
@@ -103,14 +108,28 @@ public class Player {
 	public void setPlayerSPointCurrent (int playerSPointCurrent) {
 		PlayerSPointCurrent = playerSPointCurrent;
 	}
+	
+	public void checkBest(){
+		if(PlayerLPointCurrent > PlayerLPointBest){
+			PlayerLPointBest = PlayerLPointCurrent;
+		}
+		
+		if(PlayerMPointCurrent > PlayerMPointBest){
+			PlayerMPointBest = PlayerMPointCurrent;
+		}
+		
+		if(PlayerSPointCurrent > PlayerSPointBest){
+			PlayerTPointBest = PlayerTPointCurrent;
+		}
+	}
 
 	@Override
 	public String toString() {
 		return Name + "\n" +
 				"Total point: " + PlayerTPointBest
-//				+ ", Logic point: " + PlayerLPointBest + ", Memory point: "
-//				+ PlayerMPointBest + ", Speed point: " + PlayerSPointBest
-//				
+				+ ", Logic point: " + PlayerLPointBest + ", Memory point: "
+				+ PlayerMPointBest + ", Speed point: " + PlayerSPointBest
+				
 				+ "\n Current logic point: " + PlayerLPointCurrent + ", Current memory point: "
 				+ PlayerMPointCurrent + ", Current speed point: " + PlayerSPointCurrent;
 	}

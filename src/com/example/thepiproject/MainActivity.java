@@ -67,8 +67,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		category = (Button) findViewById(R.id.categoryButton);
 		category.setOnClickListener(this);
 		
-		
-
 		player = (Button) findViewById(R.id.playerButton);		
 		player.setOnClickListener(this);
 
