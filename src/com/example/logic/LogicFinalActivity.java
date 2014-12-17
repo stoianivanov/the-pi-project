@@ -48,7 +48,11 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 		
 		long score = getIntent().getExtras().getLong("score");
 		TextView tv = (TextView) findViewById(R.id.logicFinalTextView);
-		tv.setText(player.toString());
+		tv.setText(Integer.toString(player.getPlayerLPointBest()));
+		
+		
+		player.setPlayerLPointCurrent((int)score);
+		ph.updateScore(MainActivity.currentPlayerID, player);
 		
 		musicButton = (ImageButton) findViewById (R.id.soundButtonLogicFinal);
 		musicButton.setOnClickListener(this);
