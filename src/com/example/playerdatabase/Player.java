@@ -20,17 +20,6 @@ public class Player {
 
 	}
 
-//	public Player(int parseInt, String string, int parseInt2, int parseInt3, int parseInt4, int parseInt5) {
-//		this.id = parseInt;
-//		this.Name = string;
-//		
-//		
-//		this.PlayerTPoint = parseInt2;
-//		this.PlayerLPoint = parseInt3;
-//		this.PlayerSPoint = parseInt4;
-//		this.PlayerMPoint = parseInt5;
-//	}
-
 	public int getId() {
 		return id;
 	}
@@ -82,7 +71,7 @@ public class Player {
 	}
 	
 	public void setPlayerTotalPointCurrent() {
-		PlayerTPointBest = PlayerLPointCurrent + PlayerMPointCurrent + PlayerSPointCurrent;
+		PlayerTPointCurrent = PlayerLPointCurrent + PlayerMPointCurrent + PlayerSPointCurrent;
 	}
 
 	public int getPlayerLPointCurrent() {
@@ -119,19 +108,25 @@ public class Player {
 		}
 		
 		if(PlayerSPointCurrent > PlayerSPointBest){
-			PlayerTPointBest = PlayerTPointCurrent;
+			PlayerSPointBest = PlayerSPointCurrent;
 		}
+		
+		PlayerTPointCurrent = PlayerLPointCurrent +
+				PlayerMPointCurrent + PlayerSPointCurrent;
+		
+		PlayerTPointBest = PlayerLPointBest +
+				PlayerMPointBest + PlayerSPointBest;
 	}
 
 	@Override
 	public String toString() {
 		return Name + "\n" +
-				"Total point: " + PlayerTPointBest
-				+ ", Logic point: " + PlayerLPointBest + ", Memory point: "
-				+ PlayerMPointBest + ", Speed point: " + PlayerSPointBest
-				
-				+ "\n Current logic point: " + PlayerLPointCurrent + ", Current memory point: "
-				+ PlayerMPointCurrent + ", Current speed point: " + PlayerSPointCurrent;
+				"Total best point: " + PlayerTPointBest
+				+ "\nLogic point: " + PlayerLPointBest + ", Memory point: "
+				+ PlayerMPointBest + ", Speed point: " + PlayerSPointBest;
+//				+ "\n Total current point:" + PlayerTPointCurrent 
+//				+ "\n Current logic point: " + PlayerLPointCurrent + ", Current memory point: "
+//				+ PlayerMPointCurrent + ", Current speed point: " + PlayerSPointCurrent;
 	}
 	
 }

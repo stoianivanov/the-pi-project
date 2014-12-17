@@ -160,6 +160,7 @@ public class PlayerHelper extends SQLiteOpenHelper{
 			pl.setPlayerSPointCurrent(cursor.getInt(7));
 			//			
 			Log.i("Player from getPlayer", pl.toString());
+			pl.checkBest();
 			return pl;
 		}
 		return null;
@@ -251,6 +252,7 @@ public class PlayerHelper extends SQLiteOpenHelper{
 				pl.setPlayerMPointCurrent(cursor.getInt(6));
 				Log.i("setPlayerSPointCurrent", cursor.getString(7));
 				pl.setPlayerSPointCurrent(cursor.getInt(7));
+				pl.checkBest();
 				playerList.add(pl);
 				Log.i("Player", pl.toString());
 			} while (cursor.moveToNext());

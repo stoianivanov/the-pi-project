@@ -44,9 +44,9 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		
 //		Player update = ph.getPlayer(1);
 //		
-//		update.setPlayerLPointCurrent(5000);
-//		update.setPlayerMPointCurrent(1000);
-//		update.setPlayerSPointCurrent(2000);
+//		update.setPlayerLPointCurrent(15005);
+//		update.setPlayerMPointCurrent(1001);
+//		update.setPlayerSPointCurrent(2001);
 //		
 //		Log.i("Before update", update.toString());
 //		ph.updateScore(1, update);
