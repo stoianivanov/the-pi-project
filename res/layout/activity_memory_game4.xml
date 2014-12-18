@@ -5,127 +5,143 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <ImageView
-        android:id="@+id/game4Color1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="96dp"
-        android:layout_marginRight="15dp"
-        android:src="@drawable/yellow" />
-
-    <ImageView
-        android:id="@+id/paintButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/grey" />
-
-    <ImageView
-        android:id="@+id/paintButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/paintButton2"
-        android:layout_below="@+id/paintButton2"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/grey" />
-
-    <ImageView
-        android:id="@+id/paintButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/paintButton1"
-        android:layout_below="@+id/paintButton1"
-        android:layout_marginTop="17dp"
-        android:src="@drawable/grey" />
-
-    <ImageView
-        android:id="@+id/paintButton11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/paintButton6"
-        android:layout_below="@+id/paintButton6"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/grey" />
-
-    <ImageView
         android:id="@+id/paintButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignTop="@+id/paintButton2"
         android:layout_toRightOf="@+id/paintButton2"
         android:src="@drawable/grey" />
 
     <ImageView
         android:id="@+id/paintButton12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/paintButton1"
         android:layout_toLeftOf="@+id/paintButton2"
         android:src="@drawable/grey" />
 
     <ImageView
         android:id="@+id/paintButton8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignLeft="@+id/paintButton12"
         android:layout_alignTop="@+id/paintButton1"
         android:src="@drawable/grey" />
 
     <ImageView
         android:id="@+id/paintButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/paintButton6"
         android:layout_toRightOf="@+id/paintButton1"
         android:src="@drawable/grey" />
 
     <ImageView
         android:id="@+id/paintButton9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/paintButton11"
         android:layout_alignLeft="@+id/paintButton8"
         android:src="@drawable/grey" />
 
     <ImageView
         android:id="@+id/paintButton10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_above="@+id/paintButton11"
         android:layout_toRightOf="@+id/paintButton6"
         android:src="@drawable/grey" />
 
     <ImageView
         android:id="@+id/paintButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignTop="@+id/paintButton11"
         android:layout_toLeftOf="@+id/paintButton11"
         android:src="@drawable/grey" />
 
     <ImageView
         android:id="@+id/game4Color3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignTop="@+id/game4Color1"
         android:layout_toRightOf="@+id/paintButton7"
         android:src="@drawable/red" />
 
     <ImageView
         android:id="@+id/game4Color2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/game4Color3"
         android:src="@drawable/blue" />
 
     <ImageView
+        android:id="@+id/paintButton11"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@+id/paintButton4"
+        android:layout_toLeftOf="@+id/paintButton10"
+        android:src="@drawable/grey" />
+
+    <ImageView
+        android:id="@+id/paintButton6"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@+id/paintButton9"
+        android:layout_toRightOf="@+id/paintButton9"
+        android:src="@drawable/grey" />
+
+    <ImageView
+        android:id="@+id/paintButton1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@+id/paintButton5"
+        android:layout_toLeftOf="@+id/paintButton10"
+        android:src="@drawable/grey" />
+
+    <ImageView
+        android:id="@+id/paintButton2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/paintButton8"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/grey" />
+
+    <ImageView
+        android:id="@+id/game4Color1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="48dp"
+        android:src="@drawable/yellow" />
+
+    <ImageView
         android:id="@+id/paintButton4"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/game4Color2"
+        android:layout_alignLeft="@+id/paintButton10"
+        android:layout_marginBottom="91dp"
+        android:src="@drawable/grey" />
+
+    <ImageView
+        android:id="@+id/game4_current_color"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/paintButton3"
+        android:src="@drawable/yellow" />
+
+    <TextView
+        android:id="@+id/imagegame4id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/paintButton10"
-        android:layout_alignTop="@+id/paintButton11"
-        android:src="@drawable/grey" />
+        android:layout_above="@+id/paintButton12"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="18dp"
+        android:text="@string/game4_current_color"
+        android:textSize="40dp" />
 
 </RelativeLayout>

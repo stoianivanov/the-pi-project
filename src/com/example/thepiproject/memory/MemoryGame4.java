@@ -36,6 +36,7 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 	private ImageView color1;
 	private ImageView color2;
 	private ImageView color3;
+	private ImageView currentColor;
 	private boolean blue=false;
 	private boolean yellow=true;
 	private boolean red=false;
@@ -46,7 +47,9 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		
 		View view= inflater.inflate(R.layout.activity_memory_game4,null);
+		currentColor= (ImageView) view.findViewById(R.id.game4_current_color);
 		buttons=new int[12];
 		listener = (OnAnswerSelectedListener) getActivity();
 		paint1= (ImageView) view.findViewById(R.id.paintButton1);
@@ -98,7 +101,7 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 		 
 		CountDown cd = new CountDown(2000, 50);
 		cd.start();
-		
+	
 		
 		return view;
 	}
@@ -132,18 +135,21 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 			
 			if(id == R.id.game4Color1){
 				yellow=true;
+				currentColor.setImageResource(R.drawable.yellow);
 				red=false;
 				blue=false;
 			}
 			if(id == R.id.game4Color3){
 				yellow=false;
 				red=true;
+				currentColor.setImageResource(R.drawable.red);
 				blue=false;
 			}
 			if(id == R.id.game4Color2){
 				yellow=false;
 				red=false;
 				blue=true;
+				currentColor.setImageResource(R.drawable.blue);
 			}
 			if(id== R.id.paintButton1){
 				clickButton(paint1, 0);

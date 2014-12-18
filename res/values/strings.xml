@@ -34,5 +34,5 @@
     <string name="title_activity_memory_game2">MemoryGame2</string>
     <string name="title_activity_memory_game3">MemoryGame3</string>
     <string name="title_activity_memory_game4">MemoryGame4</string>
-
+	<string name= "game4_current_color">Current color</string>
 </resources>

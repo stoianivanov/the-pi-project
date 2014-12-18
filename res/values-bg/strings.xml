@@ -14,7 +14,8 @@
     <string name="score">Резултат: </string>
     <string name="speed_next_button">Отговори и продължи напред -></string>
     <string name="speed_game_1"> Сметни израза !</string>
-    	<string name="speed_game_5"> Корена на числото:</string>
+    <string name="speed_game_5"> Корена на числото:</string>
 	<string name="speed_game_10"> Махни тика</string>
+	<string name= "game4_current_color">Текущ цвят</string>
 
 </resources>
