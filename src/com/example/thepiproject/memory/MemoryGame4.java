@@ -37,9 +37,10 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 	private ImageView color2;
 	private ImageView color3;
 	private boolean blue=false;
-	private boolean yellow=false;
+	private boolean yellow=true;
 	private boolean red=false;
 	private int [] buttons;
+	private int correct=0;
 	
 	private OnAnswerSelectedListener listener;
 	@Override
@@ -101,7 +102,7 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 		
 		return view;
 	}
-	private void clickButton(ImageView image, int pos,int correct){
+	private void clickButton(ImageView image, int pos){
 		if(yellow){
 			image.setImageResource(R.drawable.yellow);
 			if(buttons[pos]==3){
@@ -128,7 +129,7 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 			int id = v.getId();
-			int correct=0;
+			
 			if(id == R.id.game4Color1){
 				yellow=true;
 				red=false;
@@ -145,54 +146,54 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 				blue=true;
 			}
 			if(id== R.id.paintButton1){
-				clickButton(paint1, 0, correct);
+				clickButton(paint1, 0);
 			}
 			
 			if(id== R.id.paintButton2){
-				clickButton(paint2, 1, correct);
+				clickButton(paint2, 1);
 			}
 			
 			if(id== R.id.paintButton3){
-				clickButton(paint3 , 2 , correct);
+				clickButton(paint3 , 2 );
 			}
 			
 			if(id== R.id.paintButton4){
-				clickButton(paint4, 3, correct);
+				clickButton(paint4, 3);
 			}
 			
 			if(id== R.id.paintButton5){
-				clickButton(paint5, 4, correct);
+				clickButton(paint5, 4);
 			}
 			
 			if(id== R.id.paintButton6){
-				clickButton(paint6, 5, correct);
+				clickButton(paint6, 5);
 			}
 			
 			if(id== R.id.paintButton7){
-				clickButton(paint7, 6, correct);
+				clickButton(paint7, 6);
 			}
 			
 			if(id== R.id.paintButton8){
-				clickButton(paint8, 7, correct);
+				clickButton(paint8, 7);
 			}
 			
 			if(id== R.id.paintButton9){
-				clickButton(paint9, 8, correct);
+				clickButton(paint9, 8);
 			}
 			
 			if(id== R.id.paintButton10){
-				clickButton(paint10, 9, correct);
+				clickButton(paint10, 9);
 			}
 			
 			if(id== R.id.paintButton11){
-				clickButton(paint11, 10, correct);
+				clickButton(paint11, 10);
 			}
 			
 			if(id== R.id.paintButton12){
-				clickButton(paint12, 11, correct);
+				clickButton(paint12, 11);
 			}
 			
-			if(correct==12){
+			if(correct == 12){
 				listener.correctAnswer();
 			}
 	}

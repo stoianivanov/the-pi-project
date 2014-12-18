@@ -126,106 +126,55 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 			image.setVisibility(View.INVISIBLE);
 		}
 	}
+	private void clickOnKey(ImageView key, int pos){
+		if(keys[pos]==2){
+			++currentAnswer;
+			key.setImageResource(R.drawable.key_memory_ok_1);
+		}else{
+			listener.wrongAnswer();
+		}
+		
+	}
 	@Override
 	public void onClick(View v) {
 		int correctAnswer=countCorrectAnswer();
 
 		int id=v.getId();
 		if(id==R.id.key1){
-			if(keys[0]==2){
-				++currentAnswer;
-				key1.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key1, 0);
 		}
 		if(id==R.id.key2){
-			if(keys[1]==2){
-				++currentAnswer;
-				key2.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key2, 1);
 		}
 		if(id==R.id.key3){
-			if(keys[2]==2){
-				++currentAnswer;
-				key3.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key3, 2);
 		}
 		if(id==R.id.key4){
-			if(keys[3]==2){
-				++currentAnswer;
-				key4.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key4, 3);
 		}
 		if(id==R.id.key5){
-			if(keys[4]==2){
-				++currentAnswer;
-				key5.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key5, 4);
 		}
 		if(id==R.id.key6){
-			if(keys[5]==2){
-				++currentAnswer;
-				key6.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key6, 5);
 		}
 		if(id==R.id.key7){
-			if(keys[6]==2){
-				++currentAnswer;
-				key7.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key7, 6);
 		}
 		if(id==R.id.key8){
-			if(keys[7]==2){
-				++currentAnswer;
-				key8.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key8, 7);
 		}
 		if(id==R.id.key9){
-			if(keys[8]==2){
-				++currentAnswer;
-				key9.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key9, 8);
 		}
 		if(id==R.id.key10){
-			if(keys[9]==2){
-				++currentAnswer;
-				key10.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key10, 9);
 		}
 		if(id==R.id.key11){
-			if(keys[10]==2){
-				++currentAnswer;
-				key11.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key11,10);
 		}
 		if(id==R.id.key12){
-			if(keys[1]==2){
-				++currentAnswer;
-				key12.setImageResource(R.drawable.key_memory_ok_1);
-			}else{
-				listener.wrongAnswer();
-			}
+			clickOnKey(key12, 11);
 		}
 		Log.i("Current answer", ""+currentAnswer);
 		if(currentAnswer == correctAnswer){
@@ -256,151 +205,115 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 			int progres = (int) millisUntilFinished;
 			timeLeft = millisUntilFinished;
 		}
-
+		private void startGame(){
+			if(keys[0]==0){
+				key1.setVisibility(View.INVISIBLE);
+			}
+			if(keys[1]==0){
+				key2.setVisibility(View.INVISIBLE);
+			}
+			if(keys[2]==0){
+				key3.setVisibility(View.INVISIBLE);
+			}
+			if(keys[3]==0){
+				key4.setVisibility(View.INVISIBLE);
+			}
+			if(keys[4]==0){
+				key5.setVisibility(View.INVISIBLE);
+			}
+			if(keys[5]==0){
+				key6.setVisibility(View.INVISIBLE);
+			}
+			if(keys[6]==0){
+				key7.setVisibility(View.INVISIBLE);
+			}			
+			if(keys[7]==0){
+				key8.setVisibility(View.INVISIBLE);
+			}
+			if(keys[8]==0){
+				key9.setVisibility(View.INVISIBLE);
+			}
+			if(keys[9]==0){
+				key10.setVisibility(View.INVISIBLE);
+			}
+			if(keys[10]==0){
+				key11.setVisibility(View.INVISIBLE);
+			}
+			if(keys[11]==0){
+				key12.setVisibility(View.INVISIBLE);
+			}
+			start = true;
+			
+		}
+		private void changeKeyVisible(){
+			if(keys[0]==0){
+				key1.setVisibility(View.VISIBLE);
+			}
+			if(keys[1]==0){
+				key2.setVisibility(View.VISIBLE);
+			}
+			if(keys[2]==0){
+				key3.setVisibility(View.VISIBLE);
+			}
+			if(keys[3]==0){
+				key4.setVisibility(View.VISIBLE);
+			}
+			if(keys[4]==0){
+				key5.setVisibility(View.VISIBLE);
+			}
+			if(keys[5]==0){
+				key6.setVisibility(View.VISIBLE);
+			}
+			if(keys[6]==0){
+				key7.setVisibility(View.VISIBLE);
+			}			
+			if(keys[7]==0){
+				key8.setVisibility(View.VISIBLE);
+			}
+			if(keys[8]==0){
+				key9.setVisibility(View.VISIBLE);
+			}
+			if(keys[9]==0){
+				key10.setVisibility(View.VISIBLE);
+			}
+			if(keys[10]==0){
+				key11.setVisibility(View.VISIBLE);
+			}
+			if(keys[11]==0){
+				key12.setVisibility(View.VISIBLE);
+			}
+		}
+		private void createBonusKey(ImageView key, int pos,int index){
+			if(keys[pos]==1 && pos==index-1){
+				key.setVisibility(View.VISIBLE);
+				++counterKey;
+				keys[pos]=2;
+			}
+		}
 		@Override
 		public void onFinish() {
 			if(!start){
-				if(keys[0]==0){
-					key1.setVisibility(View.INVISIBLE);
-				}
-				if(keys[1]==0){
-					key2.setVisibility(View.INVISIBLE);
-				}
-				if(keys[2]==0){
-					key3.setVisibility(View.INVISIBLE);
-				}
-				if(keys[3]==0){
-					key4.setVisibility(View.INVISIBLE);
-				}
-				if(keys[4]==0){
-					key5.setVisibility(View.INVISIBLE);
-				}
-				if(keys[5]==0){
-					key6.setVisibility(View.INVISIBLE);
-				}
-				if(keys[6]==0){
-					key7.setVisibility(View.INVISIBLE);
-				}			
-				if(keys[7]==0){
-					key8.setVisibility(View.INVISIBLE);
-				}
-				if(keys[8]==0){
-					key9.setVisibility(View.INVISIBLE);
-				}
-				if(keys[9]==0){
-					key10.setVisibility(View.INVISIBLE);
-				}
-				if(keys[10]==0){
-					key11.setVisibility(View.INVISIBLE);
-				}
-				if(keys[11]==0){
-					key12.setVisibility(View.INVISIBLE);
-				}
-				start = true;
-				
+				startGame();
 			}else{
-				if(keys[0]==0){
-					key1.setVisibility(View.VISIBLE);
-				}
-				if(keys[1]==0){
-					key2.setVisibility(View.VISIBLE);
-				}
-				if(keys[2]==0){
-					key3.setVisibility(View.VISIBLE);
-				}
-				if(keys[3]==0){
-					key4.setVisibility(View.VISIBLE);
-				}
-				if(keys[4]==0){
-					key5.setVisibility(View.VISIBLE);
-				}
-				if(keys[5]==0){
-					key6.setVisibility(View.VISIBLE);
-				}
-				if(keys[6]==0){
-					key7.setVisibility(View.VISIBLE);
-				}			
-				if(keys[7]==0){
-					key8.setVisibility(View.VISIBLE);
-				}
-				if(keys[8]==0){
-					key9.setVisibility(View.VISIBLE);
-				}
-				if(keys[9]==0){
-					key10.setVisibility(View.VISIBLE);
-				}
-				if(keys[10]==0){
-					key11.setVisibility(View.VISIBLE);
-				}
-				if(keys[11]==0){
-					key12.setVisibility(View.VISIBLE);
-				}
+				changeKeyVisible();
 				Random r = new Random();
 				maxKey = r.nextInt(3)+1;
 				Log.i("MAX_KEY", ""+maxKey);
 
 				while( counterKey < maxKey){
 					 int index= r.nextInt(13);
-					if(keys[0]==1 && 0==index-1){
-						key1.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[0]=2;
-					}
-					if(keys[1]==1 && 1==index-1){
-						key2.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[1]=2;
-					}
-					if(keys[2]==1 && 2==index-1){
-						key3.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[2]=2;
-					}
-					if(keys[3]==1 && 3==index-1){
-						key4.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[3]=2;
-					}
-					if(keys[4]==1 && 4==index-1){
-						key5.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[4]=2;
-					}
-					if(keys[5]==1 && 5==index-1){
-						key6.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[5]=2;
-					}
-					if(keys[6]==1 && 6==index-1){
-						key7.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[6]=2;
-					}			
-					if(keys[7]==1 && 7==index-1){
-						key8.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[7]=2;
-					}
-					if(keys[8]==1 && 8==index-1){
-						key9.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[8]=2;
-					}
-					if(keys[9]==1 && 9==index-1){
-						key10.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[9]=2;
-					}
-					if(keys[10]==1 && 10==index-1){
-						key11.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[10]=2;
-					}
-					if(keys[11]==1 && 11==index-1){
-						key12.setVisibility(View.VISIBLE);
-						++counterKey;
-						keys[11]=2;
-					}
+					createBonusKey(key1, 0, index);
+					createBonusKey(key2, 1, index);
+					createBonusKey(key3, 2, index);
+					createBonusKey(key4, 3, index);
+					createBonusKey(key5, 4, index);
+					createBonusKey(key6, 5, index);
+					createBonusKey(key7, 6, index);			
+					createBonusKey(key8, 7, index);
+					createBonusKey(key9, 8, index);
+					createBonusKey(key10, 9, index);
+					createBonusKey(key11, 10, index);
+					createBonusKey(key12, 11, index);
 					
 				}
 				

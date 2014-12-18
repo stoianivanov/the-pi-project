@@ -266,7 +266,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		
 		showDialog(true);
 		cd.cancel();
-		score += timeLeft / 3;
+		score += timeLeft ;
 		result.setText(Long.toString(score));
 		
 		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
