@@ -118,7 +118,7 @@ public class PlayerHelper extends SQLiteOpenHelper{
 		cv.put(Players.COLUMN_SPEED_POINT_BEST, player.getPlayerSPointBest());
 
 		//Update DB
-		db.update(Players.TABLE_NAME, cv, Players.COLUMN_ID + "=?", new String[] {String.valueOf(id)});
+		db.update(Players.TABLE_NAME, cv, Players.COLUMN_ID + "=?", new String[] {String.valueOf(MainActivity.currentPlayerID)});
 
 		Log.i("Player from", player.toString());
 
