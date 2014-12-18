@@ -40,6 +40,7 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 	private boolean yellow=false;
 	private boolean red=false;
 	private int [] buttons;
+	
 	private OnAnswerSelectedListener listener;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -100,6 +101,30 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 		
 		return view;
 	}
+	private void clickButton(ImageView image, int pos,int correct){
+		if(yellow){
+			image.setImageResource(R.drawable.yellow);
+			if(buttons[pos]==3){
+				++correct;
+			}else {
+				listener.wrongAnswer();
+			}
+		}else if(red){
+			image.setImageResource(R.drawable.red);
+			if(buttons[pos]==1){
+				++correct;
+			}else {
+				listener.wrongAnswer();
+			}
+		}else if(blue){
+			image.setImageResource(R.drawable.blue);
+			if(buttons[pos]==2){
+				++correct;
+			}else {
+				listener.wrongAnswer();
+			}
+		}
+	}
 	@Override
 	public void onClick(View v) {
 			int id = v.getId();
@@ -120,303 +145,51 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 				blue=true;
 			}
 			if(id== R.id.paintButton1){
-				if(yellow){
-					paint1.setImageResource(R.drawable.yellow);
-					if(buttons[0]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint1.setImageResource(R.drawable.red);
-					if(buttons[0]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint1.setImageResource(R.drawable.blue);
-					if(buttons[0]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint1, 0, correct);
 			}
 			
 			if(id== R.id.paintButton2){
-				if(yellow){
-					paint2.setImageResource(R.drawable.yellow);
-					if(buttons[1]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint2.setImageResource(R.drawable.red);
-					if(buttons[1]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint2.setImageResource(R.drawable.blue);
-					if(buttons[1]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint2, 1, correct);
 			}
 			
 			if(id== R.id.paintButton3){
-				if(yellow){
-					paint3.setImageResource(R.drawable.yellow);
-					if(buttons[2]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint3.setImageResource(R.drawable.red);
-					if(buttons[2]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint3.setImageResource(R.drawable.blue);
-					if(buttons[2]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint3 , 2 , correct);
 			}
 			
 			if(id== R.id.paintButton4){
-				if(yellow){
-					paint4.setImageResource(R.drawable.yellow);
-					if(buttons[3]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint4.setImageResource(R.drawable.red);
-					if(buttons[3]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint4.setImageResource(R.drawable.blue);
-					if(buttons[3]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint4, 3, correct);
 			}
 			
 			if(id== R.id.paintButton5){
-				if(yellow){
-					paint5.setImageResource(R.drawable.yellow);
-					if(buttons[4]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint5.setImageResource(R.drawable.red);
-					if(buttons[4]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint5.setImageResource(R.drawable.blue);
-					if(buttons[4]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint5, 4, correct);
 			}
 			
 			if(id== R.id.paintButton6){
-				if(yellow){
-					paint6.setImageResource(R.drawable.yellow);
-					if(buttons[5]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint6.setImageResource(R.drawable.red);
-					if(buttons[5]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint6.setImageResource(R.drawable.blue);
-					if(buttons[5]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint6, 5, correct);
 			}
 			
 			if(id== R.id.paintButton7){
-				if(yellow){
-					paint7.setImageResource(R.drawable.yellow);
-					if(buttons[6]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint7.setImageResource(R.drawable.red);
-					if(buttons[6]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint7.setImageResource(R.drawable.blue);
-					if(buttons[6]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint7, 6, correct);
 			}
 			
 			if(id== R.id.paintButton8){
-				if(yellow){
-					paint8.setImageResource(R.drawable.yellow);
-					if(buttons[7]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint8.setImageResource(R.drawable.red);
-					if(buttons[7]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint8.setImageResource(R.drawable.blue);
-					if(buttons[7]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint8, 7, correct);
 			}
 			
 			if(id== R.id.paintButton9){
-				if(yellow){
-					paint9.setImageResource(R.drawable.yellow);
-					if(buttons[8]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint9.setImageResource(R.drawable.red);
-					if(buttons[8]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint9.setImageResource(R.drawable.blue);
-					if(buttons[8]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint9, 8, correct);
 			}
 			
 			if(id== R.id.paintButton10){
-				if(yellow){
-					paint10.setImageResource(R.drawable.yellow);
-					if(buttons[9]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint10.setImageResource(R.drawable.red);
-					if(buttons[9]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint10.setImageResource(R.drawable.blue);
-					if(buttons[9]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint10, 9, correct);
 			}
 			
 			if(id== R.id.paintButton11){
-				if(yellow){
-					paint11.setImageResource(R.drawable.yellow);
-					if(buttons[10]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint11.setImageResource(R.drawable.red);
-					if(buttons[10]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint11.setImageResource(R.drawable.blue);
-					if(buttons[10]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint11, 10, correct);
 			}
 			
 			if(id== R.id.paintButton12){
-				if(yellow){
-					paint12.setImageResource(R.drawable.yellow);
-					if(buttons[11]==3){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(red){
-					paint12.setImageResource(R.drawable.red);
-					if(buttons[11]==1){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}else if(blue){
-					paint12.setImageResource(R.drawable.blue);
-					if(buttons[11]==2){
-						++correct;
-					}else {
-						listener.wrongAnswer();
-					}
-				}
+				clickButton(paint12, 11, correct);
 			}
 			
 			if(correct==12){
@@ -439,155 +212,41 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 		paint12.setImageResource(R.drawable.grey);
 		
 	}
-	private void initButton(){
+	private void creatButton(ImageView image , int pos){
+		
 		Random r = new Random();
 		int index=r.nextInt(150);
 		
 		if(index<50){
-			paint1.setImageResource(R.drawable.red);
-			buttons[0]=1;
+			image.setImageResource(R.drawable.red);
+			buttons[pos]=1;
 			Log.i("InitButton", "red");
 		}else if(index<100){
-			paint1.setImageResource(R.drawable.blue);
+			image.setImageResource(R.drawable.blue);
 			Log.i("InitButton", "bluew");
-			buttons[0]=2;
+			buttons[pos]=2;
 		}else{
-			paint1.setImageResource(R.drawable.yellow);
-			buttons[0]=3;
+			image.setImageResource(R.drawable.yellow);
+			buttons[pos]=3;
 			Log.i("InitButton", "yellow");
 		}
+	}
+	private void initButton(){
+		creatButton(paint1, 0);
+		creatButton(paint2, 1);
+		creatButton(paint3, 2);
+		creatButton(paint4, 3);
+		creatButton(paint5, 4);
+		creatButton(paint6, 5);
+		creatButton(paint7, 6);
+		creatButton(paint8,7);
+		creatButton(paint9, 8);
+		creatButton(paint10,9);
+		creatButton(paint11, 10);
+		creatButton(paint12, 11);
 		
-		index= r.nextInt(150);
-		if(index<50){
-				paint2.setImageResource(R.drawable.red);
-				buttons[1]=1;
-		}else if(index<100){
-				paint2.setImageResource(R.drawable.blue);
-				buttons[1]=2;
-		}else{
-				paint2.setImageResource(R.drawable.yellow);
-				buttons[1]=3;
-		}
 		
-		index= r.nextInt(150);
-		if(index<50){
-				paint3.setImageResource(R.drawable.red);
-				buttons[2]=1;
-		}else if(index<100){
-				paint3.setImageResource(R.drawable.blue);
-				buttons[2]=2;
-		}else{
-				paint3.setImageResource(R.drawable.yellow);
-				buttons[2]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint4.setImageResource(R.drawable.red);
-				buttons[3]=1;
-		}else if(index<100){
-				paint4.setImageResource(R.drawable.blue);
-				buttons[3]=2;
-		}else{
-				paint4.setImageResource(R.drawable.yellow);
-				buttons[3]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint5.setImageResource(R.drawable.red);
-				buttons[4]=1;
-		}else if(index<100){
-				paint5.setImageResource(R.drawable.blue);
-				buttons[4]=2;
-		}else{
-				paint5.setImageResource(R.drawable.yellow);
-				buttons[4]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint6.setImageResource(R.drawable.red);
-				buttons[5]=1;
-		}else if(index<100){
-				paint6.setImageResource(R.drawable.blue);
-				buttons[5]=2;
-		}else{
-				paint6.setImageResource(R.drawable.yellow);
-				buttons[5]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint7.setImageResource(R.drawable.red);
-				buttons[6]=1;
-		}else if(index<100){
-				paint7.setImageResource(R.drawable.blue);
-				buttons[6]=2;
-		}else{
-				paint7.setImageResource(R.drawable.yellow);
-				buttons[6]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint8.setImageResource(R.drawable.red);
-				buttons[7]=1;
-		}else if(index<100){
-				paint8.setImageResource(R.drawable.blue);
-				buttons[7]=2;
-		}else{
-				paint8.setImageResource(R.drawable.yellow);
-				buttons[7]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint9.setImageResource(R.drawable.red);
-				buttons[8]=1;
-		}else if(index<100){
-				paint9.setImageResource(R.drawable.blue);
-				buttons[8]=2;
-		}else{
-				paint9.setImageResource(R.drawable.yellow);
-				buttons[8]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint10.setImageResource(R.drawable.red);
-				buttons[9]=1;
-		}else if(index<100){
-				paint10.setImageResource(R.drawable.blue);
-				buttons[9]=2;
-		}else{
-				paint10.setImageResource(R.drawable.yellow);
-				buttons[9]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint11.setImageResource(R.drawable.red);
-				buttons[10]=1;
-		}else if(index<100){
-				paint11.setImageResource(R.drawable.blue);
-				buttons[10]=2;
-		}else{
-				paint11.setImageResource(R.drawable.yellow);
-				buttons[10]=3;
-		}
-		
-		index= r.nextInt(150);
-		if(index<50){
-				paint12.setImageResource(R.drawable.red);
-				buttons[11]=1;
-		}else if(index<100){
-				paint12.setImageResource(R.drawable.blue);
-				buttons[11]=2;
-		}else{
-				paint12.setImageResource(R.drawable.yellow);
-				buttons[11]=3;
-		}
+	
 	}
 	private class CountDown extends CountDownTimer {
 
