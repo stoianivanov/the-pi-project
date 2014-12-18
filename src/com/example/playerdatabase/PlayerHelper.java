@@ -100,8 +100,6 @@ public class PlayerHelper extends SQLiteOpenHelper{
 	public void updateScore(int id, Player player){
 		//Player update
 		player.checkBest();
-		player.setPlayerTotalPointCurrent();
-		player.setPlayerTotalPointBest();
 		
 		//Database
 		SQLiteDatabase db = this.getWritableDatabase();

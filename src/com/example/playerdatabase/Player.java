@@ -36,9 +36,8 @@ public class Player {
 		int tPoint = PlayerLPointBest + PlayerMPointBest + PlayerSPointBest;
 		return tPoint;
 	}
-	public void setPlayerTotalPointBest() {
-		PlayerTPointBest = PlayerLPointBest +
-				PlayerMPointBest + PlayerSPointBest;
+	public void setPlayerTotalPointBest(int PlayerTotalPointBest) {
+		this.PlayerTPointBest = PlayerTotalPointBest;
 	}
 
 	public int getPlayerLPointBest() {
@@ -70,8 +69,8 @@ public class Player {
 		return tPointOld;
 	}
 	
-	public void setPlayerTotalPointCurrent() {
-		PlayerTPointCurrent = PlayerLPointCurrent + PlayerMPointCurrent + PlayerSPointCurrent;
+	public void setPlayerTotalPointCurrent(int PlayerTPointCurrent) {
+		this.PlayerTPointCurrent = PlayerTPointCurrent;
 	}
 
 	public int getPlayerLPointCurrent() {
@@ -110,12 +109,6 @@ public class Player {
 		if(PlayerSPointCurrent > PlayerSPointBest){
 			PlayerSPointBest = PlayerSPointCurrent;
 		}
-		
-		PlayerTPointCurrent = PlayerLPointCurrent +
-				PlayerMPointCurrent + PlayerSPointCurrent;
-		
-		PlayerTPointBest = PlayerLPointBest +
-				PlayerMPointBest + PlayerSPointBest;
 	}
 
 	@Override
