@@ -74,6 +74,7 @@ public class Player {
 	
 	public void setPlayerTotalPointCurrent(int PlayerTPointCurrent) {
 		this.PlayerTPointCurrent = PlayerTPointCurrent;
+		checkBest();
 	}
 
 	public int getPlayerLPointCurrent() {
@@ -82,6 +83,7 @@ public class Player {
 
 	public void setPlayerLPointCurrent (int playerLPointCurrent) {
 		PlayerLPointCurrent = playerLPointCurrent;
+		checkBest();
 	}
 
 	public int getPlayerMPointCurrent() {
@@ -90,6 +92,7 @@ public class Player {
 
 	public void setPlayerMPointCurrent (int playerMPointCurrent) {
 		PlayerMPointCurrent = playerMPointCurrent;
+		checkBest();
 	}
 
 	public int getPlayerSPointCurrent() {
