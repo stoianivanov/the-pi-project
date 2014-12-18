@@ -22,6 +22,16 @@
         android:src="@drawable/icon_on" />
 
     <Button
+        android:id="@+id/playerButton"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="680dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/white"
+        android:text="@string/choose_player" />
+
+    <Button
         android:id="@+id/randomGameButton"
         android:layout_width="150dp"
         android:layout_height="70dp"
@@ -51,14 +61,6 @@
         android:text="@string/language"
         android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/playerButton"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="680dp"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/holo_orange_dark"
-        android:text="@string/choose_player"
-        android:textColor="@android:color/white" />
+
 
 </RelativeLayout>
