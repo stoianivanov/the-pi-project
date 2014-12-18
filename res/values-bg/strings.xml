@@ -16,6 +16,13 @@
     <string name="speed_game_1"> Сметни израза !</string>
     <string name="speed_game_5"> Корена на числото:</string>
 	<string name="speed_game_10"> Махни тика</string>
-	<string name= "game4_current_color">Текущ цвят</string>
+	<string name="max_speed_min_logic">Много си добър в скорсните задачи, но изоставаш в логическите.</string><string name="max_logic_min_memory">Добър си в логиката, но паметта ти куца.</string><string name="max_speed_min_memory">Много си добър в скорсните игри, но паметта ти е слаба.</string><string name="max_logic_min_speed">Добър си в логиката, но си бавен в игрите със скор.</string><string name="max_memory_min_speed">Имаш добра памет, но скорста ти куца.</string><string name="max_memory_min_logic">Имаш добра памет, но не си добър в игрите с логика.</string><string name="train">Тренирай:</string><string name= "game4_current_color">Текущ цвят	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);	currentColor= (ImageView) view.findViewById(R.id.game4_current_color);</string>
+	
+	
+	
+	
+	
+	
+	
 
 </resources>

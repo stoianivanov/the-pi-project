@@ -31,23 +31,13 @@
         android:progressDrawable="@drawable/progress_bar" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="114dp"
-        android:layout_marginTop="15dp"
-        android:layout_toLeftOf="@+id/soundButtonSpeedActivity"
-        android:textColor="@android:color/white"
-        android:text="@string/score" />
-
-    <TextView
         android:id="@+id/resultMemory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_centerHorizontal="true"
+        android:textSize="30sp"
 		android:textColor="@android:color/holo_blue_bright"
         android:text="0" />
 
@@ -60,7 +50,17 @@
         android:layout_above="@id/progressBarMemory"
         android:layout_below="@+id/soundButtonMemoryActivity">
     </FrameLayout>
-    
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/resultMemory"
+        android:text="@string/score"
+        android:textSize="30sp"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

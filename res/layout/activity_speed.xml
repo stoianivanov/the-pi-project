@@ -36,6 +36,7 @@
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_centerHorizontal="true"
+        android:textSize="30sp"
 		android:textColor="@android:color/holo_blue_bright"
         android:text="0" />
 
@@ -58,6 +59,7 @@
         android:layout_marginTop="16dp"
         android:layout_toLeftOf="@+id/resultSpeed"
         android:text="@string/score"
+        android:textSize="30sp"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

@@ -43,7 +43,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 	private static final int MAX_GAME_3 = 7;
 	private static final int MAX_GAME_4 = 5;
 
-	private static final long INITIAL_SERIES_NUMBERS_TIME = 30000;
+	private static final long INITIAL_SERIES_NUMBERS_TIME = 20000;
 
 	private ImageButton musicButton;
 	private int counterGame2=0;
@@ -227,7 +227,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		
 		showDialog(true);
 		cd.cancel();
-		score += timeLeft ;
+		score += timeLeft/2 ;
 		result.setText(Long.toString(score));
 		nextFragment();
 		cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
