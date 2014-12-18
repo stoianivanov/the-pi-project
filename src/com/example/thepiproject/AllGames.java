@@ -358,6 +358,7 @@ public class AllGames extends Activity implements OnClickListener{
 		
 		player.setPlayerTotalPointCurrent((int) totalScore);
 		ph.updateScore(MainActivity.currentPlayerID, player);
+		player.checkBest();
 	}
 	
 	@Override
