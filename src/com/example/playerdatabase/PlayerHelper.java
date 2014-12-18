@@ -166,51 +166,51 @@ public class PlayerHelper extends SQLiteOpenHelper{
 		}
 		return null;
 	}
-
-	private static Player cursorToPlayer(Cursor c){
-
-		int idIndex = c.getColumnIndex(Players.COLUMN_ID);
-		int nameIndex = c.getColumnIndex(Players.COLUMN_NAME);
-		int tnPoint = c.getColumnIndex(Players.COLUMN_TOTAL_POINT_CURRENT);
-		int lnPoint = c.getColumnIndex(Players.COLUMN_LOGIC_POINT_CURRENT);
-		int mnPoint = c.getColumnIndex(Players.COLUMN_MEMORY_POINT_CURRENT);
-		int snPoint = c.getColumnIndex(Players.COLUMN_SPEED_POINT_CURRENT);
-		int toPoint = c.getColumnIndex(Players.COLUMN_TOTAL_POINT_BEST);
-		int loPoint = c.getColumnIndex(Players.COLUMN_LOGIC_POINT_BEST);
-		int moPoint = c.getColumnIndex(Players.COLUMN_MEMORY_POINT_BEST);
-		int soPoint = c.getColumnIndex(Players.COLUMN_SPEED_POINT_BEST);
-
-		int id = c.getInt(idIndex);
-		String name = c.getString(nameIndex);
-		//Best
-		//		int totalPointBest = c.getInt(tnPoint);
-		int logicPointBest = c.getInt(lnPoint);
-		int memoryPointBest = c.getInt(mnPoint);
-		int speedPointBest = c.getInt(snPoint);
-		//Current
-		//		int totalPointCurrent = c.getInt(toPoint);
-		int logicPointCurrent = c.getInt(loPoint);
-		int memoryPointCurrent = c.getInt(moPoint);
-		int speedPointCurrent = c.getInt(soPoint);
-
-		Player p = new Player();
-
-		//		p.setId(id);
-		p.setName(name);
-		//Total point are calculated
-		//		p.setPlayerTotalPoint(totalPoint);
-		p.setPlayerLPointBest(logicPointBest);
-		p.setPlayerSPointBest(speedPointBest);
-		p.setPlayerMPointBest(memoryPointBest);
-
-		p.setPlayerLPointCurrent(logicPointCurrent);
-		p.setPlayerMPointCurrent(memoryPointCurrent);
-		p.setPlayerSPointCurrent(speedPointCurrent);
-
-		return p;
-
-	}
-
+//
+//	private static Player cursorToPlayer(Cursor c){
+//
+//		int idIndex = c.getColumnIndex(Players.COLUMN_ID);
+//		int nameIndex = c.getColumnIndex(Players.COLUMN_NAME);
+//		int tnPoint = c.getColumnIndex(Players.COLUMN_TOTAL_POINT_CURRENT);
+//		int lnPoint = c.getColumnIndex(Players.COLUMN_LOGIC_POINT_CURRENT);
+//		int mnPoint = c.getColumnIndex(Players.COLUMN_MEMORY_POINT_CURRENT);
+//		int snPoint = c.getColumnIndex(Players.COLUMN_SPEED_POINT_CURRENT);
+//		int toPoint = c.getColumnIndex(Players.COLUMN_TOTAL_POINT_BEST);
+//		int loPoint = c.getColumnIndex(Players.COLUMN_LOGIC_POINT_BEST);
+//		int moPoint = c.getColumnIndex(Players.COLUMN_MEMORY_POINT_BEST);
+//		int soPoint = c.getColumnIndex(Players.COLUMN_SPEED_POINT_BEST);
+//
+//		int id = c.getInt(idIndex);
+//		String name = c.getString(nameIndex);
+//		//Best
+//		//		int totalPointBest = c.getInt(tnPoint);
+//		int logicPointBest = c.getInt(lnPoint);
+//		int memoryPointBest = c.getInt(mnPoint);
+//		int speedPointBest = c.getInt(snPoint);
+//		//Current
+//		//		int totalPointCurrent = c.getInt(toPoint);
+//		int logicPointCurrent = c.getInt(loPoint);
+//		int memoryPointCurrent = c.getInt(moPoint);
+//		int speedPointCurrent = c.getInt(soPoint);
+//
+//		Player p = new Player();
+//
+//		//		p.setId(id);
+//		p.setName(name);
+//		//Total point are calculated
+//		//		p.setPlayerTotalPoint(totalPoint);
+//		p.setPlayerLPointBest(logicPointBest);
+//		p.setPlayerSPointBest(speedPointBest);
+//		p.setPlayerMPointBest(memoryPointBest);
+//
+//		p.setPlayerLPointCurrent(logicPointCurrent);
+//		p.setPlayerMPointCurrent(memoryPointCurrent);
+//		p.setPlayerSPointCurrent(speedPointCurrent);
+//
+//		return p;
+//
+//	}
+//
 
 	public  List<Player> getAll2Player() {
 		

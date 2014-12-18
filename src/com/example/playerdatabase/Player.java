@@ -65,8 +65,7 @@ public class Player {
 	}
 
 	public int getPlayerTotalPointCurrent() {
-		int tPointOld = PlayerLPointCurrent + PlayerMPointCurrent + PlayerSPointCurrent;
-		return tPointOld;
+		return PlayerTPointCurrent;
 	}
 	
 	public void setPlayerTotalPointCurrent(int PlayerTPointCurrent) {
