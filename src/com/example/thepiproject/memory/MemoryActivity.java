@@ -75,7 +75,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		
 		Drawable draw = getResources().getDrawable(R.drawable.progress_bar);
 		pb.setProgressDrawable(draw);
-		timeLeft=10000;
+		timeLeft=INITIAL_SERIES_NUMBERS_TIME;
 		
 		doBindService();
 		caller= getIntent().getExtras().getInt("caller",0);
@@ -112,7 +112,7 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		super.onResume();
 		setMusicButton();
 		if(timeLeft < 100){
-    		timeLeft = 10000;
+    		timeLeft = INITIAL_SERIES_NUMBERS_TIME;
     	}
     	cd = new CountDown(timeLeft, 50);
     	cd.start();

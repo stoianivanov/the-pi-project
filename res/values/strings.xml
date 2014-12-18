@@ -55,4 +55,8 @@
     <string name="max_memory_min_logic">You have great memory, but you lack in logic skills.</string>
     <string name="max_memory_min_speed">You have great memory, but u have poor speed.</string>
     <string name="train">Train your:</string>
+    <string name="solve_the_expresion"> Solve the expression</string>
+    <string name="find_sqrt">Find the square number</string>
+    <string name="remove_tick_title">Remove the ticks</string>
+    <string name="remove_tick">Remove all ticks withouth touching the red sing</string>
 </resources>

@@ -30,8 +30,14 @@ public class NumbersExample extends Activity implements OnClickListener {
 			setContentView(R.layout.activity_numbers_example);
 		} else if (exampleNumber == 2){
 			setContentView(R.layout.finish_the_pic_example);
-		} else {
+		} else if (exampleNumber == 3){
 			setContentView(R.layout.origami_example);
+		} else if (exampleNumber == 4){
+			setContentView(R.layout.solve_the_expresion_example);
+		} else if (exampleNumber == 5){
+			setContentView(R.layout.sqrt_number_example);
+		} else if (exampleNumber == 6){
+			setContentView(R.layout.remove_the_tick_example);
 		}
 		
 		
