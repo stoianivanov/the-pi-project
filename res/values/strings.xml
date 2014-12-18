@@ -33,5 +33,6 @@
     <string name="title_activity_memory_game1">MemoryGame1</string>
     <string name="title_activity_memory_game2">MemoryGame2</string>
     <string name="title_activity_memory_game3">MemoryGame3</string>
+    <string name="title_activity_memory_game4">MemoryGame4</string>
 
 </resources>

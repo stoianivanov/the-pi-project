@@ -41,12 +41,14 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 
 	private static final int MAX_GAME_2 = 8;
 	private static final int MAX_GAME_3 = 7;
+	private static final int MAX_GAME_4 = 5;
 
 	private static final long INITIAL_SERIES_NUMBERS_TIME = 15000;
 
 	private ImageButton musicButton;
 	private int counterGame2=0;
 	private int counterGame3=0;
+	private int counterGame4=0;
 	private boolean mBound = false;
 	private BackGroundMusic music;
 	private ProgressBar pb;
@@ -259,7 +261,10 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 		}else if(counterGame3 <MAX_GAME_3){
 			StartFragment(new MemoryGame3());
 			++counterGame3;
-		} else {
+		} else if(counterGame4<MAX_GAME_4){
+			StartFragment(new MemoryGame4());
+		
+		}else 	{
 			if(caller ==3){
 				Intent i = new Intent();
 				i.putExtra("score", score);

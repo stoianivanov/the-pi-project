@@ -17,8 +17,7 @@
             android:name=".BackGroundMusic"
             android:enabled="true" />
 
-        <activity 
-            android:name=".PlayerActivity">
+        <activity android:name=".PlayerActivity" >
         </activity>
         <activity
             android:name=".MainActivity"
@@ -140,8 +139,12 @@
             android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
-            android:name="com.example.thepiproject.memory.MemoryGame3"
+            android:name=".memory.MemoryGame3"
             android:label="@string/title_activity_memory_game3" >
+        </activity>
+        <activity
+            android:name="com.example.thepiproject.memory.MemoryGame4"
+            android:label="@string/title_activity_memory_game4" >
         </activity>
     </application>
 
