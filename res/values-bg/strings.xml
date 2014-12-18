@@ -30,5 +30,16 @@
 	<string name="origami_goal">Цел на играта е да се избере начина по който би изглеждала хартийката сгъната където са непрекъснатите линии</string>
 	<string name="category_choose">Избере какво да тренирате</string>
 	<string name="game_over">Край на играта</string>
-
+	<string name="add_player">Добави играч</string>
+	<string name = "solve_the_expresion"> Решете уравнението</string>
+	<string name = "find_sqrt">Намери корена на числото</string>
+	<string name= "remove_tick_title"> Махни тиковете</string>
+	<string name= "remove_tick">Махнете всички тикове без да досковате червения знак</string>
+	<string name = "whats_missing_title"> Какво липсва</string>
+	<string name = "whats_missing_goal"> Запомнета, коя картинка е изчезнала </string>
+	<string name = "keys_title"> Изчезващи ключове</string>
+	<string name = "keys_goal"> Ключовете ще изчезнат за помент и ще се появът повече. Кликнете върху новите</string>
+	<string name=  "choose_player">Избери играч</string>
+	<string name = "color_title"> Оцвети блокчетата</string>
+	<string name = "color_goal">Запомнете цвета на блокчетата и ги оцветете пак</string>
 </resources>

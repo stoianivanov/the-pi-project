@@ -1,6 +1,7 @@
 package com.example.thepiproject.memory;
 
 import com.example.logic.LogicFinalActivity;
+import com.example.logic.NumbersExample;
 import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.BackGroundMusic;
 import com.example.thepiproject.MainActivity;
@@ -254,15 +255,26 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 
 		
 		if(counterGame2 < MAX_GAME_2){
+
 			Log.i("NExt Fragment", ""+counterGame2);
 			StartFragment(new MemoryGame2());
 			++counterGame2;
 			Log.i("Counetr", ""+counterGame2);
 		}else if(counterGame3 <MAX_GAME_3){
+			if(counterGame3==0){
+				Intent i = new Intent(getApplicationContext(),NumbersExample.class);
+				i.putExtra("example", 8);
+				startActivity(i);
+			}
 			StartFragment(new MemoryGame3());
 			++counterGame3;
 		} else if(counterGame4 < MAX_GAME_4){
 			Log.i("LAst game", ""+counterGame4);
+			if(counterGame4==0){
+				Intent i = new Intent(getApplicationContext(),NumbersExample.class);
+				i.putExtra("example", 9);
+				startActivity(i);
+			}
 			StartFragment(new MemoryGame4());
 			++counterGame4;
 		
@@ -304,6 +316,12 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 	
     private void StartFragment(Fragment fr){
     	
+		if(counterGame2==0){
+			Intent i = new Intent(getApplicationContext(),NumbersExample.class);
+			i.putExtra("example", 7);
+			startActivity(i);
+			++counterGame2;
+		}
       	 final FragmentManager fm =  getSupportFragmentManager();
       	 currentFragment= fr;
            if(fm!=null){

@@ -7,8 +7,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.example.logic.NumbersExample;
 import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.R;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -48,6 +51,9 @@ public class GameSpeed1 extends Fragment implements OnClickListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.activity_game_speed1, null);
+		Intent i = new Intent(getActivity().getApplicationContext(),NumbersExample.class);
+		i.putExtra("example", 4);
+		startActivity(i);
 		questions= new ArrayList<QuestionGame1>();
 		answer= (EditText) view.findViewById(R.id.answerGame1);
 		answer.setFocusable(false);

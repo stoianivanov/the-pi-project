@@ -1,6 +1,7 @@
 package com.example.thepiproject.speed;
 
 import com.example.logic.LogicFinalActivity;
+import com.example.logic.NumbersExample;
 import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.BackGroundMusic;
 import com.example.thepiproject.MainActivity;
@@ -294,10 +295,16 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 			
 			StartFragment(new GameSpeed5());
 		}else if( currentFragment instanceof GameSpeed5 ){
+			if(currentGame10 ==0){
+				Intent i = new Intent(getApplicationContext(),NumbersExample.class);
+				i.putExtra("example", 6);
+				startActivity(i);
+			}
 			StartFragment(new GameSpeed10());
 			++currentGame10;
 		}else if((currentFragment instanceof GameSpeed10 )&& 
 					currentGame10<=MAX_FRAGMENT_GAME_10){
+
 			StartFragment(new GameSpeed10());
 			++currentGame10;
 			

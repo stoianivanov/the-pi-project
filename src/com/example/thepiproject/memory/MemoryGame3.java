@@ -202,7 +202,6 @@ public class MemoryGame3 extends Fragment implements OnClickListener{
 
 		@Override
 		public void onTick(long millisUntilFinished) {
-			int progres = (int) millisUntilFinished;
 			timeLeft = millisUntilFinished;
 		}
 		private void startGame(){

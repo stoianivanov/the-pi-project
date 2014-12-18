@@ -12,7 +12,7 @@
             android:id="@+id/addPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Player"
+            android:text="@string/add_player"
             android:onClick="onClick" />
 
         <EditText

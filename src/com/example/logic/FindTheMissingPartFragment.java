@@ -1,7 +1,7 @@
 package com.example.logic;
-
+import com.example.thepiproject.R.layout;
+import com.example.thepiproject.R;
 import java.util.Random;
-import com.android.*;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Resources;

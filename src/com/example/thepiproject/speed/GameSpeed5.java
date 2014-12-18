@@ -8,11 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.example.logic.NumbersExample;
 import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.R;
 import com.example.thepiproject.R.layout;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -44,6 +46,9 @@ public class GameSpeed5 extends Fragment implements OnClickListener {
 			Bundle savedInstanceState) {
 		
 		View view= inflater.inflate(R.layout.activity_game_speed5, null);
+		Intent i = new Intent(getActivity().getApplicationContext(),NumbersExample.class);
+		i.putExtra("example", 5);
+		startActivity(i);
 		question= new ArrayList<QuestionGame2>();
 		listener= (OnAnswerSelectedListener) getActivity();
 

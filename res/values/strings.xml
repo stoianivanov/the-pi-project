@@ -55,14 +55,10 @@
     <string name="max_memory_min_logic">You have great memory, but you lack in logic skills.</string>
     <string name="max_memory_min_speed">You have great memory, but u have poor speed.</string>
     <string name="train">Train your:</string>
+    <string name="add_player">Add Player</string>
     <string name="solve_the_expresion"> Solve the expression</string>
     <string name="find_sqrt">Find the square number</string>
     <string name="remove_tick_title">Remove the ticks</string>
     <string name="remove_tick">Remove all ticks withouth touching the red sing</string>
-    <string name="whats_missing_title">Whats missing</string>
-    <string name="whats_missing_goal">Remember which of the images disappeared</string>
-    <string name="keys_title">Disappearing keys</string>
-    <string name="color_title">Color the blocks</string>
-    <string name="color_goal">Remember the color of the blocks and repaint them.</string>
-    <string name="keys_goal">The keys will disappear for a moment and more will appear.Click on the new ones</string>
+    <string name="choose_player">Chose player</string>
 </resources>
