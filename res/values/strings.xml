@@ -35,4 +35,24 @@
     <string name="title_activity_memory_game3">MemoryGame3</string>
     <string name="title_activity_memory_game4">MemoryGame4</string>
 	<string name= "game4_current_color">Current color</string>
+    <string name="number_sequence_example">Number Seqence</string>
+    <string name="sequence_goal">Goal of the game is to enter the next number from the sequence</string>
+    <string name="example">Example:</string>
+    <string name="sequence_answer">Answer: 21</string>
+    <string name="sequence_solution">Solution: </string>
+    <string name="sequence_enter_answer">Enter Answer</string>
+    <string name="finish_the_pic_goal">Goal of the game is to choose the part that best completes the series in the picture</string>
+    <string name="finish_the_pic_example">Finish the picture</string>
+    <string name="answer">Answer: </string>
+    <string name="origami_example">Fold the paper</string>
+    <string name="origami_goal">Goal of the game is to choose how the unfolded paper will look like when folded where the solid lines are</string>
+    <string name="category_choose">Choose what to train</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="max_speed_min_logic">You have awesome speed skills, however you are awfull at logic.</string>
+    <string name="max_speed_min_memory">You have awesome speed skills, however your memory skills are &quot;limited&quot;.</string>
+    <string name="max_logic_min_speed">You have great logic skills, but you are bad speed games.</string>
+    <string name="max_logic_min_memory">You have great logic skills, however your memory skills are &quot;limited&quot;.</string>
+    <string name="max_memory_min_logic">You have great memory, but you lack in logic skills.</string>
+    <string name="max_memory_min_speed">You have great memory, but u have poor speed.</string>
+    <string name="train">Train your:</string>
 </resources>

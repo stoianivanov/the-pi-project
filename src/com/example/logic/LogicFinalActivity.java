@@ -4,17 +4,21 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -28,9 +32,7 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.Legend;
-import com.github.mikephil.charting.utils.LimitLine;
 import com.github.mikephil.charting.utils.XLabels;
 import com.github.mikephil.charting.utils.YLabels;
 
@@ -41,6 +43,8 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 	boolean mBound = false;
 	BackGroundMusic music;
 	ImageButton musicButton;
+	
+	Dialog dialog;
 	
 	Player player;
 	PlayerHelper ph;
@@ -59,7 +63,6 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 		calledFrom = getIntent().getExtras().getString("from");
 		
 		TextView tv = (TextView) findViewById(R.id.logicFinalTextView);
-		tv.setText("Congratulations!!");
 		
 		lineChart = (LineChart) findViewById(R.id.logifFinalLineChart);
 		createChart();
@@ -69,7 +72,9 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 			player.setPlayerLPointCurrent((int)score);
 		} else if (calledFrom.equals("speed")){
 			player.setPlayerSPointCurrent((int)score);
-		}
+		} else if (calledFrom.equals("memory")){
+			player.setPlayerMPointCurrent((int)score);
+		} 
 		
 		ph.updateScore(MainActivity.currentPlayerID, player);
 		
@@ -94,12 +99,36 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 			startService(MainActivity.musicIntent);
 		}
 	}
-	@SuppressLint("ResourceAsColor") private void createChart(){
+	
+	private void showDialog(){
+		dialog = new Dialog(this);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.getWindow().setBackgroundDrawableResource(
+					R.drawable.high_score);
+		dialog.show();
+		dialog.getWindow().clearFlags(
+				WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+		new CountDownTimer(2000, 100) {
+
+			@Override
+			public void onTick(long millisUntilFinished) {
+			}
+
+			@Override
+			public void onFinish() {
+				dialog.cancel();
+			}
+		}.start();
+	}
+	
+	@SuppressLint("ResourceAsColor") 
+	private void createChart(){
 		
 		ArrayList<Entry> comp1 = new ArrayList<Entry>();
 		
 		float bestScore = 0;
 		float lastScore = 0;
+		
 		
 		if(calledFrom.equals("logic")){
 			bestScore = (float)player.getPlayerLPointBest();
@@ -107,6 +136,14 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 		} else if (calledFrom.equals("speed")){
 			bestScore = (float)player.getPlayerSPointBest();
 			lastScore = (float)player.getPlayerSPointCurrent();
+		} else if (calledFrom.equals("memory")){
+			bestScore = (float)player.getPlayerMPointBest();
+			lastScore = (float)player.getPlayerMPointCurrent();
+		}
+		
+		
+		if(score > bestScore){
+			showDialog();
 		}
 		
 		comp1.add(new Entry(lastScore,1));
@@ -118,6 +155,8 @@ public class LogicFinalActivity extends Activity implements OnClickListener{
 			setComp1.setColor(Color.BLUE);
 		} else if (calledFrom.equals("speed")){
 			setComp1.setColor(Color.GREEN);
+		} else if(calledFrom.equals("memory")){
+			setComp1.setColor(Color.RED);
 		}
 		
 		ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();

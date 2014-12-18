@@ -154,9 +154,7 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 	@Override
 	protected void onPause() {
 		super.onPause();
-//		if(!firstStart){
 			cd.cancel();
-//		}
 	}
 
 	@Override
@@ -173,10 +171,8 @@ public class LogicMain extends Activity implements OnClickListener , OnAnswerSel
 			startService(MainActivity.musicIntent);
 		}
 		
-//		if(!firstStart){
 			cd = new CountDown(timeLeft, 50);
 			cd.start();
-//		}
 	}
 
 	private void setMusicButton() {

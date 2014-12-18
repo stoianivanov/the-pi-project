@@ -1,5 +1,6 @@
 package com.example.thepiproject.memory;
 
+import com.example.logic.LogicFinalActivity;
 import com.example.logic.OnAnswerSelectedListener;
 import com.example.thepiproject.BackGroundMusic;
 import com.example.thepiproject.MainActivity;
@@ -274,7 +275,11 @@ public class MemoryActivity extends FragmentActivity implements OnClickListener,
 				finish();
 				return;
 			}else{
-				//startira poslednoto activyti
+				Intent i = new Intent(getApplicationContext(),LogicFinalActivity.class);
+				i.putExtra("score", score);
+				i.putExtra("from", "memory");
+				finish();
+				startActivity(i);
 			}
 		}
 			

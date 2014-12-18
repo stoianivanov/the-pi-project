@@ -6,12 +6,87 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/final_activity_background"
     tools:context="com.example.thepiproject.AllGames" >
 
-    <TextView
-        android:id="@+id/allGamesScore"
+    <ImageButton
+            android:id="@+id/soundButtonAllFinal"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="Turn Sound On/Off"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_on" />
+    
+      <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/AllGamesLineChart"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="182dp" />
+      
+      <TextView
+        android:id="@+id/allGamesFinalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/game_over"
+        android:textSize="40sp" />
+
+       <TextView
+           android:id="@+id/allGamesFinalText"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="520dp"
+           android:gravity="center"
+           android:textColor="@color/Black"
+           android:textStyle="bold"
+           android:textSize="28sp" />
+
+       <TextView
+           android:id="@+id/allGamesTrainMin"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="700dp"
+           android:gravity="center"
+           android:text="@string/train"
+           android:textColor="@color/Black"
+           android:textStyle="bold"
+           android:textSize="28sp" />
+
+       <ImageButton
+           android:id="@+id/allGamesMemoryButton"
+           android:layout_width="200dp"
+           android:layout_height="80dp"
+           android:layout_alignParentBottom="true"
+           android:layout_alignParentRight="true"
+           android:background="@android:color/transparent"
+           android:scaleType="fitCenter"
+           android:src="@drawable/rounded_red_button" />
+
+       <ImageButton
+           android:id="@+id/allGamesSpeedButton"
+           android:layout_width="200dp"
+           android:layout_height="80dp"
+           android:layout_alignTop="@+id/allGamesMemoryButton"
+           android:layout_centerHorizontal="true"
+           android:background="@android:color/transparent"
+           android:scaleType="fitCenter"
+           android:src="@drawable/rounded_green_button" />
+
+       <ImageButton
+           android:id="@+id/allGamesLogicButton"
+           android:layout_width="200dp"
+           android:layout_height="80dp"
+           android:layout_alignParentBottom="true"
+           android:layout_toLeftOf="@+id/allGamesSpeedButton"
+           android:background="@android:color/transparent"
+           android:scaleType="fitCenter"
+           android:src="@drawable/rounded_blue_button" />
 
 </RelativeLayout>

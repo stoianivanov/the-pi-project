@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Fold the paper Example"
+        android:text="@string/origami_example"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -20,9 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="Goal of the Game is to choose the image that best suits the image above folded where the lines are"
+        android:text="@string/origami_goal"
         android:textColor="@android:color/white"
         android:textSize="27sp" />
      
@@ -32,7 +32,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="240dp"
         android:gravity="center"
-        android:text="Example:"
+        android:text="@string/example"
         android:textColor="@android:color/white"
         android:textSize="27sp" />
      
@@ -53,7 +53,7 @@
         android:layout_marginTop="555dp"
         android:layout_marginLeft="80dp"
         android:gravity="center"
-        android:text="Answer:"
+        android:text="@string/answer"
         android:textColor="@android:color/white"
         android:textSize="27sp" />
 
