@@ -3,6 +3,8 @@ package com.example.playerdatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.thepiproject.MainActivity;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -135,7 +137,7 @@ public class PlayerHelper extends SQLiteOpenHelper{
 
 		//Creating cursor with allColumnn string
 		Cursor cursor = db.query(DATABASE_NAME, Players.allColumn, Players.COLUMN_ID + "=?",
-				new String[] {String.valueOf(id)}, null, null, null);
+				new String[] {String.valueOf(MainActivity.currentPlayerID)}, null, null, null);
 
 		//Creating player and set 
 		if (cursor != null && cursor.moveToFirst()){
@@ -143,12 +145,12 @@ public class PlayerHelper extends SQLiteOpenHelper{
 			Player pl = new Player();
 
 			//			//set attributes to the player
-//			Log.i("setId", cursor.getString(0));
-////			pl.setId(cursor.getInt(0));
-//			Log.i("setName", cursor.getString(1));
-//			pl.setName(cursor.getString(1));
-//
-//			//Set score to the player
+			Log.i("setId", cursor.getString(0));
+//			pl.setId(cursor.getInt(0));
+			Log.i("setName", cursor.getString(1));
+			pl.setName(cursor.getString(1));
+
+			//Set score to the player
 			//Best score
 			Log.i("setPlayerLPointBest", cursor.getString(2));
 			pl.setPlayerLPointBest(cursor.getInt(2));
