@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="500dp"
+    android:layout_height="650dp"
+    android:background="#062b76"
+    tools:context="com.example.thepiproject.NumbersExample" >
+
+    
+    <TextView 
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:text="@string/whats_missing_title"
+        android:textSize="30sp"
+        android:gravity="center"
+        />
+    
+    
+    <TextView 
+        android:id="@+id/exampleGoal"
+        android:layout_marginTop="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:text="@string/whats_missing_goal"
+        android:textSize="30sp"
+        android:gravity="center"
+        />
+     
+    <ImageButton
+        android:id="@+id/buttonExampleResult"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="550dp"
+        android:src="@drawable/next"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="400dp"
+        android:background="@android:color/transparent"
+         />
+
+</RelativeLayout>

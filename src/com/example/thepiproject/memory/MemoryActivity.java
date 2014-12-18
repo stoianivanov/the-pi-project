@@ -7,7 +7,6 @@ import com.example.thepiproject.MainActivity;
 import com.example.thepiproject.R;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 import com.example.thepiproject.R.layout;
-import com.example.thepiproject.speed.CalculateTask;
 
 
 

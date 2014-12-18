@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/backgroundmain"
     tools:context="com.example.thepiproject.MainActivity" >
 
     <ImageButton
@@ -16,41 +17,50 @@
         android:layout_alignParentTop="true"
         android:padding="5dp"
         android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
         android:contentDescription="Turn Sound On/Off"
         android:src="@drawable/icon_on" />
 
     <Button
-        android:id="@+id/randomGameButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/soundButton"
-        android:layout_centerHorizontal="true"
-        android:text="Start Games" />
+        android:id="@+id/playerButton"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/languageButton"
+        android:layout_marginTop="35dp"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/white"
+        android:text="Chose player" />
 
     <Button
-        android:id="@+id/languageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/categoryButton"
+        android:id="@+id/randomGameButton"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/soundButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp"
-        android:text="Button" />
+        android:background="@android:color/holo_green_dark"
+        android:text="@string/start_game"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/categoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_red_light"
+        android:layout_alignLeft="@+id/randomGameButton"
         android:layout_below="@+id/randomGameButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:text="Choose Category" />
+        android:layout_marginTop="35dp"
+        android:text="@string/choose_category" />
 
     <Button
-        android:id="@+id/playerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/languageButton"
-        android:layout_alignParentBottom="true"
-        android:text="Chose player" />
+        android:id="@+id/languageButton"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_alignLeft="@+id/categoryButton"
+        android:layout_below="@+id/categoryButton"
+        android:layout_marginTop="34dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="@string/language"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

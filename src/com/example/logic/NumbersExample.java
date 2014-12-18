@@ -38,6 +38,12 @@ public class NumbersExample extends Activity implements OnClickListener {
 			setContentView(R.layout.sqrt_number_example);
 		} else if (exampleNumber == 6){
 			setContentView(R.layout.remove_the_tick_example);
+		} else if (exampleNumber == 7){
+			setContentView(R.layout.whats_missing_example);
+		} else if (exampleNumber == 8){
+			setContentView(R.layout.keys_example);
+		} else if (exampleNumber == 9){
+			setContentView(R.layout.color_the_blocks);
 		}
 		
 		
