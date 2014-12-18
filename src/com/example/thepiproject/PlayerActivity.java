@@ -32,38 +32,26 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 	private PlayerHelper ph;
 	private List<com.example.playerdatabase.Player> PlayerList;
 	
-
-
+	//Creating view;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_player);
-		
-		ph = new PlayerHelper(this);
-		
-		
-//		Player update = ph.getPlayer(1);
-//		
-//		update.setPlayerLPointCurrent(15005);
-//		update.setPlayerMPointCurrent(1001);
-//		update.setPlayerSPointCurrent(2001);
-//		
-//		Log.i("Before update", update.toString());
-//		ph.updateScore(1, update);
-		
-		
-		
-		
+				
 		AddPlayer = (Button) findViewById(R.id.addPlayer);
 		AddPlayer.setOnClickListener(this);
 
 		nameEdit = (EditText) findViewById(R.id.PlayerName);
 
+		//Take all players from DB
+		ph = new PlayerHelper(this);
 		PlayerList =  ph.getAll2Player();
-		setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
 		
+		//Create adapter
+		setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
 	}
 
+	//Add new player
 	@Override
 	public void onClick(View v) {
 		
@@ -71,38 +59,40 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		if(v.getId() == AddPlayer.getId()){
 			final String name = nameEdit.getText().toString();
 
+			//Create new player
 			final Player player = new Player();
 			player.setName(name);
-
-					
+			//Add to DB
 			ph.addPlayer(player);
 			
+			//Update current list
+			PlayerList =  ph.getAll2Player();
 			setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
-			
+
 			notifyDataSetChanged();
 		}		
 	}
-	
-
-	
-	
+		
+	//Make selected player - current
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
+		
 		Player current = (Player) this.getListAdapter().getItem(position);
 		Intent i = new Intent();
+		
 		i.putExtra("currentPlayer", current.getId());
-		setResult(RESULT_OK, i);
-		String str = current.getName()+  " " + current.getId();
-		Log.i("Player fro activity", str);
 		finish();
+		
 		return;
 	}
 
-
+	//Catch creating new player
 	@SuppressWarnings("unchecked")
 	private void notifyDataSetChanged() {
+		
 		((ArrayAdapter<Player>)getListAdapter()).notifyDataSetChanged();	
+		
 	}
 	
 	@Override
