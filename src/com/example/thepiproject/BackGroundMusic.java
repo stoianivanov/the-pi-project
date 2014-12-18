@@ -47,7 +47,7 @@ public class BackGroundMusic extends IntentService {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		backGroundMusic = MediaPlayer.create(this, R.raw.music);
+		backGroundMusic = MediaPlayer.create(this, R.raw.sherlock_theme);
 		correctSFX = MediaPlayer.create(this, R.raw.correct);
 		wrongSFX = MediaPlayer.create(this,R.raw.wrong);
 		backGroundMusic.setLooping(true);
