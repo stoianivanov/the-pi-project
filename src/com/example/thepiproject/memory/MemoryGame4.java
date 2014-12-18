@@ -252,8 +252,6 @@ public class MemoryGame4 extends Fragment implements OnClickListener{
 		creatButton(paint11, 10);
 		creatButton(paint12, 11);
 		
-		
-	
 	}
 	private class CountDown extends CountDownTimer {
 
