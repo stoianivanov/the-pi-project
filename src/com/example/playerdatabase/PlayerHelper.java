@@ -143,12 +143,12 @@ public class PlayerHelper extends SQLiteOpenHelper{
 			Player pl = new Player();
 
 			//			//set attributes to the player
-			Log.i("setId", cursor.getString(0));
-			pl.setId(cursor.getInt(0));
-			Log.i("setName", cursor.getString(1));
-			pl.setName(cursor.getString(1));
-
-			//Set score to the player
+//			Log.i("setId", cursor.getString(0));
+////			pl.setId(cursor.getInt(0));
+//			Log.i("setName", cursor.getString(1));
+//			pl.setName(cursor.getString(1));
+//
+//			//Set score to the player
 			//Best score
 			Log.i("setPlayerLPointBest", cursor.getString(2));
 			pl.setPlayerLPointBest(cursor.getInt(2));

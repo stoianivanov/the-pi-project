@@ -83,7 +83,7 @@ public class Player {
 
 	public void setPlayerLPointCurrent (int playerLPointCurrent) {
 		PlayerLPointCurrent = playerLPointCurrent;
-		checkBest();
+		checkBest(); 
 	}
 
 	public int getPlayerMPointCurrent() {
