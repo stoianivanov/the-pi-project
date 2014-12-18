@@ -60,5 +60,5 @@
     <string name="find_sqrt">Find the square number</string>
     <string name="remove_tick_title">Remove the ticks</string>
     <string name="remove_tick">Remove all ticks withouth touching the red sing</string>
-    <string name="choose_player">Chose player</string>
+    <string name="choose_player">Choose player</string>
 </resources>

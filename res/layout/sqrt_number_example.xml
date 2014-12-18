@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="500dp"
     android:layout_height="650dp"
-    android:background="#062b76"
+    android:background="#039200"
     tools:context="com.example.thepiproject.NumbersExample" >
 
     <TextView 

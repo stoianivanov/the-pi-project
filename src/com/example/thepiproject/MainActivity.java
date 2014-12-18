@@ -164,6 +164,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		newGame.setText(R.string.start_game);
 		category.setText(R.string.choose_category);
 		changeLanguage.setText(R.string.language);
+		player.setText(R.string.choose_player);
 
 	}
 
