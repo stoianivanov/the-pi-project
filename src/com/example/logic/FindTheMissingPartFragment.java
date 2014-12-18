@@ -1,7 +1,7 @@
 package com.example.logic;
 
 import java.util.Random;
-
+import com.android.*;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.example.thepiproject.R;
 
 public class FindTheMissingPartFragment extends Fragment implements
 		OnClickListener {
