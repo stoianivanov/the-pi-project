@@ -140,11 +140,15 @@
         </activity>
         <activity
             android:name=".memory.MemoryGame3"
-            android:label="@string/title_activity_memory_game3" >
+            android:label="@string/title_activity_memory_game3"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="com.example.thepiproject.memory.MemoryGame4"
-            android:label="@string/title_activity_memory_game4" >
+            android:label="@string/title_activity_memory_game4" 
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar">
         </activity>
     </application>
 
