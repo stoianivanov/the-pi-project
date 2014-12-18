@@ -120,8 +120,9 @@ public class Player {
 
 	@Override
 	public String toString() {
+		checkBest();
 		return Name + "\n" +
-				"Total best point: " + PlayerTPointBest
+				"Total best point: " + getPlayerTotalPointBest()
 				+ "\nLogic point: " + PlayerLPointBest + ", Memory point: "
 				+ PlayerMPointBest + ", Speed point: " + PlayerSPointBest;
 //				+ "\n Total current point:" + PlayerTPointCurrent 
