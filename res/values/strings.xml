@@ -34,7 +34,7 @@
     <string name="title_activity_memory_game2">MemoryGame2</string>
     <string name="title_activity_memory_game3">MemoryGame3</string>
     <string name="title_activity_memory_game4">MemoryGame4</string>
-	<string name= "game4_current_color">Current color</string>
+    <string name="game4_current_color">Current color</string>
     <string name="number_sequence_example">Number Seqence</string>
     <string name="sequence_goal">Goal of the game is to enter the next number from the sequence</string>
     <string name="example">Example:</string>
@@ -61,4 +61,11 @@
     <string name="remove_tick_title">Remove the ticks</string>
     <string name="remove_tick">Remove all ticks withouth touching the red sing</string>
     <string name="choose_player">Choose player</string>
+    <string name="color_title">Color the blocks</string>
+    <string name="color_goal">Remembert the color of blocks and colore them</string>
+    <string name="whats_missing_title">What is missing</string>
+    <string name="whats_missing_goal"> Remember the pictures and find out what is missing </string>
+    <string name="keys_title"> Missing keys</string>
+    <string name="keys_goal"> Keys will be apear after few seconds. Remember all keys and click on new one.</string>
+
 </resources>
