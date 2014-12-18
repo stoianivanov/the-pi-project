@@ -23,19 +23,23 @@ public class Player {
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getName() {
 		return Name;
 	}
+	
 	public void setName (String name) {
 		Name = name;
 	}
+	
 	public int getPlayerTotalPointBest() {
-		int tPoint = PlayerLPointBest + PlayerMPointBest + PlayerSPointBest;
-		return tPoint;
+		return PlayerTPointBest;
 	}
+	
 	public void setPlayerTotalPointBest(int PlayerTotalPointBest) {
 		this.PlayerTPointBest = PlayerTotalPointBest;
 	}
@@ -107,6 +111,10 @@ public class Player {
 		
 		if(PlayerSPointCurrent > PlayerSPointBest){
 			PlayerSPointBest = PlayerSPointCurrent;
+		}
+		
+		if(PlayerTPointBest > PlayerTPointBest){
+			PlayerTPointBest = PlayerTPointCurrent;
 		}
 	}
 

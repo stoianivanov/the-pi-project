@@ -23,7 +23,7 @@ import com.example.playerdatabase.PlayerHelper;
 import com.example.thepiproject.BackGroundMusic.LocalBinder;
 
 public class PlayerActivity extends ListActivity implements OnClickListener{
-	
+
 	boolean mBound = false;
 	BackGroundMusic music;
 
@@ -31,13 +31,13 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 	private EditText nameEdit;
 	private PlayerHelper ph;
 	private List<com.example.playerdatabase.Player> PlayerList;
-	
+
 	//Creating view;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_player);
-				
+
 		AddPlayer = (Button) findViewById(R.id.addPlayer);
 		AddPlayer.setOnClickListener(this);
 
@@ -46,7 +46,7 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 		//Take all players from DB
 		ph = new PlayerHelper(this);
 		PlayerList =  ph.getAll2Player();
-		
+
 		//Create adapter
 		setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
 	}
@@ -54,7 +54,7 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 	//Add new player
 	@Override
 	public void onClick(View v) {
-		
+
 
 		if(v.getId() == AddPlayer.getId()){
 			final String name = nameEdit.getText().toString();
@@ -63,44 +63,59 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 			final Player player = new Player();
 			player.setName(name);
 			//Add to DB
-			ph.addPlayer(player);
+			PlayerList = ph.getAll2Player();
+			boolean isUnique = true;
 			
-			//Update current list
-			PlayerList =  ph.getAll2Player();
-			setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
+			for(int i = 0; i < PlayerList.size(); i++){
+				if(player.getName().equals(PlayerList.get(i).getName())){
+					isUnique = false;
+					break;
+				}
+			}
 
-			notifyDataSetChanged();
+			if(isUnique){
+				ph.addPlayer(player);
+
+				//Update current list
+				PlayerList =  ph.getAll2Player();
+				setListAdapter(new ArrayAdapter<Player>(this, android.R.layout.simple_list_item_1, PlayerList));
+
+				notifyDataSetChanged();
+			}
+
+
+
 		}		
 	}
-		
+
 	//Make selected player - current
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		
+
 		Player current = (Player) this.getListAdapter().getItem(position);
 		Intent i = new Intent();
-		
+
 		i.putExtra("currentPlayer", current.getId());
 		finish();
-		
+
 		return;
 	}
 
 	//Catch creating new player
 	@SuppressWarnings("unchecked")
 	private void notifyDataSetChanged() {
-		
+
 		((ArrayAdapter<Player>)getListAdapter()).notifyDataSetChanged();	
-		
+
 	}
-	
+
 	@Override
 	protected void onStop() {
 		super.onStop();
 		doUnbindService();
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -110,7 +125,7 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 			startService(MainActivity.musicIntent);
 		}
 	}
-	
+
 	private ServiceConnection sCon = new ServiceConnection() {
 
 		@Override
@@ -124,7 +139,7 @@ public class PlayerActivity extends ListActivity implements OnClickListener{
 			music = binder.getService();
 		}
 	};
-	
+
 	void doBindService() {
 		bindService(new Intent(this, BackGroundMusic.class), sCon,
 				Context.BIND_AUTO_CREATE);
