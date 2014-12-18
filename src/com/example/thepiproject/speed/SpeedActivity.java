@@ -72,7 +72,7 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		
 		caller=getIntent().getExtras().getInt("caller",0);
 		gameLayout= (FrameLayout) findViewById(R.id.gameSpeed);
-		StartFragment(new GameSpeed1());
+		StartFragment(new CalculateTask());
 	}
 	
     private void StartFragment(Fragment fr){
@@ -207,16 +207,16 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 		@Override
 		public void onFinish() {
 			pb.setProgress(0);
-			if(currentFragment instanceof GameSpeed1){
-				((GameSpeed1) currentFragment).createQuestion();
+			if(currentFragment instanceof CalculateTask){
+				((CalculateTask) currentFragment).createQuestion();
 				cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
 				cd.start();
-			}else if(currentFragment instanceof GameSpeed5){
-				((GameSpeed5) currentFragment).createFragment();
+			}else if(currentFragment instanceof SqrtNumber){
+				((SqrtNumber) currentFragment).createFragment();
 				cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
 				cd.start();
 			}else if(currentGame10<MAX_FRAGMENT_GAME_10){
-				StartFragment(new GameSpeed10());
+				StartFragment(new RemoveTick());
 				++currentGame10;
 				cd = new CountDown(INITIAL_SERIES_NUMBERS_TIME, 50);
 				cd.start();
@@ -288,19 +288,19 @@ public class SpeedActivity extends FragmentActivity implements OnClickListener,
 	@Override
 	public void nextFragment() {
 
-		if(currentFragment instanceof GameSpeed1){
+		if(currentFragment instanceof CalculateTask){
 			Log.i("Start", "AStart game5");
 			
-			StartFragment(new GameSpeed5());
-		}else if( currentFragment instanceof GameSpeed5 ){
-			StartFragment(new GameSpeed10());
+			StartFragment(new SqrtNumber());
+		}else if( currentFragment instanceof SqrtNumber ){
+			StartFragment(new RemoveTick());
 			++currentGame10;
-		}else if((currentFragment instanceof GameSpeed10 )&& 
+		}else if((currentFragment instanceof RemoveTick )&& 
 					currentGame10<=MAX_FRAGMENT_GAME_10){
-			StartFragment(new GameSpeed10());
+			StartFragment(new RemoveTick());
 			++currentGame10;
 			
-		}else if(currentFragment instanceof GameSpeed10){
+		}else if(currentFragment instanceof RemoveTick){
 			if(caller ==2){
 				Intent i = new Intent();
 				i.putExtra("score", score);
